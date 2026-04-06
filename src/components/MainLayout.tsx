@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, Database, TestTube, Globe, Zap } from 'lucide-react';
+import { Menu, X, Sparkles, Database, Zap } from 'lucide-react';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -12,6 +12,7 @@ interface IntegrationStatus {
   autonoma: { connected: boolean };
   browserbase: { connected: boolean };
   database: { connected: boolean };
+  auth0: { connected: boolean };
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
@@ -21,6 +22,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     autonoma: { connected: false },
     browserbase: { connected: false },
     database: { connected: false },
+    auth0: { connected: false },
   });
 
   const menuItems = [
@@ -36,12 +38,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
         setStatus(prev => ({
           ...prev,
           ollama: {
-            connected: data.ollama === true,
+            connected: data.ollama?.connected === true,
             checking: false,
           },
-          autonoma: { connected: !!process.env.NEXT_PUBLIC_AUTONOMA_CLIENT_ID },
-          browserbase: { connected: !!process.env.NEXT_PUBLIC_BROWSERBASE_API_KEY },
-          database: { connected: !!process.env.NEXT_PUBLIC_DATABASE_URL },
+          autonoma: { connected: data.autonoma?.connected === true },
+          browserbase: { connected: data.browserbase?.connected === true },
+          database: { connected: data.database?.connected === true },
+          auth0: { connected: data.auth0?.connected === true },
         }));
       } catch {
         setStatus(prev => ({
@@ -134,6 +137,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <div className="flex items-center gap-2">
                 <div className={`h-2 w-2 rounded-full ${status.database.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
                 <span className="text-muted-foreground">Neon DB</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className={`h-2 w-2 rounded-full ${status.auth0.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
+                <span className="text-muted-foreground">Auth0</span>
               </div>
             </div>
           </div>

@@ -15,6 +15,7 @@ interface BriefFormProps {
   onSubmit: (data: BriefData) => void;
   isGenerating?: boolean;
   onGenerated?: (result: { content: unknown; code: string }) => void;
+  onProgress?: (status: { type: string; status: string; message: string }) => void;
 }
 
 const siteTypes = [
@@ -59,7 +60,7 @@ function validateField(field: keyof BriefData, value: unknown): string | null {
   return null;
 }
 
-export default function BriefForm({ onSubmit, isGenerating = false, onGenerated }: BriefFormProps) {
+export default function BriefForm({ onSubmit, isGenerating = false, onGenerated, onProgress }: BriefFormProps) {
   const [formData, setFormData] = useState<BriefData>({
     siteName: '',
     siteType: '',
@@ -126,7 +127,7 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated 
 
     onSubmit(formData);
 
-    // Chama a API para gerar o site
+    // Chama a API com streaming para gerar o site
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
@@ -134,13 +135,64 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated 
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.error || 'Falha ao gerar site');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Falha ao gerar site');
       }
 
-      onGenerated?.({ content: data.content, code: data.code });
+      // Processa o stream
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
+
+      if (!reader) {
+        throw new Error('Stream não disponível');
+      }
+
+      let code: string | undefined;
+      let content: unknown;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value);
+        const lines = chunk.split('\n').filter(line => line.trim());
+
+        for (const line of lines) {
+          try {
+            const data = JSON.parse(line);
+
+            // Notifica progresso
+            if (data.type === 'status' || data.type === 'complete' || data.type === 'error') {
+              onProgress?.(data);
+            }
+
+            if (data.type === 'complete') {
+              code = data.code;
+              content = data.content;
+            }
+          } catch {
+            // Ignora chunks parciais
+          }
+        }
+      }
+
+      if (code) {
+        await fetch('/api/briefs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...formData,
+            generatedCode: code,
+          }),
+        }).catch(() => {
+          // Persistencia e opcional: ignoramos falhas quando auth/db nao estiverem configurados.
+        });
+      }
+
+      if (code && content) {
+        onGenerated?.({ content, code });
+      }
     } catch (error) {
       console.error('Erro na geração:', error);
       alert('Erro ao gerar site. Verifique se o Ollama está rodando.');

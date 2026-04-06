@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
             },
             framework: {
               name: 'framework',
-              test: (module: any) =>
+              test: (module: { resource?: string }) =>
                 module.resource &&
                 module.resource.includes('node_modules') &&
                 (module.resource.includes('react') ||

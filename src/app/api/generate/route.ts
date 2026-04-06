@@ -3,6 +3,8 @@ import { generateSiteContent, generateSiteCode } from '@/lib/ollama-client';
 import type { SiteGenerationRequest } from '@/lib/ollama-client';
 
 export async function POST(request: NextRequest) {
+  const encoder = new TextEncoder();
+
   try {
     const body = await request.json() as SiteGenerationRequest;
 
@@ -14,16 +16,62 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Gera o conteúdo com IA
-    const content = await generateSiteContent(body);
+    // Create a streaming response
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          // Envia status inicial
+          controller.enqueue(encoder.encode(JSON.stringify({
+            type: 'status',
+            status: 'generating_content',
+            message: 'Gerando conteúdo com IA...',
+          }) + '\n'));
 
-    // Gera o código do site
-    const code = await generateSiteCode(content, body.siteType);
+          // Gera o conteúdo com IA
+          const content = await generateSiteContent(body);
 
-    return NextResponse.json({
-      success: true,
-      content,
-      code,
+          controller.enqueue(encoder.encode(JSON.stringify({
+            type: 'status',
+            status: 'content_generated',
+            message: 'Conteúdo gerado! Criando código...',
+            content,
+          }) + '\n'));
+
+          // Gera o código do site
+          controller.enqueue(encoder.encode(JSON.stringify({
+            type: 'status',
+            status: 'generating_code',
+            message: 'Gerando código HTML/Tailwind...',
+          }) + '\n'));
+
+          const code = await generateSiteCode(content, body.siteType);
+
+          // Envia resultado final
+          controller.enqueue(encoder.encode(JSON.stringify({
+            type: 'complete',
+            status: 'completed',
+            message: 'Site gerado com sucesso!',
+            content,
+            code,
+          }) + '\n'));
+
+          controller.close();
+        } catch (error) {
+          controller.enqueue(encoder.encode(JSON.stringify({
+            type: 'error',
+            error: error instanceof Error ? error.message : 'Erro desconhecido',
+          }) + '\n'));
+          controller.close();
+        }
+      },
+    });
+
+    return new NextResponse(stream, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+      },
     });
   } catch (error) {
     console.error('Erro na geração do site:', error);

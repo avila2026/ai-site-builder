@@ -4,12 +4,16 @@ import { useState, useEffect } from 'react';
 import MainLayout from '@/components/MainLayout';
 import BriefForm, { type BriefData } from '@/components/BriefForm';
 import SitePreview from '@/components/SitePreview';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import { useToast } from '@/components/Toast';
 import { Zap, Shield, Globe, Sparkles, Loader2, Wand2, Palette, Rocket } from 'lucide-react';
 
 export default function Home() {
+  const { addToast } = useToast();
   const [generatedCode, setGeneratedCode] = useState<string>('');
   const [siteName, setSiteName] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [generationStatus, setGenerationStatus] = useState<string>('');
   const [particles, setParticles] = useState<{ id: number; left: number; delay: number }[]>([]);
 
   useEffect(() => {
@@ -25,29 +29,41 @@ export default function Home() {
   const handleBriefSubmit = (data: BriefData) => {
     setSiteName(data.siteName);
     setIsGenerating(true);
+    setGenerationStatus('Iniciando geração...');
+    addToast('info', 'Iniciando geração do site...');
   };
 
   const handleGenerated = (result: { content: unknown; code: string }) => {
     setGeneratedCode(result.code);
     setIsGenerating(false);
+    setGenerationStatus('');
+    addToast('success', 'Site gerado com sucesso!');
+  };
+
+  const handleProgress = (status: { type: string; status: string; message: string }) => {
+    setGenerationStatus(status.message);
+    if (status.type === 'error') {
+      addToast('error', status.message);
+    }
   };
 
   return (
     <MainLayout>
-      {/* Partículas de fundo */}
-      <div className="particles">
-        {particles.map((particle) => (
-          <div
-            key={particle.id}
-            className="particle"
-            style={{
-              left: `${particle.left}%`,
-              animationDelay: `${particle.delay}s`,
-              bottom: '-10px',
-            }}
-          />
-        ))}
-      </div>
+      <ErrorBoundary>
+        {/* Partículas de fundo */}
+        <div className="particles">
+          {particles.map((particle) => (
+            <div
+              key={particle.id}
+              className="particle"
+              style={{
+                left: `${particle.left}%`,
+                animationDelay: `${particle.delay}s`,
+                bottom: '-10px',
+              }}
+            />
+          ))}
+        </div>
 
       {/* Loading Overlay com animação */}
       {isGenerating && (
@@ -59,8 +75,8 @@ export default function Home() {
             </div>
             <div className="text-center">
               <p className="text-xl font-semibold gradient-text">Gerando seu site com IA</p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Nossa IA está criando algo incrível para você...
+              <p className="mt-2 text-sm text-muted-foreground animate-pulse">
+                {generationStatus || 'Nossa IA está criando algo incrível para você...'}
               </p>
             </div>
             {/* Barra de progresso animada */}
@@ -104,6 +120,7 @@ export default function Home() {
                 onSubmit={handleBriefSubmit}
                 isGenerating={isGenerating}
                 onGenerated={handleGenerated}
+                onProgress={handleProgress}
               />
             </div>
 
@@ -186,6 +203,7 @@ export default function Home() {
           />
         </div>
       </div>
+      </ErrorBoundary>
     </MainLayout>
   );
 }
