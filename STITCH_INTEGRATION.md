@@ -37,6 +37,27 @@ STITCH_HEALTH_TIMEOUT_MS="5000" # opcional
    - Apenas erros recuperáveis fazem fallback (ex.: timeout/rede/rate limit).
    - Erro de autenticação/configuração do Stitch retorna erro direto.
 
+## Preview no Vercel
+
+Env mínimo para preview:
+
+```env
+STITCH_API_KEY="..."
+STITCH_PROJECT_ID="1827742389953977950"
+SITE_GENERATION_PROVIDER="stitch"
+```
+
+Validação local antes do deploy:
+
+```bash
+npm run vercel:preflight
+```
+
+O preflight:
+- valida o conjunto mínimo de envs para preview
+- alerta sobre integrações opcionais ausentes
+- imprime o projeto Vercel vinculado, o provider ativo e o projeto Stitch alvo
+
 ## Resposta de streaming
 
 - `status`: progresso
