@@ -1,0 +1,12 @@
+{
+  "projectId": "prj_GOPqthxRaYOgVQB1n6uAzr6CbJCX",
+  "name": "ai-site-builder",
+  "orgId": null,
+  "settings": {
+    "framework": "nextjs",
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "devCommand": "npm run dev",
+    "outputDirectory": ".next"
+  }
+}
