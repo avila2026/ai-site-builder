@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateSiteContent, generateSiteCode } from '@/lib/ollama-client';
 import type { SiteGenerationRequest } from '@/lib/ollama-client';
-import { generateSiteWithStitch, isStitchConfigured } from '@/lib/stitch-client';
+import {
+  generateSiteWithStitch,
+  isStitchConfigured,
+  StitchGenerationError,
+} from '@/lib/stitch-client';
 
 type GenerationProvider = 'ollama' | 'stitch';
 
@@ -13,6 +17,14 @@ function getConfiguredProvider(): GenerationProvider {
 function canFallbackToOllama() {
   const value = process.env.STITCH_FALLBACK_TO_OLLAMA?.toLowerCase();
   return value !== 'false';
+}
+
+function shouldFallbackToOllama(error: unknown) {
+  if (!canFallbackToOllama()) {
+    return false;
+  }
+
+  return error instanceof StitchGenerationError && error.recoverable;
 }
 
 export async function POST(request: NextRequest) {
@@ -93,13 +105,7 @@ export async function POST(request: NextRequest) {
             });
 
             if (!isStitchConfigured()) {
-              if (!canFallbackToOllama()) {
-                throw new Error('STITCH_API_KEY nao configurada');
-              }
-
-              await generateWithOllama('chave STITCH_API_KEY ausente');
-              controller.close();
-              return;
+              throw new Error('STITCH_API_KEY nao configurada');
             }
 
             try {
@@ -128,7 +134,7 @@ export async function POST(request: NextRequest) {
               controller.close();
               return;
             } catch (error) {
-              if (!canFallbackToOllama()) {
+              if (!shouldFallbackToOllama(error)) {
                 throw error;
               }
 
@@ -155,7 +161,7 @@ export async function POST(request: NextRequest) {
 
     return new NextResponse(stream, {
       headers: {
-        'Content-Type': 'text/event-stream',
+        'Content-Type': 'application/x-ndjson; charset=utf-8',
         'Cache-Control': 'no-cache',
         'Connection': 'keep-alive',
       },

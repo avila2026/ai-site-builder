@@ -17,7 +17,7 @@ export async function GET() {
         ollama: { connected: false },
         autonoma: { connected: false },
         browserbase: { connected: false },
-        stitch: { connected: false },
+        stitch: { connected: false, configured: false, reachable: false },
         database: { connected: false },
         auth0: { connected: false },
         error: error instanceof Error ? error.message : "Unknown error",

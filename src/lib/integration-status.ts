@@ -1,6 +1,10 @@
 import { auth0, isAuth0Configured } from "@/lib/auth0";
 import { checkDatabaseConnection, hasDatabaseConfig } from "@/lib/db";
-import { getStitchHost, isStitchConfigured } from "@/lib/stitch-client";
+import {
+  checkStitchReachability,
+  getStitchHost,
+  isStitchConfigured,
+} from "@/lib/stitch-client";
 
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
 
@@ -23,9 +27,12 @@ async function checkOllamaConnection() {
 }
 
 export async function getIntegrationStatus() {
-  const [ollama, database] = await Promise.all([
+  const stitchConfigured = isStitchConfigured();
+
+  const [ollama, database, stitchReachable] = await Promise.all([
     checkOllamaConnection(),
     hasDatabaseConfig() ? checkDatabaseConnection() : Promise.resolve(false),
+    stitchConfigured ? checkStitchReachability() : Promise.resolve(false),
   ]);
 
   return {
@@ -44,7 +51,9 @@ export async function getIntegrationStatus() {
       ),
     },
     stitch: {
-      connected: isStitchConfigured(),
+      connected: stitchConfigured && stitchReachable,
+      configured: stitchConfigured,
+      reachable: stitchReachable,
       host: getStitchHost(),
     },
     database: {

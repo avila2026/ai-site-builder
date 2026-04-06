@@ -150,31 +150,49 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
 
       let code: string | undefined;
       let content: unknown;
+      let buffer = '';
+
+      const processLine = (line: string) => {
+        try {
+          const data = JSON.parse(line);
+
+          // Notifica progresso
+          if (data.type === 'status' || data.type === 'complete' || data.type === 'error') {
+            onProgress?.(data);
+          }
+
+          if (data.type === 'complete') {
+            code = data.code;
+            content = data.content;
+          }
+        } catch {
+          // Linha inválida/fragmentada é ignorada para manter resiliência do stream.
+        }
+      };
 
       while (true) {
         const { done, value } = await reader.read();
-        if (done) break;
+        if (done) {
+          buffer += decoder.decode();
+          break;
+        }
 
-        const chunk = decoder.decode(value);
-        const lines = chunk.split('\n').filter(line => line.trim());
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
 
         for (const line of lines) {
-          try {
-            const data = JSON.parse(line);
-
-            // Notifica progresso
-            if (data.type === 'status' || data.type === 'complete' || data.type === 'error') {
-              onProgress?.(data);
-            }
-
-            if (data.type === 'complete') {
-              code = data.code;
-              content = data.content;
-            }
-          } catch {
-            // Ignora chunks parciais
+          const normalized = line.trim();
+          if (!normalized) {
+            continue;
           }
+          processLine(normalized);
         }
+      }
+
+      const tail = buffer.trim();
+      if (tail) {
+        processLine(tail);
       }
 
       if (code) {
