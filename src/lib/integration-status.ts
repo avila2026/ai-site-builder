@@ -1,5 +1,6 @@
 import { auth0, isAuth0Configured } from "@/lib/auth0";
 import { checkDatabaseConnection, hasDatabaseConfig } from "@/lib/db";
+import { getStitchHost, isStitchConfigured } from "@/lib/stitch-client";
 
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
 
@@ -41,6 +42,10 @@ export async function getIntegrationStatus() {
       connected: Boolean(
         process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID,
       ),
+    },
+    stitch: {
+      connected: isStitchConfigured(),
+      host: getStitchHost(),
     },
     database: {
       connected: hasDatabaseConfig() && database,

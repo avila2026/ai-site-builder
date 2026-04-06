@@ -195,7 +195,7 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
       }
     } catch (error) {
       console.error('Erro na geração:', error);
-      alert('Erro ao gerar site. Verifique se o Ollama está rodando.');
+      alert('Erro ao gerar site. Verifique suas integrações de IA.');
     }
   };
 

@@ -11,6 +11,7 @@ interface IntegrationStatus {
   ollama: { connected: boolean; checking: boolean };
   autonoma: { connected: boolean };
   browserbase: { connected: boolean };
+  stitch: { connected: boolean };
   database: { connected: boolean };
   auth0: { connected: boolean };
 }
@@ -21,6 +22,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     ollama: { connected: false, checking: true },
     autonoma: { connected: false },
     browserbase: { connected: false },
+    stitch: { connected: false },
     database: { connected: false },
     auth0: { connected: false },
   });
@@ -43,6 +45,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           },
           autonoma: { connected: data.autonoma?.connected === true },
           browserbase: { connected: data.browserbase?.connected === true },
+          stitch: { connected: data.stitch?.connected === true },
           database: { connected: data.database?.connected === true },
           auth0: { connected: data.auth0?.connected === true },
         }));
@@ -131,6 +134,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <div className="flex items-center gap-2">
                 <div className={`h-2 w-2 rounded-full ${status.browserbase.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
                 <span className="text-muted-foreground">BrowserBase</span>
+              </div>
+
+              {/* Stitch Status */}
+              <div className="flex items-center gap-2">
+                <div className={`h-2 w-2 rounded-full ${status.stitch.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
+                <span className="text-muted-foreground">Stitch</span>
               </div>
 
               {/* Database Status */}
