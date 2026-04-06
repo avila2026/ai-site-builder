@@ -2,27 +2,42 @@
 
 import { useState } from 'react';
 import MainLayout from '@/components/MainLayout';
-import BriefForm from '@/components/BriefForm';
+import BriefForm, { type BriefData } from '@/components/BriefForm';
 import SitePreview from '@/components/SitePreview';
-import { Zap, Shield, Globe } from 'lucide-react';
+import { Zap, Shield, Globe, Loader2 } from 'lucide-react';
 
 export default function Home() {
   const [generatedCode, setGeneratedCode] = useState<string>('');
   const [siteName, setSiteName] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
 
-  const handleBriefSubmit = (data: any) => {
+  const handleBriefSubmit = (data: BriefData) => {
     setSiteName(data.siteName);
     setIsGenerating(true);
   };
 
-  const handleGenerated = (result: { content: any; code: string }) => {
+  const handleGenerated = (result: { content: unknown; code: string }) => {
     setGeneratedCode(result.code);
     setIsGenerating(false);
   };
 
   return (
     <MainLayout>
+      {/* Loading Overlay */}
+      {isGenerating && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-4 rounded-xl bg-card p-8 shadow-xl">
+            <Loader2 className="h-12 w-12 animate-spin text-primary" />
+            <div className="text-center">
+              <p className="text-lg font-semibold">Gerando seu site com IA</p>
+              <p className="text-sm text-muted-foreground">
+                Isso pode levar alguns segundos...
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="mx-auto max-w-6xl space-y-8">
         {/* Header Section */}
         <div className="text-center">

@@ -1,23 +1,42 @@
 'use client';
 
-import { useState } from 'react';
-import { Menu, X, Sparkles, Layout, FileText, Settings, Globe } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Sparkles } from 'lucide-react';
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
+interface OllamaStatus {
+  connected: boolean;
+  checking: boolean;
+}
+
 export default function MainLayout({ children }: MainLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('builder');
+  const [ollamaStatus, setOllamaStatus] = useState<OllamaStatus>({ connected: false, checking: true });
 
   const menuItems = [
     { id: 'builder', label: 'Criar Site', icon: Sparkles },
-    { id: 'projects', label: 'Meus Projetos', icon: Layout },
-    { id: 'templates', label: 'Templates', icon: FileText },
-    { id: 'deploy', label: 'Deploy', icon: Globe },
-    { id: 'settings', label: 'Configurações', icon: Settings },
   ];
+
+  // Check Ollama health on mount
+  useEffect(() => {
+    const checkHealth = async () => {
+      try {
+        const response = await fetch('/api/health');
+        const data = await response.json();
+        setOllamaStatus({
+          connected: data.ollama === true,
+          checking: false,
+        });
+      } catch {
+        setOllamaStatus({ connected: false, checking: false });
+      }
+    };
+
+    checkHealth();
+  }, []);
 
   return (
     <div className="flex h-screen bg-background">
@@ -54,16 +73,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
           <nav className="flex-1 space-y-1 px-3 py-4">
             {menuItems.map((item) => {
               const Icon = item.icon;
-              const isActive = activeSection === item.id;
               return (
                 <button
                   key={item.id}
-                  onClick={() => setActiveSection(item.id)}
-                  className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-                  }`}
+                  className="flex w-full items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground"
                 >
                   <Icon className="h-5 w-5" />
                   {item.label}
@@ -74,9 +87,23 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
           {/* Footer */}
           <div className="border-t border-border p-4">
-            <div className="flex items-center gap-3 text-sm text-muted-foreground">
-              <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse-slow" />
-              <span>Ollama conectado</span>
+            <div className="flex items-center gap-3 text-sm">
+              {ollamaStatus.checking ? (
+                <>
+                  <div className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
+                  <span className="text-muted-foreground">Verificando Ollama...</span>
+                </>
+              ) : ollamaStatus.connected ? (
+                <>
+                  <div className="h-2 w-2 rounded-full bg-green-500" />
+                  <span className="text-green-600 font-medium">Ollama conectado</span>
+                </>
+              ) : (
+                <>
+                  <div className="h-2 w-2 rounded-full bg-red-500" />
+                  <span className="text-red-600 font-medium">Ollama indisponível</span>
+                </>
+              )}
             </div>
           </div>
         </div>

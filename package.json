@@ -3,30 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "ai": "^6.0.146",
-    "framer-motion": "^12.38.0",
-    "gsap": "^3.14.2",
-    "lucide-react": "^1.7.0",
-    "next": "16.2.2",
-    "ollama-ai-provider": "^1.2.0",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "zustand": "^5.0.12"
+    "framer-motion": "^11.11.17",
+    "lucide-react": "^0.454.0",
+    "next": "15.2.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^16.2.2",
+    "@next/bundle-analyzer": "^15.2.4",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.2",
+    "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

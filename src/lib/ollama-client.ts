@@ -3,7 +3,8 @@
  * Usa modelo kimi-k2.5:cloud (gratuito) ou modelos locais
  */
 
-const OLLAMA_BASE_URL = 'http://localhost:11434';
+const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://localhost:11434';
+const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen3.5:cloud';
 
 export interface SiteGenerationRequest {
   siteName: string;
@@ -35,7 +36,7 @@ async function callOllama(prompt: string, system: string): Promise<string> {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      model: 'kimi-k2.5:cloud',
+      model: OLLAMA_MODEL,
       prompt,
       system,
       stream: false,

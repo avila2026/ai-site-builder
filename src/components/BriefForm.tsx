@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Sparkles, Loader2 } from 'lucide-react';
 
-interface BriefData {
+export interface BriefData {
   siteName: string;
   siteType: string;
   description: string;
@@ -14,6 +14,7 @@ interface BriefData {
 interface BriefFormProps {
   onSubmit: (data: BriefData) => void;
   isGenerating?: boolean;
+  onGenerated?: (result: { content: unknown; code: string }) => void;
 }
 
 const siteTypes = [
@@ -35,7 +36,7 @@ const commonSections = [
   'FAQ',
 ];
 
-export default function BriefForm({ onSubmit, isGenerating = false, onGenerated }: BriefFormProps & { onGenerated?: (result: { content: any; code: string }) => void }) {
+export default function BriefForm({ onSubmit, isGenerating = false, onGenerated }: BriefFormProps) {
   const [formData, setFormData] = useState<BriefData>({
     siteName: '',
     siteType: '',

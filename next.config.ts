@@ -2,11 +2,6 @@ import type { NextConfig } from "next";
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig: NextConfig = {
-  // Habilita ambos os bundlers (Turbopack dev, webpack prod)
-  turbopack: {
-    // Configuração mínima para Turbopack
-  },
-
   // Otimizações de produção
   poweredByHeader: false,
   compress: true,
