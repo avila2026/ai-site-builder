@@ -10,6 +10,7 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+    "@browserbasehq/sdk": "^2.9.0",
     "framer-motion": "^11.11.17",
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
