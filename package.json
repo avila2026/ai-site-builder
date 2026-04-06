@@ -9,11 +9,18 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "ai": "^6.0.146",
+    "framer-motion": "^12.38.0",
+    "gsap": "^3.14.2",
+    "lucide-react": "^1.7.0",
     "next": "16.2.2",
+    "ollama-ai-provider": "^1.2.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.2.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
