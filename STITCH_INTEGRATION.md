@@ -15,11 +15,14 @@ SDK oficial: https://github.com/google-labs-code/stitch-sdk
 ```env
 STITCH_API_KEY="..."
 STITCH_HOST="https://stitch.googleapis.com/mcp" # opcional
+STITCH_PROJECT_ID="1827742389953977950" # opcional (usa projeto fixo)
 SITE_GENERATION_PROVIDER="stitch" # ou ollama
 STITCH_FALLBACK_TO_OLLAMA="true"
 STITCH_MODEL_ID="GEMINI_3_FLASH"
 STITCH_DEVICE_TYPE="DESKTOP"
 STITCH_PROJECT_TITLE="AI Site Builder"
+STITCH_HTML_FETCH_TIMEOUT_MS="45000" # opcional
+STITCH_HEALTH_TIMEOUT_MS="5000" # opcional
 ```
 
 ## Fluxo técnico
@@ -31,6 +34,8 @@ STITCH_PROJECT_TITLE="AI Site Builder"
    - obtém `htmlUrl` e `imageUrl`
    - baixa o HTML final e devolve no campo `code`
 3. Se `STITCH_FALLBACK_TO_OLLAMA=true`, falhas do Stitch caem para Ollama.
+   - Apenas erros recuperáveis fazem fallback (ex.: timeout/rede/rate limit).
+   - Erro de autenticação/configuração do Stitch retorna erro direto.
 
 ## Resposta de streaming
 
@@ -39,3 +44,8 @@ STITCH_PROJECT_TITLE="AI Site Builder"
   - `provider`
   - `code` (HTML pronto para preview)
   - `artifacts` com `htmlUrl`, `imageUrl`, `projectId`, `screenId`
+
+## Protocolo de stream
+
+- O endpoint usa **NDJSON** (`application/x-ndjson`), uma linha JSON por evento.
+- O frontend usa parser incremental com buffer para lidar com chunks fragmentados.
