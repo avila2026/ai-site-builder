@@ -11,12 +11,19 @@ const projectTitle =
   process.env.STITCH_SMOKE_PROJECT_TITLE ||
   `Stitch Smoke ${new Date().toISOString().slice(0, 16).replace('T', ' ')}`;
 
+function resolveProjectId() {
+  return process.env.STITCH_PROJECT_ID?.replace(/^projects\//, '').trim() || null;
+}
+
 async function run() {
   if (!process.env.STITCH_API_KEY) {
     throw new Error('STITCH_API_KEY nao configurada em .env.local');
   }
 
-  const project = await stitch.createProject(projectTitle);
+  const existingProjectId = resolveProjectId();
+  const project = existingProjectId
+    ? stitch.project(existingProjectId)
+    : await stitch.createProject(projectTitle);
   const screen = await project.generate(
     sitePrompt,
     process.env.STITCH_DEVICE_TYPE || 'DESKTOP',
