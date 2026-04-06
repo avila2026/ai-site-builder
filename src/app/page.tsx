@@ -1,15 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MainLayout from '@/components/MainLayout';
 import BriefForm, { type BriefData } from '@/components/BriefForm';
 import SitePreview from '@/components/SitePreview';
-import { Zap, Shield, Globe, Loader2 } from 'lucide-react';
+import { Zap, Shield, Globe, Sparkles, Loader2, Wand2, Palette, Rocket } from 'lucide-react';
 
 export default function Home() {
   const [generatedCode, setGeneratedCode] = useState<string>('');
   const [siteName, setSiteName] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [particles, setParticles] = useState<{ id: number; left: number; delay: number }[]>([]);
+
+  useEffect(() => {
+    // Gerar partículas animadas
+    const newParticles = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 15,
+    }));
+    setParticles(newParticles);
+  }, []);
 
   const handleBriefSubmit = (data: BriefData) => {
     setSiteName(data.siteName);
@@ -23,37 +34,72 @@ export default function Home() {
 
   return (
     <MainLayout>
-      {/* Loading Overlay */}
+      {/* Partículas de fundo */}
+      <div className="particles">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="particle"
+            style={{
+              left: `${particle.left}%`,
+              animationDelay: `${particle.delay}s`,
+              bottom: '-10px',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Loading Overlay com animação */}
       {isGenerating && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="flex flex-col items-center gap-4 rounded-xl bg-card p-8 shadow-xl">
-            <Loader2 className="h-12 w-12 animate-spin text-primary" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md">
+          <div className="flex flex-col items-center gap-6 rounded-2xl bg-card/80 p-10 shadow-2xl neon-border animate-glow">
+            <div className="relative">
+              <Loader2 className="h-16 w-16 animate-spin text-primary" />
+              <div className="absolute inset-0 rounded-full animate-ping bg-primary/20" />
+            </div>
             <div className="text-center">
-              <p className="text-lg font-semibold">Gerando seu site com IA</p>
-              <p className="text-sm text-muted-foreground">
-                Isso pode levar alguns segundos...
+              <p className="text-xl font-semibold gradient-text">Gerando seu site com IA</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Nossa IA está criando algo incrível para você...
               </p>
+            </div>
+            {/* Barra de progresso animada */}
+            <div className="w-64 overflow-hidden rounded-full bg-muted">
+              <div className="h-2 animate-gradient rounded-full bg-gradient-to-r from-primary via-secondary to-accent" style={{ width: '100%', animation: 'shimmer 2s infinite' }} />
             </div>
           </div>
         </div>
       )}
 
-      <div className="mx-auto max-w-6xl space-y-8">
-        {/* Header Section */}
-        <div className="text-center">
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Crie seu site com IA
-          </h1>
-          <p className="mt-3 text-muted-foreground sm:text-lg">
-            Descreva o site dos seus sonhos e nossa IA vai construí-lo em segundos.
-          </p>
+      <div className="relative mx-auto max-w-7xl space-y-12 px-4 py-8">
+        {/* Hero Section */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 p-8 text-center shadow-2xl sm:p-12">
+          {/* Efeito de brilho */}
+          <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-secondary/30 blur-3xl" />
+
+          <div className="relative z-10">
+            <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-lg animate-float">
+              <Sparkles className="h-10 w-10 text-white" />
+            </div>
+            <h1 className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-4xl font-bold text-transparent sm:text-5xl md:text-6xl animate-gradient" style={{ backgroundSize: '200% 200%' }}>
+              Crie seu site com IA
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground sm:text-xl">
+              Descreva o site dos seus sonhos e nossa IA vai construí-lo em segundos.
+              <span className="gradient-text font-semibold"> Rápido, bonito e gratuito.</span>
+            </p>
+          </div>
         </div>
 
         {/* Main Content Grid */}
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Form Section */}
           <div className="space-y-6">
-            <div className="rounded-xl border bg-card p-6 shadow-sm">
+            <div className="group relative overflow-hidden rounded-2xl bg-card p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 neon-border">
+              {/* Efeito de hover */}
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+
               <BriefForm
                 onSubmit={handleBriefSubmit}
                 isGenerating={isGenerating}
@@ -61,22 +107,25 @@ export default function Home() {
               />
             </div>
 
-            {/* Features */}
-            <div className="grid gap-4">
+            {/* Features com animação */}
+            <div className="grid gap-4 sm:grid-cols-3">
               <FeatureCard
-                icon={Zap}
-                title="Geração Rápida"
-                description="Seu site pronto em segundos usando IA avançada."
+                icon={Wand2}
+                title="Geração Mágica"
+                description="Seu site pronto em segundos"
+                gradient="from-primary to-secondary"
               />
               <FeatureCard
-                icon={Shield}
-                title="100% Gratuito"
-                description="Sem custos escondidos. Tudo gratuito para sempre."
+                icon={Palette}
+                title="Design Único"
+                description="Cada site é personalizado"
+                gradient="from-secondary to-accent"
               />
               <FeatureCard
-                icon={Globe}
-                title="Deploy Fácil"
-                description="Publique no Vercel ou GitHub Pages com um clique."
+                icon={Rocket}
+                title="Deploy Rápido"
+                description="Publique com um clique"
+                gradient="from-accent to-primary"
               />
             </div>
           </div>
@@ -84,18 +133,57 @@ export default function Home() {
           {/* Preview Section */}
           <div>
             {generatedCode ? (
-              <SitePreview htmlCode={generatedCode} siteName={siteName} />
+              <div className="animate-slide-in">
+                <SitePreview htmlCode={generatedCode} siteName={siteName} />
+              </div>
             ) : (
-              <div className="flex h-full min-h-[600px] items-center justify-center rounded-xl border border-dashed bg-card p-8 text-center">
-                <div>
-                  <p className="text-lg font-medium">Nenhum site gerado ainda</p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Preencha o formulário ao lado para criar seu site com IA
-                  </p>
+              <div className="group flex h-full min-h-[600px] items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-muted bg-card/50 p-8 text-center transition-all duration-300 hover:border-primary/50 hover:bg-card">
+                <div className="space-y-4">
+                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-muted/50 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
+                    <Sparkles className="h-10 w-10 text-muted-foreground transition-colors group-hover:text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-medium text-foreground">Nenhum site gerado ainda</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Preencha o formulário ao lado para criar seu site com IA
+                    </p>
+                  </div>
                 </div>
               </div>
             )}
           </div>
+        </div>
+
+        {/* Additional Features */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <InfoCard
+            icon={Zap}
+            title="Ultra Rápido"
+            description="Geração em tempo real"
+            color="text-yellow-400"
+            bgColor="bg-yellow-400/10"
+          />
+          <InfoCard
+            icon={Shield}
+            title="100% Gratuito"
+            description="Sem custos escondidos"
+            color="text-green-400"
+            bgColor="bg-green-400/10"
+          />
+          <InfoCard
+            icon={Globe}
+            title="Deploy Fácil"
+            description="Vercel ou GitHub Pages"
+            color="text-blue-400"
+            bgColor="bg-blue-400/10"
+          />
+          <InfoCard
+            icon={Sparkles}
+            title="IA Avançada"
+            description="Tecnologia de ponta"
+            color="text-purple-400"
+            bgColor="bg-purple-400/10"
+          />
         </div>
       </div>
     </MainLayout>
@@ -106,16 +194,42 @@ interface FeatureCardProps {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
+  gradient: string;
 }
 
-function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
+function FeatureCard({ icon: Icon, title, description, gradient }: FeatureCardProps) {
   return (
-    <div className="flex flex-col items-center rounded-lg border bg-card p-6 text-center shadow-sm">
-      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-        <Icon className="h-6 w-6 text-primary" />
+    <div className="group relative overflow-hidden rounded-xl bg-card p-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
+      <div className="relative flex flex-col items-center text-center">
+        <div className={`mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br ${gradient} shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+          <Icon className="h-6 w-6 text-white" />
+        </div>
+        <h3 className="font-semibold text-foreground">{title}</h3>
+        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
       </div>
-      <h3 className="font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+    </div>
+  );
+}
+
+interface InfoCardProps {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  color: string;
+  bgColor: string;
+}
+
+function InfoCard({ icon: Icon, title, description, color, bgColor }: InfoCardProps) {
+  return (
+    <div className="group flex items-center gap-4 rounded-xl border bg-card p-4 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
+      <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${bgColor} transition-transform duration-300 group-hover:scale-110`}>
+        <Icon className={`h-6 w-6 ${color}`} />
+      </div>
+      <div>
+        <h3 className="font-semibold text-foreground">{title}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
+      </div>
     </div>
   );
 }

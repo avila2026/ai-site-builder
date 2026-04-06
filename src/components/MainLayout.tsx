@@ -1,37 +1,53 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, Database, TestTube, Globe, Zap } from 'lucide-react';
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
-interface OllamaStatus {
-  connected: boolean;
-  checking: boolean;
+interface IntegrationStatus {
+  ollama: { connected: boolean; checking: boolean };
+  autonoma: { connected: boolean };
+  browserbase: { connected: boolean };
+  database: { connected: boolean };
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [ollamaStatus, setOllamaStatus] = useState<OllamaStatus>({ connected: false, checking: true });
+  const [status, setStatus] = useState<IntegrationStatus>({
+    ollama: { connected: false, checking: true },
+    autonoma: { connected: false },
+    browserbase: { connected: false },
+    database: { connected: false },
+  });
 
   const menuItems = [
     { id: 'builder', label: 'Criar Site', icon: Sparkles },
   ];
 
-  // Check Ollama health on mount
+  // Check integrations health on mount
   useEffect(() => {
     const checkHealth = async () => {
       try {
         const response = await fetch('/api/health');
         const data = await response.json();
-        setOllamaStatus({
-          connected: data.ollama === true,
-          checking: false,
-        });
+        setStatus(prev => ({
+          ...prev,
+          ollama: {
+            connected: data.ollama === true,
+            checking: false,
+          },
+          autonoma: { connected: !!process.env.NEXT_PUBLIC_AUTONOMA_CLIENT_ID },
+          browserbase: { connected: !!process.env.NEXT_PUBLIC_BROWSERBASE_API_KEY },
+          database: { connected: !!process.env.NEXT_PUBLIC_DATABASE_URL },
+        }));
       } catch {
-        setOllamaStatus({ connected: false, checking: false });
+        setStatus(prev => ({
+          ...prev,
+          ollama: { connected: false, checking: false },
+        }));
       }
     };
 
@@ -85,25 +101,40 @@ export default function MainLayout({ children }: MainLayoutProps) {
             })}
           </nav>
 
-          {/* Footer */}
+          {/* Footer - Integration Status */}
           <div className="border-t border-border p-4">
-            <div className="flex items-center gap-3 text-sm">
-              {ollamaStatus.checking ? (
-                <>
+            <div className="space-y-2 text-xs">
+              <p className="font-semibold text-muted-foreground mb-2">Integrações</p>
+
+              {/* Ollama Status */}
+              <div className="flex items-center gap-2">
+                {status.ollama.checking ? (
                   <div className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
-                  <span className="text-muted-foreground">Verificando Ollama...</span>
-                </>
-              ) : ollamaStatus.connected ? (
-                <>
-                  <div className="h-2 w-2 rounded-full bg-green-500" />
-                  <span className="text-green-600 font-medium">Ollama conectado</span>
-                </>
-              ) : (
-                <>
+                ) : status.ollama.connected ? (
+                  <div className="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+                ) : (
                   <div className="h-2 w-2 rounded-full bg-red-500" />
-                  <span className="text-red-600 font-medium">Ollama indisponível</span>
-                </>
-              )}
+                )}
+                <span className="text-muted-foreground">Ollama</span>
+              </div>
+
+              {/* Autonoma Status */}
+              <div className="flex items-center gap-2">
+                <div className={`h-2 w-2 rounded-full ${status.autonoma.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
+                <span className="text-muted-foreground">Autonoma</span>
+              </div>
+
+              {/* BrowserBase Status */}
+              <div className="flex items-center gap-2">
+                <div className={`h-2 w-2 rounded-full ${status.browserbase.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
+                <span className="text-muted-foreground">BrowserBase</span>
+              </div>
+
+              {/* Database Status */}
+              <div className="flex items-center gap-2">
+                <div className={`h-2 w-2 rounded-full ${status.database.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
+                <span className="text-muted-foreground">Neon DB</span>
+              </div>
             </div>
           </div>
         </div>
@@ -112,17 +143,45 @@ export default function MainLayout({ children }: MainLayoutProps) {
       {/* Main content */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Header */}
-        <header className="flex h-16 items-center justify-between border-b border-border bg-card px-4 lg:px-6">
+        <header className="glass sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border px-4 lg:px-6">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden p-2 hover:bg-accent rounded-lg"
+            className="lg:hidden p-2 hover:bg-accent/50 rounded-lg transition-colors"
           >
             <Menu className="h-5 w-5" />
           </button>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">
-              Criando novo projeto
-            </span>
+
+          {/* Logo em mobile */}
+          <div className="lg:hidden flex items-center gap-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary">
+              <Sparkles className="h-5 w-5 text-white" />
+            </div>
+            <span className="font-semibold gradient-text">AI Site Builder</span>
+          </div>
+
+          {/* Status badges */}
+          <div className="flex items-center gap-3">
+            {/* Ollama Badge */}
+            {status.ollama.connected && (
+              <div className="hidden sm:flex items-center gap-1.5 rounded-full bg-green-500/10 px-3 py-1 text-xs text-green-400 border border-green-500/20">
+                <Zap className="h-3 w-3" />
+                <span>IA Ativa</span>
+              </div>
+            )}
+
+            {/* Database Badge */}
+            {status.database.connected && (
+              <div className="hidden sm:flex items-center gap-1.5 rounded-full bg-blue-500/10 px-3 py-1 text-xs text-blue-400 border border-blue-500/20">
+                <Database className="h-3 w-3" />
+                <span>DB Conectado</span>
+              </div>
+            )}
+
+            {/* Project info */}
+            <div className="hidden lg:block text-right">
+              <p className="text-sm font-medium text-foreground">AI Site Builder</p>
+              <p className="text-xs text-muted-foreground">v1.0.0</p>
+            </div>
           </div>
         </header>
 

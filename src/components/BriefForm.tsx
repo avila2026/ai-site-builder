@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { Sparkles, Loader2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Sparkles, Loader2, Check, X } from 'lucide-react';
 
 export interface BriefData {
   siteName: string;
@@ -36,6 +36,29 @@ const commonSections = [
   'FAQ',
 ];
 
+// Validação em tempo real
+function validateField(field: keyof BriefData, value: unknown): string | null {
+  if (field === 'siteName') {
+    if (!value || typeof value === 'string' && !value.trim()) {
+      return 'Nome do site é obrigatório';
+    }
+  }
+  if (field === 'siteType') {
+    if (!value || typeof value === 'string' && !value) {
+      return 'Tipo de site é obrigatório';
+    }
+  }
+  if (field === 'description') {
+    if (!value || typeof value === 'string' && !value.trim()) {
+      return 'Descrição é obrigatória';
+    }
+    if (typeof value === 'string' && value.trim().length < 20) {
+      return 'Mínimo de 20 caracteres';
+    }
+  }
+  return null;
+}
+
 export default function BriefForm({ onSubmit, isGenerating = false, onGenerated }: BriefFormProps) {
   const [formData, setFormData] = useState<BriefData>({
     siteName: '',
@@ -45,33 +68,59 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated 
     sections: [],
   });
 
-  const [errors, setErrors] = useState<Partial<Record<keyof BriefData, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof BriefData, string | null>>>({});
+  const [touched, setTouched] = useState<Record<keyof BriefData, boolean>>({
+    siteName: false,
+    siteType: false,
+    description: false,
+    colors: false,
+    sections: false,
+  });
 
-  const validate = () => {
-    const newErrors: Partial<Record<keyof BriefData, string>> = {};
+  // Validação em tempo real quando o campo é tocado
+  useEffect(() => {
+    const newErrors: Partial<Record<keyof BriefData, string | null>> = {};
 
-    if (!formData.siteName.trim()) {
-      newErrors.siteName = 'Nome do site é obrigatório';
+    if (touched.siteName) {
+      newErrors.siteName = validateField('siteName', formData.siteName);
     }
-
-    if (!formData.siteType) {
-      newErrors.siteType = 'Tipo de site é obrigatório';
+    if (touched.siteType) {
+      newErrors.siteType = validateField('siteType', formData.siteType);
     }
-
-    if (!formData.description.trim()) {
-      newErrors.description = 'Descrição é obrigatória';
-    } else if (formData.description.trim().length < 20) {
-      newErrors.description = 'Descreva com pelo menos 20 caracteres';
+    if (touched.description) {
+      newErrors.description = validateField('description', formData.description);
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  }, [formData, touched]);
+
+  const handleFieldChange = (field: keyof BriefData, value: unknown) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (!touched[field]) {
+      setTouched(prev => ({ ...prev, [field]: true }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validate()) {
+    // Marca todos como tocados
+    setTouched({
+      siteName: true,
+      siteType: true,
+      description: true,
+      colors: true,
+      sections: true,
+    });
+
+    // Validação final
+    const hasErrors = Object.values({
+      siteName: validateField('siteName', formData.siteName),
+      siteType: validateField('siteType', formData.siteType),
+      description: validateField('description', formData.description),
+    }).some(error => error !== null);
+
+    if (hasErrors) {
       return;
     }
 
@@ -99,101 +148,131 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated 
   };
 
   const toggleSection = (section: string) => {
-    setFormData(prev => ({
-      ...prev,
-      sections: prev.sections.includes(section)
-        ? prev.sections.filter(s => s !== section)
-        : [...prev.sections, section],
-    }));
+    handleFieldChange('sections',
+      formData.sections.includes(section)
+        ? formData.sections.filter(s => s !== section)
+        : [...formData.sections, section]
+    );
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
       {/* Nome do Site */}
-      <div className="space-y-2">
-        <label htmlFor="siteName" className="block text-sm font-medium">
+      <div className="group space-y-2">
+        <label htmlFor="siteName" className="block text-sm font-medium text-foreground/80">
           Nome do Site / Empresa <span className="text-destructive">*</span>
         </label>
-        <input
-          type="text"
-          id="siteName"
-          value={formData.siteName}
-          onChange={(e) => setFormData(prev => ({ ...prev, siteName: e.target.value }))}
-          placeholder="Ex: Minha Empresa Ltda"
-          className={`w-full rounded-lg border bg-background px-4 py-2.5 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 ${
-            errors.siteName ? 'border-destructive' : 'border-input'
-          }`}
-        />
+        <div className="relative">
+          <input
+            type="text"
+            id="siteName"
+            value={formData.siteName}
+            onChange={(e) => handleFieldChange('siteName', e.target.value)}
+            placeholder="Ex: Minha Empresa Ltda"
+            className={`w-full rounded-lg border bg-background/50 px-4 py-2.5 text-sm transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 group-hover:border-primary/30 ${
+              errors.siteName ? 'border-destructive' : 'border-input'
+            }`}
+          />
+          {/* Ícone de validação */}
+          {touched.siteName && (
+            <div className="absolute right-3 top-1/2 -translate-y-1/2">
+              {errors.siteName ? (
+                <X className="h-5 w-5 text-destructive animate-pulse" />
+              ) : formData.siteName.trim().length > 0 ? (
+                <Check className="h-5 w-5 text-green-500" />
+              ) : null}
+            </div>
+          )}
+        </div>
         {errors.siteName && (
-          <p className="text-sm text-destructive">{errors.siteName}</p>
+          <p className="flex items-center gap-1 text-sm text-destructive animate-slide-in">
+            <X className="h-3 w-3" />
+            {errors.siteName}
+          </p>
         )}
       </div>
 
       {/* Tipo de Site */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium">
+        <label className="block text-sm font-medium text-foreground/80">
           Tipo de Site <span className="text-destructive">*</span>
         </label>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {siteTypes.map((type) => (
+          {siteTypes.map((type, index) => (
             <button
               key={type.id}
               type="button"
-              onClick={() => setFormData(prev => ({ ...prev, siteType: type.id }))}
-              className={`rounded-lg border px-4 py-3 text-sm font-medium transition-all ${
+              onClick={() => handleFieldChange('siteType', type.id)}
+              className={`relative overflow-hidden rounded-lg border px-3 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg ${
                 formData.siteType === type.id
-                  ? 'border-primary bg-primary text-primary-foreground'
-                  : 'border-input bg-background hover:bg-accent'
+                  ? 'border-primary bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-lg shadow-primary/30'
+                  : 'border-input bg-background/50 hover:bg-accent/50'
               }`}
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              {type.label}
+              <span className="relative z-10">{type.label}</span>
             </button>
           ))}
         </div>
         {errors.siteType && (
-          <p className="text-sm text-destructive">{errors.siteType}</p>
+          <p className="flex items-center gap-1 text-sm text-destructive animate-slide-in">
+            <X className="h-3 w-3" />
+            {errors.siteType}
+          </p>
         )}
       </div>
 
       {/* Descrição */}
-      <div className="space-y-2">
-        <label htmlFor="description" className="block text-sm font-medium">
+      <div className="group space-y-2">
+        <label htmlFor="description" className="block text-sm font-medium text-foreground/80">
           Descreva seu site <span className="text-destructive">*</span>
         </label>
-        <textarea
-          id="description"
-          value={formData.description}
-          onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-          placeholder="Ex: Quero um site moderno para minha empresa de consultoria. Deve transmitir profissionalismo e inovação..."
-          rows={4}
-          className={`w-full resize-none rounded-lg border bg-background px-4 py-2.5 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 ${
-            errors.description ? 'border-destructive' : 'border-input'
-          }`}
-        />
+        <div className="relative">
+          <textarea
+            id="description"
+            value={formData.description}
+            onChange={(e) => handleFieldChange('description', e.target.value)}
+            placeholder="Ex: Quero um site moderno para minha empresa de consultoria. Deve transmitir profissionalismo e inovação..."
+            rows={4}
+            className={`w-full resize-none rounded-lg border bg-background/50 px-4 py-2.5 text-sm transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 group-hover:border-primary/30 ${
+              errors.description ? 'border-destructive' : 'border-input'
+            }`}
+          />
+          {/* Contador de caracteres */}
+          <div className="absolute bottom-2 right-2 text-xs text-muted-foreground">
+            <span className={formData.description.length >= 20 ? 'text-green-500' : ''}>
+              {formData.description.length}
+            </span>
+            /20
+          </div>
+        </div>
         {errors.description && (
-          <p className="text-sm text-destructive">{errors.description}</p>
+          <p className="flex items-center gap-1 text-sm text-destructive animate-slide-in">
+            <X className="h-3 w-3" />
+            {errors.description}
+          </p>
         )}
       </div>
 
       {/* Cores Preferidas */}
       <div className="space-y-2">
-        <label htmlFor="colors" className="block text-sm font-medium">
-          Cores Preferidas (opcional)
+        <label htmlFor="colors" className="block text-sm font-medium text-foreground/80">
+          Cores Preferidas <span className="text-muted-foreground">(opcional)</span>
         </label>
         <input
           type="text"
           id="colors"
           value={formData.colors}
-          onChange={(e) => setFormData(prev => ({ ...prev, colors: e.target.value }))}
-          placeholder="Ex: Azul escuro e branco, ou deixe em branco para sugerirmos"
-          className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+          onChange={(e) => handleFieldChange('colors', e.target.value)}
+          placeholder="Ex: Azul e branco, ou deixe em branco para sugerirmos"
+          className="w-full rounded-lg border border-input bg-background/50 px-4 py-2.5 text-sm transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/30"
         />
       </div>
 
       {/* Seções Desejadas */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium">
-          Seções Desejadas (opcional)
+        <label className="block text-sm font-medium text-foreground/80">
+          Seções Desejadas <span className="text-muted-foreground">(opcional)</span>
         </label>
         <div className="flex flex-wrap gap-2">
           {commonSections.map((section) => (
@@ -201,10 +280,10 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated 
               key={section}
               type="button"
               onClick={() => toggleSection(section)}
-              className={`rounded-full border px-4 py-1.5 text-sm transition-all ${
+              className={`relative overflow-hidden rounded-full border px-4 py-1.5 text-sm transition-all duration-300 hover:scale-105 ${
                 formData.sections.includes(section)
-                  ? 'border-primary bg-primary text-primary-foreground'
-                  : 'border-input bg-background hover:bg-accent'
+                  ? 'border-primary bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-md shadow-primary/20'
+                  : 'border-input bg-background/50 hover:bg-accent/50'
               }`}
             >
               {section}
@@ -217,19 +296,24 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated 
       <button
         type="submit"
         disabled={isGenerating}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-primary via-secondary to-accent bg-size-200 bg-pos-0 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-pos-100 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+        style={{ backgroundSize: '200% 100%' }}
       >
-        {isGenerating ? (
-          <>
-            <Loader2 className="h-5 w-5 animate-spin" />
-            Gerando site...
-          </>
-        ) : (
-          <>
-            <Sparkles className="h-5 w-5" />
-            Gerar Site com IA
-          </>
-        )}
+        <span className="relative z-10 flex items-center justify-center gap-2">
+          {isGenerating ? (
+            <>
+              <Loader2 className="h-5 w-5 animate-spin" />
+              <span className="gradient-text">Gerando site...</span>
+            </>
+          ) : (
+            <>
+              <Sparkles className="h-5 w-5 transition-transform group-hover:rotate-12" />
+              <span className="gradient-text">Gerar Site com IA</span>
+            </>
+          )}
+        </span>
+        {/* Efeito de brilho no hover */}
+        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
       </button>
     </form>
   );
