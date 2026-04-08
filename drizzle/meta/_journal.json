@@ -8,6 +8,13 @@
       "when": 1775481224395,
       "tag": "0000_lame_magus",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1775616988442,
+      "tag": "0001_closed_silhouette",
+      "breakpoints": true
     }
   ]
 }

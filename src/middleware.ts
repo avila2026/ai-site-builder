@@ -5,6 +5,8 @@ import { auth0 } from "@/lib/auth0";
 
 export async function middleware(request: NextRequest) {
   if (!auth0) {
+    // Auth0 não configurado: bypass em desenvolvimento ou quando não há creds
+    console.log('[middleware] Auth0 não configurado, bypassando autenticação');
     return NextResponse.next();
   }
 

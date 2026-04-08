@@ -151,6 +151,7 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
       let code: string | undefined;
       let content: unknown;
       let buffer = '';
+      let ignoredLines = 0;
 
       const processLine = (line: string) => {
         try {
@@ -165,8 +166,10 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
             code = data.code;
             content = data.content;
           }
-        } catch {
+        } catch (e) {
           // Linha inválida/fragmentada é ignorada para manter resiliência do stream.
+          ignoredLines++;
+          console.warn(`Linha ignorada no stream: ${line.substring(0, 50)}...`);
         }
       };
 
@@ -195,6 +198,11 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
         processLine(tail);
       }
 
+      // Loga warning se linhas foram ignoradas
+      if (ignoredLines > 0) {
+        console.warn(`Stream parsing: ${ignoredLines} linhas ignoradas`);
+      }
+
       if (code) {
         await fetch('/api/briefs', {
           method: 'POST',
@@ -204,7 +212,8 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
             generatedCode: code,
           }),
         }).catch(() => {
-          // Persistencia e opcional: ignoramos falhas quando auth/db nao estiverem configurados.
+          // Persistencia e opcional: avisa usuario mas nao falha
+          console.warn('Brief não salvo no banco (Auth0/DB não configurados)');
         });
       }
 
@@ -213,7 +222,8 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
       }
     } catch (error) {
       console.error('Erro na geração:', error);
-      alert('Erro ao gerar site. Verifique suas integrações de IA.');
+      const errorMessage = error instanceof Error ? error.message : 'Erro ao gerar site. Verifique suas integrações de IA.';
+      onProgress?.({ type: 'error', status: 'error', message: errorMessage });
     }
   };
 

@@ -26,7 +26,7 @@ export default function Home() {
     setParticles(newParticles);
   }, []);
 
-  const handleBriefSubmit = (data: BriefData) => {
+  const handleBriefSubmit = async (data: BriefData) => {
     setSiteName(data.siteName);
     setIsGenerating(true);
     setGenerationStatus('Iniciando geração...');

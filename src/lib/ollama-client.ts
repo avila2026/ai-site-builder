@@ -28,27 +28,52 @@ export interface GeneratedContent {
   };
 }
 
+const OLLAMA_TIMEOUT_MS = parseInt(process.env.OLLAMA_TIMEOUT_MS || '30000', 10);
+const OLLAMA_MAX_RETRIES = 2;
+
 /**
- * Chama Ollama diretamente via fetch API
+ * Chama Ollama diretamente via fetch API com timeout e retry
  */
-async function callOllama(prompt: string, system: string): Promise<string> {
-  const response = await fetch(`${OLLAMA_BASE_URL}/api/generate`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: OLLAMA_MODEL,
-      prompt,
-      system,
-      stream: false,
-    }),
-  });
+async function callOllama(prompt: string, system: string, attempt = 1): Promise<string> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), OLLAMA_TIMEOUT_MS);
 
-  if (!response.ok) {
-    throw new Error(`Ollama error: ${response.status}`);
+  try {
+    const response = await fetch(`${OLLAMA_BASE_URL}/api/generate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: OLLAMA_MODEL,
+        prompt,
+        system,
+        stream: false,
+      }),
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text().catch(() => 'Unknown error');
+      throw new Error(`Ollama error: ${response.status} - ${errorText}`);
+    }
+
+    const data = await response.json();
+    return data.response;
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error(`Ollama timeout: não respondeu em ${OLLAMA_TIMEOUT_MS / 1000}s`);
+    }
+
+    // Retry para erros transitórios
+    if (attempt <= OLLAMA_MAX_RETRIES) {
+      console.warn(`Ollama falhou (tentativa ${attempt}/${OLLAMA_MAX_RETRIES}), retrying...`);
+      await new Promise(resolve => setTimeout(resolve, 1000 * attempt)); // Backoff exponencial
+      return callOllama(prompt, system, attempt + 1);
+    }
+
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
   }
-
-  const data = await response.json();
-  return data.response;
 }
 
 /**

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { ExternalLink, RefreshCw, Download, Check } from 'lucide-react';
 
 interface SitePreviewProps {
@@ -10,7 +10,6 @@ interface SitePreviewProps {
 
 export default function SitePreview({ htmlCode, siteName }: SitePreviewProps) {
   const [copied, setCopied] = useState(false);
-  const previousUrlRef = useRef<string>('');
 
   // Derived state — useMemo instead of useEffect + setState (React 19 requirement)
   const blobUrl = useMemo(() => {
@@ -19,16 +18,11 @@ export default function SitePreview({ htmlCode, siteName }: SitePreviewProps) {
     return URL.createObjectURL(blob);
   }, [htmlCode]);
 
-  // Cleanup: revoke old blob URLs to prevent memory leaks
+  // Cleanup: revoke blob URLs to prevent memory leaks
   useEffect(() => {
-    if (previousUrlRef.current && previousUrlRef.current !== blobUrl) {
-      URL.revokeObjectURL(previousUrlRef.current);
-    }
-    previousUrlRef.current = blobUrl;
-
     return () => {
-      if (previousUrlRef.current) {
-        URL.revokeObjectURL(previousUrlRef.current);
+      if (blobUrl) {
+        URL.revokeObjectURL(blobUrl);
       }
     };
   }, [blobUrl]);
