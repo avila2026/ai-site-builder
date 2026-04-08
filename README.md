@@ -189,13 +189,14 @@ Veja [docs/OLLAMA_SETUP.md](docs/OLLAMA_SETUP.md) para detalhes.
 
 | Serviço | Status | Docs |
 |---------|--------|------|
-| Stitch SDK | ✅ Ativo | [STITCH_INTEGRATION.md](STITCH_INTEGRATION.md) |
+| Stitch SDK | ✅ Ativo | [docs/STITCH_INTEGRATION.md](docs/STITCH_INTEGRATION.md) |
 | Ollama | ✅ Cloud/Local | [docs/OLLAMA_SETUP.md](docs/OLLAMA_SETUP.md) |
 | Vercel | ✅ Deploy | [docs/VERCEL_DEPLOY.md](docs/VERCEL_DEPLOY.md) |
 | Neon DB | ✅ Configurado | - |
-| Auth0 | ✅ Pronto | - |
+| Auth0 | ✅ Pronto | [docs/AUTH0_SETUP.md](docs/AUTH0_SETUP.md) |
 | BrowserBase | ✅ Configurado | - |
 | 21st.dev | ✅ Configurado | - |
+| Autonoma | ✅ Configurado | [docs/AUTONOMA_API_OVERVIEW.md](docs/AUTONOMA_API_OVERVIEW.md) |
 
 ## Tech Stack
 
