@@ -14,6 +14,7 @@ export default function Home() {
   const [siteName, setSiteName] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationStatus, setGenerationStatus] = useState<string>('');
+  const [mode, setMode] = useState<'create' | 'adjust'>('create');
   const [particles, setParticles] = useState<{ id: number; left: number; delay: number }[]>([]);
 
   useEffect(() => {
@@ -29,15 +30,16 @@ export default function Home() {
   const handleBriefSubmit = async (data: BriefData) => {
     setSiteName(data.siteName);
     setIsGenerating(true);
-    setGenerationStatus('Iniciando geração...');
-    addToast('info', 'Iniciando geração do site...');
+    setGenerationStatus(mode === 'adjust' ? 'Aplicando ajustes...' : 'Iniciando geração...');
+    addToast('info', mode === 'adjust' ? 'Aplicando ajustes no site...' : 'Iniciando geração do site...');
   };
 
   const handleGenerated = (result: { content: unknown; code: string }) => {
     setGeneratedCode(result.code);
     setIsGenerating(false);
     setGenerationStatus('');
-    addToast('success', 'Site gerado com sucesso!');
+    setMode('adjust'); // Após gerar, muda para modo de ajuste
+    addToast('success', mode === 'adjust' ? 'Ajustes aplicados com sucesso!' : 'Site gerado com sucesso!');
   };
 
   const handleProgress = (status: { type: string; status: string; message: string }) => {
@@ -45,6 +47,11 @@ export default function Home() {
     if (status.type === 'error') {
       addToast('error', status.message);
     }
+  };
+
+  const handleStartAdjustment = () => {
+    setMode('adjust');
+    addToast('info', 'Modo de ajustes ativado - descreva o que quer modificar');
   };
 
   return (
@@ -121,6 +128,8 @@ export default function Home() {
                 isGenerating={isGenerating}
                 onGenerated={handleGenerated}
                 onProgress={handleProgress}
+                mode={mode}
+                existingCode={generatedCode}
               />
             </div>
 
@@ -151,7 +160,7 @@ export default function Home() {
           <div>
             {generatedCode ? (
               <div className="animate-slide-in">
-                <SitePreview htmlCode={generatedCode} siteName={siteName} />
+                <SitePreview htmlCode={generatedCode} siteName={siteName} onAdjust={handleStartAdjustment} />
               </div>
             ) : (
               <div className="group flex h-full min-h-[600px] items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-muted bg-card/50 p-8 text-center transition-all duration-300 hover:border-primary/50 hover:bg-card">

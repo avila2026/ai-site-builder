@@ -1,14 +1,15 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import { ExternalLink, RefreshCw, Download, Check } from 'lucide-react';
+import { ExternalLink, RefreshCw, Download, Check, Edit3 } from 'lucide-react';
 
 interface SitePreviewProps {
   htmlCode: string;
   siteName: string;
+  onAdjust?: () => void;
 }
 
-export default function SitePreview({ htmlCode, siteName }: SitePreviewProps) {
+export default function SitePreview({ htmlCode, siteName, onAdjust }: SitePreviewProps) {
   const [copied, setCopied] = useState(false);
 
   // Derived state — useMemo instead of useEffect + setState (React 19 requirement)
@@ -59,6 +60,15 @@ export default function SitePreview({ htmlCode, siteName }: SitePreviewProps) {
       <div className="flex items-center justify-between rounded-lg border bg-card p-3">
         <h3 className="font-semibold">{siteName}</h3>
         <div className="flex items-center gap-2">
+          {onAdjust && (
+            <button
+              onClick={onAdjust}
+              className="flex items-center gap-1.5 rounded-md bg-secondary px-3 py-1.5 text-sm text-secondary-foreground hover:bg-secondary/90"
+            >
+              <Edit3 className="h-4 w-4" />
+              Ajustar
+            </button>
+          )}
           <button
             onClick={handleCopyCode}
             className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm hover:bg-accent"

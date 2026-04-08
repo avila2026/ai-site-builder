@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Sparkles, Loader2, Check, X } from 'lucide-react';
+import { Sparkles, Loader2, Check, X, Image, Wand2 } from 'lucide-react';
+import FileUpload, { type UploadedFile } from './FileUpload';
 
 export interface BriefData {
   siteName: string;
@@ -9,6 +10,13 @@ export interface BriefData {
   description: string;
   colors: string;
   sections: string[];
+  // Novos campos para uploads e ajustes
+  logo?: UploadedFile | null;
+  productImages?: UploadedFile[];
+  promptReference?: UploadedFile | null;
+  paletteReference?: UploadedFile | null;
+  adjustmentPrompt?: string; // Para ajustes contínuos
+  baseCode?: string; // Código base para ajustes
 }
 
 interface BriefFormProps {
@@ -16,6 +24,8 @@ interface BriefFormProps {
   isGenerating?: boolean;
   onGenerated?: (result: { content: unknown; code: string }) => void;
   onProgress?: (status: { type: string; status: string; message: string }) => void;
+  mode?: 'create' | 'adjust'; // Novo modo de ajuste
+  existingCode?: string; // Código existente para ajustes
 }
 
 const siteTypes = [
@@ -60,13 +70,26 @@ function validateField(field: keyof BriefData, value: unknown): string | null {
   return null;
 }
 
-export default function BriefForm({ onSubmit, isGenerating = false, onGenerated, onProgress }: BriefFormProps) {
+export default function BriefForm({
+  onSubmit,
+  isGenerating = false,
+  onGenerated,
+  onProgress,
+  mode = 'create',
+  existingCode,
+}: BriefFormProps) {
   const [formData, setFormData] = useState<BriefData>({
-    siteName: '',
+    siteName: mode === 'adjust' ? '' : '',
     siteType: '',
-    description: '',
+    description: mode === 'adjust' ? 'Ajustes no site existente' : '',
     colors: '',
     sections: [],
+    logo: null,
+    productImages: [],
+    promptReference: null,
+    paletteReference: null,
+    adjustmentPrompt: '',
+    baseCode: existingCode || '',
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof BriefData, string | null>>>({});
@@ -76,6 +99,12 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
     description: false,
     colors: false,
     sections: false,
+    logo: false,
+    productImages: false,
+    promptReference: false,
+    paletteReference: false,
+    adjustmentPrompt: false,
+    baseCode: false,
   });
 
   // Validação em tempo real quando o campo é tocado
@@ -112,6 +141,12 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
       description: true,
       colors: true,
       sections: true,
+      logo: touched.logo,
+      productImages: touched.productImages,
+      promptReference: touched.promptReference,
+      paletteReference: touched.paletteReference,
+      adjustmentPrompt: touched.adjustmentPrompt,
+      baseCode: touched.baseCode,
     });
 
     // Validação final
@@ -370,6 +405,71 @@ export default function BriefForm({ onSubmit, isGenerating = false, onGenerated,
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Modo de Ajuste - Prompt de modificação */}
+      {mode === 'adjust' && (
+        <div className="group space-y-2 rounded-lg border border-primary/30 bg-primary/5 p-4">
+          <label htmlFor="adjustmentPrompt" className="block text-sm font-medium text-primary">
+            <Wand2 className="inline h-4 w-4 mr-1" />
+            O que você quer ajustar no site?
+          </label>
+          <textarea
+            id="adjustmentPrompt"
+            value={formData.adjustmentPrompt}
+            onChange={(e) => handleFieldChange('adjustmentPrompt', e.target.value)}
+            placeholder="Ex: Mude a cor principal para azul, adicione uma seção de testimonials, altere o layout do hero..."
+            rows={3}
+            className="w-full resize-none rounded-lg border border-input bg-background/50 px-4 py-2.5 text-sm transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+          />
+          <p className="text-xs text-muted-foreground">
+            Descreva as mudanças que você quer fazer no site existente
+          </p>
+        </div>
+      )}
+
+      {/* Upload de Arquivos - Seção expandida */}
+      <div className="space-y-4 border-t border-input pt-4">
+        <div className="flex items-center gap-2">
+          <Image className="h-5 w-5 text-primary" />
+          <h3 className="text-sm font-semibold text-foreground">Arquivos de Referência</h3>
+          <span className="text-xs text-muted-foreground">(opcional)</span>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          {/* Logo */}
+          <FileUpload
+            category="logo"
+            label="Logo da Empresa"
+            description="Sua logo para incorporar no site"
+            accept="image/*"
+            onFileUploaded={(file) => handleFieldChange('logo', file)}
+            onFileRemoved={() => handleFieldChange('logo', null)}
+            existingFile={formData.logo}
+          />
+
+          {/* Paleta de Cores */}
+          <FileUpload
+            category="palette"
+            label="Paleta de Cores"
+            description="Arquivo com cores de referência (.txt, .json)"
+            accept=".txt,.json"
+            onFileUploaded={(file) => handleFieldChange('paletteReference', file)}
+            onFileRemoved={() => handleFieldChange('paletteReference', null)}
+            existingFile={formData.paletteReference}
+          />
+        </div>
+
+        {/* Prompt de Referência */}
+        <FileUpload
+          category="prompt"
+          label="Prompt de Referência"
+          description="Arquivo com descrição detalhada ou exemplos (.txt, .md, .json)"
+          accept=".txt,.md,.json"
+          onFileUploaded={(file) => handleFieldChange('promptReference', file)}
+          onFileRemoved={() => handleFieldChange('promptReference', null)}
+          existingFile={formData.promptReference}
+        />
       </div>
 
       {/* Submit Button */}

@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateSiteContent, generateSiteCode } from '@/lib/ollama-client';
-import type { SiteGenerationRequest } from '@/lib/ollama-client';
+import { generateSiteContent, generateSiteCode, type SiteGenerationRequest } from '@/lib/ollama-client';
 import {
   generateSiteWithStitch,
   isStitchConfigured,
@@ -8,6 +7,16 @@ import {
 } from '@/lib/stitch-client';
 
 type GenerationProvider = 'ollama' | 'stitch';
+
+// Interface estendida para suportar uploads e ajustes
+interface ExtendedGenerationRequest extends SiteGenerationRequest {
+  logo?: { url: string; filename: string } | null;
+  productImages?: Array<{ url: string; filename: string }>;
+  promptReference?: { url: string; filename: string; content?: string } | null;
+  paletteReference?: { url: string; filename: string; content?: string } | null;
+  adjustmentPrompt?: string;
+  baseCode?: string;
+}
 
 function getConfiguredProvider(): GenerationProvider {
   const provider = process.env.SITE_GENERATION_PROVIDER?.toLowerCase();
@@ -31,7 +40,7 @@ export async function POST(request: NextRequest) {
   const encoder = new TextEncoder();
 
   try {
-    const body = await request.json() as SiteGenerationRequest;
+    const body = await request.json() as ExtendedGenerationRequest;
 
     // Validação básica
     if (!body.siteName || !body.siteType || !body.description) {
@@ -40,6 +49,45 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Construir prompt enriquecido com uploads e contexto
+    let enrichedDescription = body.description;
+
+    // Adicionar contexto do prompt de ajuste
+    if (body.adjustmentPrompt) {
+      enrichedDescription += `\n\n[AJUSTES SOLICITADOS]\n${body.adjustmentPrompt}`;
+    }
+
+    // Adicionar conteúdo do arquivo de prompt de referência
+    if (body.promptReference?.content) {
+      enrichedDescription += `\n\n[REFERÊNCIA DO PROMPT]\n${body.promptReference.content}`;
+    }
+
+    // Adicionar paleta de cores do arquivo
+    if (body.paletteReference?.content) {
+      enrichedDescription += `\n\n[PALETA DE CORES]\n${body.paletteReference.content}`;
+    }
+
+    // Adicionar informações da logo
+    if (body.logo) {
+      enrichedDescription += `\n\n[LOGO]\nFilename: ${body.logo.filename}\nURL: ${body.logo.url}`;
+    }
+
+    // Adicionar informações das imagens de produto
+    if (body.productImages && body.productImages.length > 0) {
+      enrichedDescription += `\n\n[IMAGENS DE PRODUTO]\n${body.productImages.map(img => `- ${img.filename}: ${img.url}`).join('\n')}`;
+    }
+
+    // Adicionar código base para ajustes
+    if (body.baseCode) {
+      enrichedDescription += `\n\n[CÓDIGO BASE PARA AJUSTES]\n${body.baseCode.substring(0, 5000)}...`;
+    }
+
+    // Criar objeto estendido com descrição enriquecida
+    const extendedBody: ExtendedGenerationRequest = {
+      ...body,
+      description: enrichedDescription,
+    };
 
     // Create a streaming response
     const stream = new ReadableStream({
@@ -64,7 +112,7 @@ export async function POST(request: NextRequest) {
             provider: 'ollama',
           });
 
-          const content = await generateSiteContent(body);
+          const content = await generateSiteContent(extendedBody);
 
           enqueue({
             type: 'status',
@@ -116,7 +164,7 @@ export async function POST(request: NextRequest) {
                 provider: 'stitch',
               });
 
-              const stitchResult = await generateSiteWithStitch(body);
+              const stitchResult = await generateSiteWithStitch(extendedBody);
 
               enqueue({
                 type: 'complete',
