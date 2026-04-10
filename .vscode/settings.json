@@ -15,5 +15,6 @@
         "plaintext": true,
         "markdown": true,
         "scminput": true
-    }
+    },
+    "chatgpt.openOnStartup": true
 }

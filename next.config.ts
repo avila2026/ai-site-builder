@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig: NextConfig = {
+  // Deploy standalone (cria pasta dist pronto para produção)
+  output: 'standalone',
+
   // Otimizações de produção
   poweredByHeader: false,
   compress: true,
