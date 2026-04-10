@@ -10,5 +10,10 @@
     "chat.generalPurposeAgent.enabled": true,
     "chat.agent.thinking.collapsedTools": "withThinking",
     "chat.subagents.allowInvocationsFromSubagents": true,
-    "chat.agentsControl.enabled": "badge"
+    "chat.agentsControl.enabled": "badge",
+    "github.copilot.enable": {
+        "plaintext": true,
+        "markdown": true,
+        "scminput": true
+    }
 }

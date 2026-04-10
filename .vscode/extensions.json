@@ -5,6 +5,11 @@
         "coderfin.logical-properties",
         "konan1947.claude-diff-view",
         "wrenchingdev.quantum-leap",
-        "designliquido.designliquido-vscode"
+        "designliquido.designliquido-vscode",
+        "wrenchingdev.quantum-node-pack",
+        "willasm.obsidian-md-vsc",
+        "github.copilot",
+        "ms-dotnettools.csharp",
+        "openai.chatgpt"
     ]
 }
