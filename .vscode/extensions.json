@@ -10,6 +10,7 @@
         "willasm.obsidian-md-vsc",
         "github.copilot",
         "ms-dotnettools.csharp",
-        "openai.chatgpt"
+        "openai.chatgpt",
+        "rmabir71.git-autopush"
     ]
 }

@@ -1,8 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Sparkles, Loader2, Check, X, Image, Wand2 } from 'lucide-react';
+import { Sparkles, Loader2, Check, X, Image, Wand2, Palette, Layout } from 'lucide-react';
 import FileUpload, { type UploadedFile } from './FileUpload';
+import {
+  templates,
+  themes,
+  getTemplateById,
+  getThemeById,
+  TEMPLATE_CATEGORIES,
+  THEME_CATEGORIES,
+} from '@/lib/templates';
 
 export interface BriefData {
   siteName: string;
@@ -17,6 +25,9 @@ export interface BriefData {
   paletteReference?: UploadedFile | null;
   adjustmentPrompt?: string; // Para ajustes contínuos
   baseCode?: string; // Código base para ajustes
+  // Template e tema
+  templateId?: string;
+  themeId?: string;
 }
 
 interface BriefFormProps {
@@ -90,7 +101,13 @@ export default function BriefForm({
     paletteReference: null,
     adjustmentPrompt: '',
     baseCode: existingCode || '',
+    templateId: '',
+    themeId: '',
   });
+
+  // Estados para filtros de categoria
+  const [templateCategoryFilter, setTemplateCategoryFilter] = useState<string>('');
+  const [themeCategoryFilter, setThemeCategoryFilter] = useState<string>('');
 
   const [errors, setErrors] = useState<Partial<Record<keyof BriefData, string | null>>>({});
   const [touched, setTouched] = useState<Record<keyof BriefData, boolean>>({
@@ -105,6 +122,8 @@ export default function BriefForm({
     paletteReference: false,
     adjustmentPrompt: false,
     baseCode: false,
+    templateId: false,
+    themeId: false,
   });
 
   // Validação em tempo real quando o campo é tocado
@@ -147,6 +166,8 @@ export default function BriefForm({
       paletteReference: touched.paletteReference,
       adjustmentPrompt: touched.adjustmentPrompt,
       baseCode: touched.baseCode,
+      templateId: touched.templateId,
+      themeId: touched.themeId,
     });
 
     // Validação final
@@ -334,6 +355,181 @@ export default function BriefForm({
             <X className="h-3 w-3" />
             {errors.siteType}
           </p>
+        )}
+      </div>
+
+      {/* Template */}
+      <div className="space-y-2">
+        <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">
+          <Layout className="h-4 w-4" />
+          Escolha seu Template
+          <span className="text-muted-foreground">(opcional)</span>
+        </label>
+
+        {/* Filtro de categoria */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          <button
+            type="button"
+            onClick={() => setTemplateCategoryFilter('')}
+            className={`rounded-full border px-3 py-1 text-xs transition-all ${
+              !templateCategoryFilter
+                ? 'border-primary bg-primary/10 text-primary'
+                : 'border-input bg-background/50 hover:bg-accent/50'
+            }`}
+          >
+            Todos
+          </button>
+          {TEMPLATE_CATEGORIES.map(cat => (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setTemplateCategoryFilter(cat.id)}
+              className={`rounded-full border px-3 py-1 text-xs transition-all ${
+                templateCategoryFilter === cat.id
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-input bg-background/50 hover:bg-accent/50'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid de templates */}
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {templates
+            .filter(t => !templateCategoryFilter || t.category === templateCategoryFilter)
+            .map(template => (
+              <button
+                key={template.id}
+                type="button"
+                onClick={() => handleFieldChange('templateId', template.id === formData.templateId ? '' : template.id)}
+                className={`group relative overflow-hidden rounded-lg border p-3 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
+                  formData.templateId === template.id
+                    ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
+                    : 'border-input bg-background/50 hover:border-primary/30'
+                }`}
+              >
+                {/* Preview visual */}
+                <div className="mb-2 h-12 w-full rounded bg-gradient-to-br from-primary/30 to-secondary/30 opacity-60 group-hover:opacity-80" />
+
+                <h4 className="text-sm font-semibold text-foreground">{template.name}</h4>
+                <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{template.description}</p>
+
+                {/* Badge de categoria */}
+                <span className="absolute right-2 top-2 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">
+                  {TEMPLATE_CATEGORIES.find(c => c.id === template.category)?.label}
+                </span>
+
+                {/* Check quando selecionado */}
+                {formData.templateId === template.id && (
+                  <div className="absolute right-2 bottom-2">
+                    <Check className="h-4 w-4 text-primary" />
+                  </div>
+                )}
+              </button>
+            ))}
+        </div>
+
+        {/* Template selecionado - descrição */}
+        {formData.templateId && (
+          <div className="mt-2 rounded-lg border border-primary/30 bg-primary/5 p-3">
+            <p className="text-sm text-foreground">
+              <strong>{getTemplateById(formData.templateId)?.name}:</strong>{' '}
+              {getTemplateById(formData.templateId)?.description}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Tema */}
+      <div className="space-y-2">
+        <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">
+          <Palette className="h-4 w-4" />
+          Escolha seu Tema Visual
+          <span className="text-muted-foreground">(opcional)</span>
+        </label>
+
+        {/* Filtro de categoria */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          <button
+            type="button"
+            onClick={() => setThemeCategoryFilter('')}
+            className={`rounded-full border px-3 py-1 text-xs transition-all ${
+              !themeCategoryFilter
+                ? 'border-primary bg-primary/10 text-primary'
+                : 'border-input bg-background/50 hover:bg-accent/50'
+            }`}
+          >
+            Todos
+          </button>
+          {THEME_CATEGORIES.map(cat => (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setThemeCategoryFilter(cat.id)}
+              className={`rounded-full border px-3 py-1 text-xs transition-all ${
+                themeCategoryFilter === cat.id
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-input bg-background/50 hover:bg-accent/50'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid de temas */}
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+          {themes
+            .filter(t => !themeCategoryFilter || t.category === themeCategoryFilter)
+            .map(theme => (
+              <button
+                key={theme.id}
+                type="button"
+                onClick={() => handleFieldChange('themeId', theme.id === formData.themeId ? '' : theme.id)}
+                className={`group relative overflow-hidden rounded-lg border p-2 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
+                  formData.themeId === theme.id
+                    ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
+                    : 'border-input bg-background/50 hover:border-primary/30'
+                }`}
+              >
+                {/* Preview de cores */}
+                <div className="mb-2 flex h-8 w-full overflow-hidden rounded">
+                  <div className="flex-1" style={{ backgroundColor: theme.colors.primary }} />
+                  <div className="flex-1" style={{ backgroundColor: theme.colors.secondary }} />
+                  <div className="flex-1" style={{ backgroundColor: theme.colors.accent }} />
+                </div>
+
+                <h4 className="text-xs font-semibold text-foreground">{theme.name}</h4>
+
+                {/* Check quando selecionado */}
+                {formData.themeId === theme.id && (
+                  <div className="absolute right-1 top-1">
+                    <Check className="h-3 w-3 text-primary" />
+                  </div>
+                )}
+              </button>
+            ))}
+        </div>
+
+        {/* Tema selecionado - descrição */}
+        {formData.themeId && (
+          <div className="mt-2 flex items-center gap-3 rounded-lg border border-primary/30 bg-primary/5 p-3">
+            <div className="flex gap-1">
+              <div className="h-4 w-4 rounded" style={{ backgroundColor: getThemeById(formData.themeId)?.colors.primary }} />
+              <div className="h-4 w-4 rounded" style={{ backgroundColor: getThemeById(formData.themeId)?.colors.secondary }} />
+              <div className="h-4 w-4 rounded" style={{ backgroundColor: getThemeById(formData.themeId)?.colors.accent }} />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-foreground">
+                {getThemeById(formData.themeId)?.name}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {getThemeById(formData.themeId)?.description}
+              </p>
+            </div>
+          </div>
         )}
       </div>
 

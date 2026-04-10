@@ -3,6 +3,8 @@
  * Usa modelo kimi-k2.5:cloud (gratuito) ou modelos locais
  */
 
+import { buildFullPromptSection } from './templates';
+
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://localhost:11434';
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen3.5:cloud';
 
@@ -12,6 +14,8 @@ export interface SiteGenerationRequest {
   description: string;
   colors?: string;
   sections?: string[];
+  templateId?: string;
+  themeId?: string;
 }
 
 export interface GeneratedContent {
@@ -102,6 +106,9 @@ function buildGenerationPrompt(request: SiteGenerationRequest): string {
     ? `Seções desejadas: ${request.sections.join(', ')}`
     : 'Seções: Hero, Sobre, Serviços, Contato';
 
+  // Adiciona seção de template/tema se selecionados
+  const templateThemeSection = buildFullPromptSection(request.templateId, request.themeId);
+
   return `
 Crie conteúdo para um website com as seguintes características:
 
@@ -110,6 +117,7 @@ Crie conteúdo para um website com as seguintes características:
 - Descrição: ${request.description}
 - Cores preferidas: ${request.colors || 'A IA deve sugerir uma paleta'}
 - ${sections}
+${templateThemeSection}
 
 Retorne APENAS um JSON válido no seguinte formato, sem markdown ou explicações:
 

@@ -21,6 +21,9 @@ export const savedBriefs = pgTable("saved_briefs", {
   description: text("description").notNull(),
   colors: text("colors"),
   sections: jsonb("sections").$type<string[]>().notNull().default([]),
+  // Template e tema selecionados
+  templateId: text("template_id"),
+  themeId: text("theme_id"),
   generatedCode: text("generated_code"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),

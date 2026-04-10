@@ -1,6 +1,7 @@
 import { Stitch, StitchError, StitchToolClient } from '@google/stitch-sdk';
 
 import type { SiteGenerationRequest } from '@/lib/ollama-client';
+import { buildFullPromptSection } from '@/lib/templates';
 
 const DEFAULT_STITCH_HOST = 'https://stitch.googleapis.com/mcp';
 const DEFAULT_PROJECT_TITLE = 'AI Site Builder';
@@ -178,7 +179,10 @@ function buildStitchPrompt(request: SiteGenerationRequest) {
     ? request.colors.trim()
     : 'Defina uma paleta equilibrada para legibilidade.';
 
-  return [
+  // Adiciona seção de template/tema se selecionados
+  const templateThemeSection = buildFullPromptSection(request.templateId, request.themeId);
+
+  const lines = [
     'Crie uma landing page completa em HTML com Tailwind CSS inline.',
     'Idioma: português do Brasil.',
     `Nome do projeto: ${request.siteName}`,
@@ -188,7 +192,17 @@ function buildStitchPrompt(request: SiteGenerationRequest) {
     `Seções obrigatórias: ${sections}`,
     'Requisitos de UX: responsivo, hierarquia visual clara, CTA primária visível, contraste acessível.',
     'Evite lorem ipsum. Use conteúdo realista e objetivo.',
-  ].join('\n');
+  ];
+
+  // Adiciona instruções de template/tema se presentes
+  if (templateThemeSection) {
+    lines.push('');
+    lines.push('---');
+    lines.push('INSTRUÇÕES ADICIONAIS DE TEMPLATE E TEMA:');
+    lines.push(templateThemeSection);
+  }
+
+  return lines.join('\n');
 }
 
 async function getOrCreateProject(stitch: Stitch, title: string) {
