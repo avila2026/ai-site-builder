@@ -1,20 +1,23 @@
 {
-    "chat.agent.sandbox.enabled": "on",
-    "chat.unifiedAgentsBar.enabled": true,
-    "chat.agentSessionProjection.enabled": true,
-    "github.copilot.chat.agentDebugLog.enabled": true,
-    "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
-    "github.copilot.chat.switchAgent.enabled": true,
-    "chat.agentHost.enabled": true,
-    "chat.agentHost.ipcLoggingEnabled": true,
-    "chat.generalPurposeAgent.enabled": true,
-    "chat.agent.thinking.collapsedTools": "withThinking",
-    "chat.subagents.allowInvocationsFromSubagents": true,
-    "chat.agentsControl.enabled": "badge",
-    "github.copilot.enable": {
-        "plaintext": true,
-        "markdown": true,
-        "scminput": true
-    },
-    "chatgpt.openOnStartup": true
+  "chat.agent.sandbox.enabled": "on",
+  "chat.unifiedAgentsBar.enabled": true,
+  "chat.agentSessionProjection.enabled": true,
+  "github.copilot.chat.agentDebugLog.enabled": true,
+  "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
+  "github.copilot.chat.switchAgent.enabled": true,
+  "chat.agentHost.enabled": true,
+  "chat.agentHost.ipcLoggingEnabled": true,
+  "chat.generalPurposeAgent.enabled": true,
+  "chat.agent.thinking.collapsedTools": "withThinking",
+  "chat.subagents.allowInvocationsFromSubagents": true,
+  "chat.agentsControl.enabled": "badge",
+  "github.copilot.enable": {
+    "plaintext": true,
+    "markdown": true,
+    "scminput": true
+  },
+  "chatgpt.openOnStartup": true,
+  "files.readonlyInclude": {
+    "{**/.c4z/.extsrcs/*.PROTSYM.cbl,**/.c4z/.extsrcs/*.PROTSYM.listing}": true
+  }
 }
