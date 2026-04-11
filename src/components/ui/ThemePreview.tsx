@@ -9,9 +9,10 @@ interface ThemePreviewProps {
 }
 
 export default function ThemePreview({ theme, isSelected }: ThemePreviewProps) {
+  const colors = theme.colors;
+
   // Gera preview completo do tema
   const previewData = useMemo(() => {
-    const colors = theme.colors;
     const isDark = colors.background.startsWith('#0') || colors.background.startsWith('#1');
 
     return {
@@ -20,7 +21,7 @@ export default function ThemePreview({ theme, isSelected }: ThemePreviewProps) {
       previewBg: colors.background,
       previewBorder: isSelected ? colors.primary : colors.border,
     };
-  }, [theme.colors, isSelected]);
+  }, [colors, isSelected]);
 
   return (
     <div className={`space-y-2 rounded-lg border p-3 transition-all duration-300 ${isSelected ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10' : 'border-input bg-background/50'}`}>

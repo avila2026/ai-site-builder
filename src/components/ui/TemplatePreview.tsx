@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, type ReactElement } from 'react';
 import type { Template } from '@/lib/templates';
 
 interface TemplatePreviewProps {
@@ -41,7 +41,7 @@ export default function TemplatePreview({ template, isSelected }: TemplatePrevie
     const strokeColor = isSelected ? '#8b5cf6' : '#3f3f46';
     const fillColor = isSelected ? 'rgba(139, 92, 246, 0.1)' : 'rgba(63, 63, 70, 0.05)';
 
-    const categoryLayouts: Record<string, JSX.Element> = {
+    const categoryLayouts: Record<string, ReactElement> = {
       business: (
         <svg viewBox="0 0 100 60" className={baseClasses}>
           {/* Header */}

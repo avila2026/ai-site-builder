@@ -17,7 +17,7 @@ export default function Tooltip({
 }: TooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setMounted(true);

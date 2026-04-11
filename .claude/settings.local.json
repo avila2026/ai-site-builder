@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(curl -LsSf https://astral.sh/uv/install.sh)",
+      "Bash(sh)"
+    ]
+  },
   "enabledPlugins": {
     "skill-creator@claude-plugins-official": true,
     "playground@claude-plugins-official": true,

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import { ExternalLink, RefreshCw, Download, Check, Edit3, Copy, Globe, Save } from 'lucide-react';
+import { ExternalLink, RefreshCw, Check, Edit3, Copy, Globe, Save } from 'lucide-react';
 import Tooltip from '@/components/ui/Tooltip';
 
 interface SitePreviewProps {
