@@ -1,4 +1,11 @@
 {
+  "enabledPlugins": {
+    "skill-creator@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "aws-serverless@claude-plugins-official": true,
+    "amazon-location-service@claude-plugins-official": true
+  },
   "outputStyle": "Explanatory",
   "prefersReducedMotion": true
 }

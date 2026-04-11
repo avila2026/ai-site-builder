@@ -1,0 +1,2 @@
+- [Melhorias de Design UI/UX](.claude/memory/melhorias_design.md) — Componentes Tooltip, TemplatePreview, ThemePreview; FileUpload/Toast/MainLayout atualizados
+- [Notion Skills Reference](reference_notion_skills.md) — Link do Notion com coleção de skills para Claude

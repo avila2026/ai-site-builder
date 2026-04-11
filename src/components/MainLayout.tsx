@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, Database, Zap } from 'lucide-react';
+import { Menu, X, Sparkles, Database, Zap, Server, Cloud, Shield, Link } from 'lucide-react';
+import Tooltip from '@/components/ui/Tooltip';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -109,49 +110,83 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
           {/* Footer - Integration Status */}
           <div className="border-t border-border p-4">
-            <div className="space-y-2 text-xs">
-              <p className="font-semibold text-muted-foreground mb-2">Integrações</p>
+            <div className="space-y-3 text-xs">
+              <p className="font-semibold text-muted-foreground mb-2 flex items-center gap-2">
+                <Link className="h-3 w-3" />
+                Integrações
+              </p>
 
               {/* Ollama Status */}
-              <div className="flex items-center gap-2">
-                {status.ollama.checking ? (
-                  <div className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
-                ) : status.ollama.connected ? (
-                  <div className="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-                ) : (
-                  <div className="h-2 w-2 rounded-full bg-red-500" />
-                )}
-                <span className="text-muted-foreground">Ollama</span>
-              </div>
+              <Tooltip content={status.ollama.checking ? 'Verificando conexão...' : status.ollama.connected ? 'Ollama conectado e pronto para usar' : 'Ollama não disponível - verifique se está rodando'} position="right">
+                <div className="flex items-center gap-2 cursor-help group">
+                  {status.ollama.checking ? (
+                    <div className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
+                  ) : status.ollama.connected ? (
+                    <div className="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse" />
+                  ) : (
+                    <div className="h-2 w-2 rounded-full bg-red-500" />
+                  )}
+                  <div className="flex items-center gap-1.5">
+                    <Server className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">Ollama</span>
+                  </div>
+                </div>
+              </Tooltip>
 
               {/* Autonoma Status */}
-              <div className="flex items-center gap-2">
-                <div className={`h-2 w-2 rounded-full ${status.autonoma.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
-                <span className="text-muted-foreground">Autonoma</span>
-              </div>
+              <Tooltip content={status.autonoma.connected ? 'Autonoma conectado' : 'Autonoma não conectado'} position="right">
+                <div className="flex items-center gap-2 cursor-help group">
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.autonoma.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className="flex items-center gap-1.5">
+                    <Cloud className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">Autonoma</span>
+                  </div>
+                </div>
+              </Tooltip>
 
               {/* BrowserBase Status */}
-              <div className="flex items-center gap-2">
-                <div className={`h-2 w-2 rounded-full ${status.browserbase.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
-                <span className="text-muted-foreground">BrowserBase</span>
-              </div>
+              <Tooltip content={status.browserbase.connected ? 'BrowserBase conectado' : 'BrowserBase não conectado'} position="right">
+                <div className="flex items-center gap-2 cursor-help group">
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.browserbase.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className="flex items-center gap-1.5">
+                    <Cloud className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">BrowserBase</span>
+                  </div>
+                </div>
+              </Tooltip>
 
               {/* Stitch Status */}
-              <div className="flex items-center gap-2">
-                <div className={`h-2 w-2 rounded-full ${status.stitch.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
-                <span className="text-muted-foreground">Stitch</span>
-              </div>
+              <Tooltip content={status.stitch.connected ? 'Stitch conectado' : 'Stitch não conectado'} position="right">
+                <div className="flex items-center gap-2 cursor-help group">
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.stitch.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className="flex items-center gap-1.5">
+                    <Cloud className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">Stitch</span>
+                  </div>
+                </div>
+              </Tooltip>
 
               {/* Database Status */}
-              <div className="flex items-center gap-2">
-                <div className={`h-2 w-2 rounded-full ${status.database.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
-                <span className="text-muted-foreground">Neon DB</span>
-              </div>
+              <Tooltip content={status.database.connected ? 'Neon DB conectado' : 'Neon DB não conectado'} position="right">
+                <div className="flex items-center gap-2 cursor-help group">
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.database.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className="flex items-center gap-1.5">
+                    <Database className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">Neon DB</span>
+                  </div>
+                </div>
+              </Tooltip>
 
-              <div className="flex items-center gap-2">
-                <div className={`h-2 w-2 rounded-full ${status.auth0.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-gray-500'}`} />
-                <span className="text-muted-foreground">Auth0</span>
-              </div>
+              {/* Auth0 Status */}
+              <Tooltip content={status.auth0.connected ? 'Auth0 conectado - autenticação ativa' : 'Auth0 não conectado'} position="right">
+                <div className="flex items-center gap-2 cursor-help group">
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.auth0.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className="flex items-center gap-1.5">
+                    <Shield className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">Auth0</span>
+                  </div>
+                </div>
+              </Tooltip>
             </div>
           </div>
         </div>

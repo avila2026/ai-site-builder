@@ -11,6 +11,8 @@
         "github.copilot",
         "ms-dotnettools.csharp",
         "openai.chatgpt",
-        "rmabir71.git-autopush"
+        "rmabir71.git-autopush",
+        "salesforce.salesforcedx-vscode-lwc",
+        "ms-vscode.cmake-tools"
     ]
 }

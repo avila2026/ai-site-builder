@@ -6,11 +6,12 @@ import FileUpload, { type UploadedFile } from './FileUpload';
 import {
   templates,
   themes,
-  getTemplateById,
-  getThemeById,
   TEMPLATE_CATEGORIES,
   THEME_CATEGORIES,
 } from '@/lib/templates';
+import TemplatePreview from '@/components/ui/TemplatePreview';
+import ThemePreview from '@/components/ui/ThemePreview';
+import Tooltip from '@/components/ui/Tooltip';
 
 export interface BriefData {
   siteName: string;
@@ -396,50 +397,39 @@ export default function BriefForm({
         </div>
 
         {/* Grid de templates */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {templates
             .filter(t => !templateCategoryFilter || t.category === templateCategoryFilter)
             .map(template => (
-              <button
-                key={template.id}
-                type="button"
-                onClick={() => handleFieldChange('templateId', template.id === formData.templateId ? '' : template.id)}
-                className={`group relative overflow-hidden rounded-lg border p-3 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
-                  formData.templateId === template.id
-                    ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
-                    : 'border-input bg-background/50 hover:border-primary/30'
-                }`}
-              >
-                {/* Preview visual */}
-                <div className="mb-2 h-12 w-full rounded bg-gradient-to-br from-primary/30 to-secondary/30 opacity-60 group-hover:opacity-80" />
+              <Tooltip key={template.id} content={template.description} position="bottom">
+                <button
+                  key={template.id}
+                  type="button"
+                  onClick={() => handleFieldChange('templateId', template.id === formData.templateId ? '' : template.id)}
+                  className={`group relative overflow-hidden rounded-lg border p-3 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
+                    formData.templateId === template.id
+                      ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
+                      : 'border-input bg-background/50 hover:border-primary/30'
+                  }`}
+                >
+                  {/* Preview visual com SVG */}
+                  <TemplatePreview template={template} isSelected={formData.templateId === template.id} />
 
-                <h4 className="text-sm font-semibold text-foreground">{template.name}</h4>
-                <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{template.description}</p>
+                  {/* Badge de categoria */}
+                  <span className="absolute right-2 top-2 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">
+                    {TEMPLATE_CATEGORIES.find(c => c.id === template.category)?.label}
+                  </span>
 
-                {/* Badge de categoria */}
-                <span className="absolute right-2 top-2 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">
-                  {TEMPLATE_CATEGORIES.find(c => c.id === template.category)?.label}
-                </span>
-
-                {/* Check quando selecionado */}
-                {formData.templateId === template.id && (
-                  <div className="absolute right-2 bottom-2">
-                    <Check className="h-4 w-4 text-primary" />
-                  </div>
-                )}
-              </button>
+                  {/* Check quando selecionado */}
+                  {formData.templateId === template.id && (
+                    <div className="absolute right-2 bottom-2">
+                      <Check className="h-4 w-4 text-primary" />
+                    </div>
+                  )}
+                </button>
+              </Tooltip>
             ))}
         </div>
-
-        {/* Template selecionado - descrição */}
-        {formData.templateId && (
-          <div className="mt-2 rounded-lg border border-primary/30 bg-primary/5 p-3">
-            <p className="text-sm text-foreground">
-              <strong>{getTemplateById(formData.templateId)?.name}:</strong>{' '}
-              {getTemplateById(formData.templateId)?.description}
-            </p>
-          </div>
-        )}
       </div>
 
       {/* Tema */}
@@ -480,57 +470,27 @@ export default function BriefForm({
         </div>
 
         {/* Grid de temas */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
           {themes
             .filter(t => !themeCategoryFilter || t.category === themeCategoryFilter)
             .map(theme => (
-              <button
-                key={theme.id}
-                type="button"
-                onClick={() => handleFieldChange('themeId', theme.id === formData.themeId ? '' : theme.id)}
-                className={`group relative overflow-hidden rounded-lg border p-2 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
-                  formData.themeId === theme.id
-                    ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
-                    : 'border-input bg-background/50 hover:border-primary/30'
-                }`}
-              >
-                {/* Preview de cores */}
-                <div className="mb-2 flex h-8 w-full overflow-hidden rounded">
-                  <div className="flex-1" style={{ backgroundColor: theme.colors.primary }} />
-                  <div className="flex-1" style={{ backgroundColor: theme.colors.secondary }} />
-                  <div className="flex-1" style={{ backgroundColor: theme.colors.accent }} />
-                </div>
-
-                <h4 className="text-xs font-semibold text-foreground">{theme.name}</h4>
-
-                {/* Check quando selecionado */}
-                {formData.themeId === theme.id && (
-                  <div className="absolute right-1 top-1">
-                    <Check className="h-3 w-3 text-primary" />
-                  </div>
-                )}
-              </button>
+              <Tooltip key={theme.id} content={theme.description} position="bottom">
+                <button
+                  key={theme.id}
+                  type="button"
+                  onClick={() => handleFieldChange('themeId', theme.id === formData.themeId ? '' : theme.id)}
+                  className={`group relative overflow-hidden rounded-lg border p-2 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
+                    formData.themeId === theme.id
+                      ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
+                      : 'border-input bg-background/50 hover:border-primary/30'
+                  }`}
+                >
+                  {/* Preview completo do tema */}
+                  <ThemePreview theme={theme} isSelected={formData.themeId === theme.id} />
+                </button>
+              </Tooltip>
             ))}
         </div>
-
-        {/* Tema selecionado - descrição */}
-        {formData.themeId && (
-          <div className="mt-2 flex items-center gap-3 rounded-lg border border-primary/30 bg-primary/5 p-3">
-            <div className="flex gap-1">
-              <div className="h-4 w-4 rounded" style={{ backgroundColor: getThemeById(formData.themeId)?.colors.primary }} />
-              <div className="h-4 w-4 rounded" style={{ backgroundColor: getThemeById(formData.themeId)?.colors.secondary }} />
-              <div className="h-4 w-4 rounded" style={{ backgroundColor: getThemeById(formData.themeId)?.colors.accent }} />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-foreground">
-                {getThemeById(formData.themeId)?.name}
-              </p>
-              <p className="text-xs text-muted-foreground">
-                {getThemeById(formData.themeId)?.description}
-              </p>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Descrição */}
