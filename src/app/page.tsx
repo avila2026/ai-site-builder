@@ -6,12 +6,34 @@ import BriefForm, { type BriefData } from '@/components/BriefForm';
 import SitePreview from '@/components/SitePreview';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { useToast } from '@/components/Toast';
-import { Zap, Shield, Globe, Sparkles, Loader2, Wand2, Palette, Rocket } from 'lucide-react';
+import { Zap, Shield, Globe, Sparkles, Loader2, Wand2, Palette, Rocket, ExternalLink } from 'lucide-react';
+
+interface GitHubExportSuccessResponse {
+  ok: true;
+  repo: {
+    name: string;
+    fullName: string;
+    htmlUrl: string;
+    private: boolean;
+  };
+  branch: string;
+}
+
+interface GitHubExportErrorResponse {
+  ok: false;
+  code: 'MISSING_GITHUB_PAT' | 'REPO_CREATE_FAILED' | 'FILE_PUSH_FAILED' | 'RATE_LIMITED';
+  message: string;
+}
 
 export default function Home() {
   const { addToast } = useToast();
   const [generatedCode, setGeneratedCode] = useState<string>('');
   const [siteName, setSiteName] = useState('');
+  const [lastBrief, setLastBrief] = useState<BriefData | null>(null);
+  const [lastExport, setLastExport] = useState<{
+    fullName: string;
+    htmlUrl: string;
+  } | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationStatus, setGenerationStatus] = useState<string>('');
   const [mode, setMode] = useState<'create' | 'adjust'>('create');
@@ -29,9 +51,56 @@ export default function Home() {
 
   const handleBriefSubmit = async (data: BriefData) => {
     setSiteName(data.siteName);
+    setLastBrief(data);
+    setLastExport(null);
     setIsGenerating(true);
     setGenerationStatus(mode === 'adjust' ? 'Aplicando ajustes...' : 'Iniciando geração...');
     addToast('info', mode === 'adjust' ? 'Aplicando ajustes no site...' : 'Iniciando geração do site...');
+  };
+
+  const triggerGitHubExport = async (resultCode: string, brief: BriefData | null) => {
+    if (!brief?.siteName || !resultCode) {
+      return;
+    }
+
+    addToast('info', 'Site gerado. Exportando automaticamente para o GitHub...');
+
+    try {
+      const response = await fetch('/api/github/export', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          siteName: brief.siteName,
+          generatedHtml: resultCode,
+          siteType: brief.siteType,
+          description: brief.description,
+        }),
+      });
+
+      const payload = await response.json() as
+        | GitHubExportSuccessResponse
+        | GitHubExportErrorResponse;
+
+      if (!response.ok || !payload.ok) {
+        const message =
+          payload && 'message' in payload
+            ? payload.message
+            : 'Falha ao exportar para o GitHub';
+
+        addToast('warning', `Site gerado, mas exportação falhou: ${message}`);
+        return;
+      }
+
+      setLastExport({
+        fullName: payload.repo.fullName,
+        htmlUrl: payload.repo.htmlUrl,
+      });
+
+      addToast('success', `Exportado para GitHub: ${payload.repo.fullName}`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'erro desconhecido';
+      addToast('warning', `Site gerado, mas exportação falhou: ${message}`);
+    }
   };
 
   const handleGenerated = (result: { content: unknown; code: string }) => {
@@ -40,6 +109,8 @@ export default function Home() {
     setGenerationStatus('');
     setMode('adjust'); // Após gerar, muda para modo de ajuste
     addToast('success', mode === 'adjust' ? 'Ajustes aplicados com sucesso!' : 'Site gerado com sucesso!');
+
+    void triggerGitHubExport(result.code, lastBrief);
   };
 
   const handleProgress = (status: { type: string; status: string; message: string }) => {
@@ -159,7 +230,21 @@ export default function Home() {
           {/* Preview Section */}
           <div>
             {generatedCode ? (
-              <div className="animate-slide-in">
+              <div className="space-y-4 animate-slide-in">
+                {lastExport && (
+                  <div className="rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-4 text-sm">
+                    <p className="font-semibold text-emerald-300">Exportação para GitHub concluída</p>
+                    <a
+                      href={lastExport.htmlUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 inline-flex items-center gap-1 text-emerald-200 underline-offset-4 hover:underline"
+                    >
+                      {lastExport.fullName}
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+                )}
                 <SitePreview htmlCode={generatedCode} siteName={siteName} onAdjust={handleStartAdjustment} />
               </div>
             ) : (
