@@ -6,7 +6,7 @@
 import { buildFullPromptSection } from './templates';
 
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://localhost:11434';
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen3.5:cloud';
+const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'gemma4:31b-cloud';
 
 export interface SiteGenerationRequest {
   siteName: string;

@@ -1,0 +1,1180 @@
+- generic [ref=e1]:
+  - generic [ref=e1842]:
+    - generic:
+      - dialog "Início da janela de diálogo Criar um design" [ref=e1843]:
+        - generic [ref=e1848]:
+          - generic [ref=e1850]:
+            - heading "Criar um design" [level=2] [ref=e1851]
+            - navigation [ref=e1857]:
+              - list [ref=e1858]:
+                - listitem [ref=e1859]:
+                  - button "Para você" [pressed] [ref=e1860] [cursor=pointer]:
+                    - generic [ref=e1861]:
+                      - generic [ref=e1862]:
+                        - generic:
+                          - img
+                      - generic [ref=e1863]: Para você
+                - listitem [ref=e1864]:
+                  - button "Apresentações" [ref=e1865] [cursor=pointer]:
+                    - generic [ref=e1866]:
+                      - img [ref=e1869]
+                      - generic [ref=e1873]: Apresentações
+                - listitem [ref=e1874]:
+                  - button "Redes sociais" [ref=e1875] [cursor=pointer]:
+                    - generic [ref=e1876]:
+                      - img [ref=e1879]
+                      - generic [ref=e1882]: Redes sociais
+                - listitem [ref=e1883]:
+                  - button "Editor de fotos" [ref=e1884] [cursor=pointer]:
+                    - generic [ref=e1885]:
+                      - generic [ref=e1887]:
+                        - generic:
+                          - img
+                      - generic [ref=e1888]: Editor de fotos
+                - listitem [ref=e1889]:
+                  - button "Vídeos" [ref=e1890] [cursor=pointer]:
+                    - generic [ref=e1891]:
+                      - img [ref=e1894]
+                      - generic [ref=e1897]: Vídeos
+                - listitem [ref=e1898]:
+                  - button "Impressão" [ref=e1899] [cursor=pointer]:
+                    - generic [ref=e1900]:
+                      - img [ref=e1903]
+                      - generic [ref=e1906]: Impressão
+                - listitem [ref=e1907]:
+                  - button "Docs" [ref=e1908] [cursor=pointer]:
+                    - generic [ref=e1909]:
+                      - img [ref=e1912]
+                      - generic [ref=e1915]: Docs
+                - listitem [ref=e1916]:
+                  - button "Quadros" [ref=e1917] [cursor=pointer]:
+                    - generic [ref=e1918]:
+                      - img [ref=e1921]
+                      - generic [ref=e1924]: Quadros
+                - listitem [ref=e1925]:
+                  - button "Planilhas" [ref=e1926] [cursor=pointer]:
+                    - generic [ref=e1927]:
+                      - img [ref=e1930]
+                      - generic [ref=e1933]: Planilhas
+                - listitem [ref=e1934]:
+                  - button "Sites" [ref=e1935] [cursor=pointer]:
+                    - generic [ref=e1936]:
+                      - img [ref=e1939]
+                      - generic [ref=e1942]: Sites
+                - listitem [ref=e1943]:
+                  - button "E-mails" [ref=e1944] [cursor=pointer]:
+                    - generic [ref=e1945]:
+                      - img [ref=e1948]
+                      - generic [ref=e1951]: E-mails
+                - listitem [ref=e1952]:
+                  - button "Tamanho personalizado" [ref=e1953] [cursor=pointer]:
+                    - generic [ref=e1954]:
+                      - generic [ref=e1955]:
+                        - generic:
+                          - img
+                      - generic [ref=e1956]: Tamanho personalizado
+                - listitem [ref=e1957]:
+                  - button "Fazer upload" [ref=e1958] [cursor=pointer]:
+                    - generic [ref=e1959]:
+                      - generic [ref=e1960]:
+                        - generic:
+                          - img
+                      - generic [ref=e1961]: Fazer upload
+          - generic [ref=e1962]:
+            - search [ref=e1965]:
+              - generic [ref=e1966]:
+                - generic [ref=e1967]:
+                  - generic:
+                    - img
+                - searchbox "O que você gostaria de criar?" [active] [ref=e1968]
+            - region [ref=e1972]:
+              - generic [ref=e1980]:
+                - generic [ref=e1982]:
+                  - heading "Ações rápidas" [level=4] [ref=e1984]
+                  - generic "Ações rápidas" [ref=e1986]:
+                    - button "Novo Camadas Mágicas" [ref=e1991] [cursor=pointer]:
+                      - generic [ref=e1993]:
+                        - generic [ref=e1995]: Novo
+                        - generic [ref=e2006]: Camadas Mágicas
+                    - button "Gravação de tela" [ref=e2011] [cursor=pointer]:
+                      - generic [ref=e2024]: Gravação de tela
+                    - link "Novo Canva Code" [ref=e2029] [cursor=pointer]:
+                      - /url: /ai/code?forceOpen=&continue_in_browser=true
+                      - generic [ref=e2031]:
+                        - generic [ref=e2033]: Novo
+                        - generic [ref=e2044]: Canva Code
+                    - link "Texto Mágico (abre em uma nova aba ou janela)" [ref=e2049] [cursor=pointer]:
+                      - /url: /design?create=&type=TAFJi5FXMSs&category=tAFK2fpTBVQ&ui=eyJEIjp7IkgiOnsiRSI6eyJBPyI6IkEiLCJBIjp0cnVlfX19LCJBIjp7IkIiOnsiQiI6dHJ1ZX19LCJHIjp7IkIiOnRydWV9fQ&continue_in_browser=true
+                      - generic [ref=e2062]: Texto Mágico
+                      - generic [ref=e2063]: (abre em uma nova aba ou janela)
+                    - button "Removedor de Fundo de Vídeo" [ref=e2068] [cursor=pointer]:
+                      - generic [ref=e2070]:
+                        - generic [ref=e2078]:
+                          - generic:
+                            - img
+                        - generic [ref=e2089]: Removedor de Fundo de Vídeo
+                - generic [ref=e2092]:
+                  - generic [ref=e2094]:
+                    - heading "Mais usados" [level=4] [ref=e2096]
+                    - generic [ref=e2099]:
+                      - generic "Para você" [ref=e2100]:
+                        - generic [ref=e2105]:
+                          - link "Story do Instagram" [ref=e2106] [cursor=pointer]:
+                            - /url: /design?create=&type=TAG6a16Rfto&category=tACZCtLTC_A&analyticsCorrelationId=897b0db2-e199-4ae0-a413-1c4bc59c3971&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2117]: Story do Instagram
+                        - generic [ref=e2123]:
+                          - link "Post para Instagram (4:5)" [ref=e2124] [cursor=pointer]:
+                            - /url: /design?create=&type=TAEby5mLXEk&category=tACFajEYUAM&analyticsCorrelationId=9889a256-ecb1-4661-8c59-d9d8abcb0db2&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2135]: Post para Instagram (4:5)
+                        - generic [ref=e2141]:
+                          - link "Site" [ref=e2142] [cursor=pointer]:
+                            - /url: /design?create=&type=TAGcbLa0hys&category=tAEW8R8e5hc&analyticsCorrelationId=4b85c13d-43d4-410f-b1ed-eb5f49d020ea&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2153]: Site
+                        - generic [ref=e2159]:
+                          - link "Apresentação" [ref=e2160] [cursor=pointer]:
+                            - /url: /design?create=&type=TACQ-gtv2Yk&category=tAExRLg81RI&analyticsCorrelationId=8a0b07fa-a6a2-4739-96b2-cabf220334f6&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2171]: Apresentação
+                        - generic [ref=e2177]:
+                          - link "Capa para Facebook (paisagem)" [ref=e2178] [cursor=pointer]:
+                            - /url: /design?create=&type=TAF98SnkHxA&category=tACFauRB4fU&analyticsCorrelationId=0527a542-18a7-4f3b-9205-1a01cd37f5ec&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2189]: Capa para Facebook (paisagem)
+                        - generic [ref=e2195]:
+                          - link "Logo" [ref=e2196] [cursor=pointer]:
+                            - /url: /design?create=&type=TAG47gV7mVw&category=tACZCvjI6mE&analyticsCorrelationId=6bda4f98-8b3a-435d-83a9-072f3aabd94c&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2207]: Logo
+                        - generic [ref=e2213]:
+                          - link "Post para Twitter/X" [ref=e2214] [cursor=pointer]:
+                            - /url: /design?create=&type=TAD-2D3JRN4&category=tACFagP1mXg&analyticsCorrelationId=5699632c-8350-4bad-b2bb-388f08f735ff&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2225]: Post para Twitter/X
+                        - generic [ref=e2231]:
+                          - link "Convite (retrato)" [ref=e2232] [cursor=pointer]:
+                            - /url: /design?create=&type=TACixRR28vY&category=tAEwhV3GgCA&analyticsCorrelationId=284a9b82-da6c-4cf6-8d1c-f9bfab124543&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2243]: Convite (retrato)
+                      - 'button "Próxima página da lista: Para você" [ref=e2245] [cursor=pointer]':
+                        - generic:
+                          - img
+                  - generic [ref=e2247]:
+                    - heading "Populares no Canva" [level=4] [ref=e2249]
+                    - generic [ref=e2252]:
+                      - generic "Para você" [ref=e2253]:
+                        - generic [ref=e2258]:
+                          - link "Documento (A4 (retrato))" [ref=e2259] [cursor=pointer]:
+                            - /url: /design?create=&type=TACQ-j4WGew&category=tAEoFqaPb84&analyticsCorrelationId=2d5f303a-e36e-4a0c-a501-709060d1804f&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2270]: Documento (A4 (retrato))
+                        - generic [ref=e2276]:
+                          - link "Panfleto (A4 retrato)" [ref=e2277] [cursor=pointer]:
+                            - /url: /design?create=&type=TACixUyoqp0&category=tAFBBALx6F8&analyticsCorrelationId=ab34d7eb-b2a9-448f-95f4-67c1a6a979c6&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2288]: Panfleto (A4 retrato)
+                        - generic [ref=e2294]:
+                          - link "Doc (digital)" [ref=e2295] [cursor=pointer]:
+                            - /url: /design?create=&type=TAGyBJVQJvY&category=tAFK2fpTBVQ&analyticsCorrelationId=8a4debea-e751-4c43-b847-6f39e7c75e0a&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2306]: Doc (digital)
+                        - generic [ref=e2312]:
+                          - link "Vídeo para Reels do Instagram" [ref=e2313] [cursor=pointer]:
+                            - /url: /design?create=&type=TAG6axtXBfk&category=tAEEZ59QX_I&analyticsCorrelationId=8992557a-6cb6-460b-971c-bbff6faa8bbb&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2324]: Vídeo para Reels do Instagram
+                        - generic [ref=e2330]:
+                          - link "Quadro branco" [ref=e2331] [cursor=pointer]:
+                            - /url: /design?create=&type=TAEwJH6TtA8&category=tAEv8Hh5on0&analyticsCorrelationId=307bbc9a-ca31-4bc5-ba90-5f52c76ef3d4&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2342]: Quadro branco
+                        - generic [ref=e2348]:
+                          - link "Vídeo vertical" [ref=e2349] [cursor=pointer]:
+                            - /url: /design?create=&type=TAD9VKDO5tI&category=tAEEZ_gIPxM&analyticsCorrelationId=2851b8cb-7882-4679-bfca-ad1b9d1dca6a&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2360]: Vídeo vertical
+                        - generic [ref=e2366]:
+                          - link "Vídeo horizontal" [ref=e2367] [cursor=pointer]:
+                            - /url: /design?create=&type=TADUvCyAV_U&category=tADs1de8MlY&analyticsCorrelationId=3ce8d537-f6a8-4c4c-aafd-23989a6acc6d&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2378]: Vídeo horizontal
+                        - generic [ref=e2384]:
+                          - link "Logo" [ref=e2385] [cursor=pointer]:
+                            - /url: /design?create=&type=TAG47gV7mVw&category=tACZCvjI6mE&analyticsCorrelationId=6bda4f98-8b3a-435d-83a9-072f3aabd94c&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2396]: Logo
+                        - generic [ref=e2402]:
+                          - link "Cartão (paisagem)" [ref=e2403] [cursor=pointer]:
+                            - /url: /design?create=&type=TACQ-n7A6Z0&category=tAEwhcYByGs&analyticsCorrelationId=9c9fc0c3-1d93-4c7e-82d5-6d05724a0fe5&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2414]: Cartão (paisagem)
+                        - generic [ref=e2420]:
+                          - link "Miniatura do YouTube" [ref=e2421] [cursor=pointer]:
+                            - /url: /design?create=&type=TACQ-mQ0NXU&category=tACZCnmCPGY&analyticsCorrelationId=7c9e6275-f29d-433d-ac7a-32b9fe562056&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2432]: Miniatura do YouTube
+                      - 'button "Próxima página da lista: Para você" [ref=e2434] [cursor=pointer]':
+                        - generic:
+                          - img
+                  - generic [ref=e2436]:
+                    - heading "Experimente algo novo" [level=4] [ref=e2438]
+                    - generic [ref=e2441]:
+                      - generic "Para você" [ref=e2442]:
+                        - generic [ref=e2447]:
+                          - link "Miniatura do YouTube" [ref=e2448] [cursor=pointer]:
+                            - /url: /design?create=&type=TACQ-mQ0NXU&category=tACZCnmCPGY&analyticsCorrelationId=7c9e6275-f29d-433d-ac7a-32b9fe562056&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2459]: Miniatura do YouTube
+                        - generic [ref=e2465]:
+                          - link "Banner para YouTube" [ref=e2466] [cursor=pointer]:
+                            - /url: /design?create=&type=TACQ-j0GgH4&category=tACZChShqI0&analyticsCorrelationId=8b6ec97d-4cec-463f-8d93-99352f6c0db0&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2477]: Banner para YouTube
+                        - generic [ref=e2483]:
+                          - link "Vídeo horizontal" [ref=e2484] [cursor=pointer]:
+                            - /url: /design?create=&type=TADUvCyAV_U&category=tADs1de8MlY&analyticsCorrelationId=3ce8d537-f6a8-4c4c-aafd-23989a6acc6d&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2495]: Vídeo horizontal
+                        - generic [ref=e2501]:
+                          - link "Banner (paisagem)" [ref=e2502] [cursor=pointer]:
+                            - /url: /design?create=&type=TAEkyf1gwR0&category=tAEAieI2jOU&analyticsCorrelationId=8885aeef-f0bf-4bf5-924e-bdd4f20e3594&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2513]: Banner (paisagem)
+                        - generic [ref=e2519]:
+                          - link "Post para Facebook (paisagem)" [ref=e2520] [cursor=pointer]:
+                            - /url: /design?create=&type=TAEB2LBUqpQ&category=tACFavw5Wlg&analyticsCorrelationId=bdf56629-cf67-4110-93e2-7fc942a0203a&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2531]: Post para Facebook (paisagem)
+                        - generic [ref=e2537]:
+                          - link "Post para LinkedIn" [ref=e2538] [cursor=pointer]:
+                            - /url: /design?create=&type=TAEHQ-OPEx0&category=tAEL9-BMBAg&analyticsCorrelationId=3b234c64-42d5-430f-8ee8-f4d175801b0a&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2549]: Post para LinkedIn
+                        - generic [ref=e2555]:
+                          - link "Cartão de visita (paisagem)" [ref=e2556] [cursor=pointer]:
+                            - /url: /design?create=&type=TACRsbXUzY8&category=tACZCsHw0pA&analyticsCorrelationId=232d2692-5116-4388-9df6-d103c70f97be&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2567]: Cartão de visita (paisagem)
+                        - generic [ref=e2573]:
+                          - link "Folder (Folder com duas dobras)" [ref=e2574] [cursor=pointer]:
+                            - /url: /design?create=&type=TADaken9Hs4&category=tACZCtsMxNo&analyticsCorrelationId=481db18f-ed29-4d7b-84ce-2e0e673ac6e8&ui=e30&continue_in_browser=true
+                          - paragraph [ref=e2585]: Folder (Folder com duas dobras)
+                      - 'button "Próxima página da lista: Para você" [ref=e2587] [cursor=pointer]':
+                        - generic:
+                          - img
+      - button "Fechar" [ref=e2590] [cursor=pointer]:
+        - generic:
+          - img
+  - generic [ref=e7]:
+    - paragraph [ref=e9]:
+      - link "Pular a navegação" [ref=e10] [cursor=pointer]:
+        - /url: "#_r_1_"
+        - generic [ref=e11]: Pular a navegação
+    - paragraph [ref=e13]:
+      - link "Pular para o conteúdo principal" [ref=e14] [cursor=pointer]:
+        - /url: "#_r_0_"
+        - generic [ref=e15]: Pular para o conteúdo principal
+    - paragraph [ref=e17]:
+      - link "Ir para o cabeçalho" [ref=e18] [cursor=pointer]:
+        - /url: "#_r_2_"
+        - generic [ref=e19]: Ir para o cabeçalho
+    - paragraph [ref=e21]:
+      - link "Ir para o botão “Ajuda”" [ref=e22] [cursor=pointer]:
+        - /url: "#_r_3_"
+        - generic [ref=e23]: Ir para o botão “Ajuda”
+    - generic [ref=e24]:
+      - navigation "Menu principal" [ref=e28]:
+        - generic [ref=e29]:
+          - button "Ativar/desativar painel lateral de navegação" [ref=e33] [cursor=pointer]:
+            - generic [ref=e36]:
+              - generic:
+                - img
+          - generic [ref=e37]:
+            - button "Criar um design" [ref=e40] [cursor=pointer]:
+              - generic [ref=e41]:
+                - generic:
+                  - img
+            - paragraph [ref=e44]:
+              - generic [ref=e45]: Criar
+          - generic [ref=e46]:
+            - link "Início" [ref=e51] [cursor=pointer]:
+              - /url: /?pl=1&continue_in_browser=true
+              - generic [ref=e53]:
+                - generic [ref=e54]:
+                  - generic:
+                    - img
+                - paragraph [ref=e55]: Início
+            - link "Projetos" [ref=e61] [cursor=pointer]:
+              - /url: /projects?continue_in_browser=true
+              - generic [ref=e63]:
+                - generic [ref=e64]:
+                  - generic:
+                    - img
+                - paragraph [ref=e65]: Projetos
+            - link "Modelos" [ref=e71] [cursor=pointer]:
+              - /url: /templates/?continue_in_browser=true
+              - generic [ref=e73]:
+                - generic [ref=e74]:
+                  - generic:
+                    - img
+                - paragraph [ref=e75]: Modelos
+            - link "Marca" [ref=e81] [cursor=pointer]:
+              - /url: /brand?continue_in_browser=true
+              - generic [ref=e83]:
+                - generic [ref=e84]:
+                  - generic:
+                    - img
+                  - generic [ref=e88]:
+                    - generic:
+                      - img
+                - paragraph [ref=e89]: Marca
+            - link "Canva IA" [ref=e95] [cursor=pointer]:
+              - /url: /ai?continue_in_browser=true
+              - generic [ref=e97]:
+                - generic [ref=e98]:
+                  - generic:
+                    - img
+                - paragraph [ref=e99]: Canva IA
+            - button "Mais" [ref=e105] [cursor=pointer]:
+              - generic [ref=e107]:
+                - generic [ref=e108]:
+                  - generic:
+                    - img
+                - paragraph [ref=e112]: Mais
+        - generic [ref=e113]:
+          - button "0 notificação não lida" [ref=e118] [cursor=pointer]:
+            - generic [ref=e121]:
+              - generic:
+                - img
+          - button "Mais opções para contas e equipes" [ref=e126] [cursor=pointer]:
+            - generic [ref=e129]: Mais opções para contas e equipes
+      - generic [ref=e130]:
+        - button "Assistente" [ref=e138] [cursor=pointer]:
+          - generic [ref=e139]:
+            - generic:
+              - img
+        - main [ref=e142]:
+          - generic [ref=e143]:
+            - button "Atualizações do Canva Create" [ref=e149] [cursor=pointer]:
+              - generic [ref=e150]:
+                - generic:
+                  - img
+              - generic [ref=e153]: Faltam 4 dias
+            - generic [ref=e154]: Conteúdo principal
+            - region [ref=e157]:
+              - generic [ref=e159]:
+                - region [ref=e162]
+                - region [ref=e171]:
+                  - heading "Bora fazer bonito?" [level=3] [ref=e173]:
+                    - generic [ref=e174]: Bora fazer bonito?
+            - generic [ref=e175]:
+              - search [ref=e180]:
+                - generic [ref=e191]:
+                  - generic [ref=e194]:
+                    - generic:
+                      - img
+                  - searchbox "Busque designs, pastas e uploads" [ref=e199]
+              - generic [ref=e212]:
+                - region "Criação Rápida" [ref=e214]:
+                  - heading "Criação Rápida" [level=2] [ref=e216]
+                  - generic [ref=e217]:
+                    - generic "Criação Rápida" [ref=e218]:
+                      - button "Novo Magic Layers Criar" [ref=e222] [cursor=pointer]:
+                        - generic [ref=e224]:
+                          - generic [ref=e226]: Novo
+                          - generic [ref=e234]:
+                            - generic [ref=e238]: Magic Layers
+                            - generic [ref=e240]: Criar
+                      - link "Apresentação Criar (abre em uma nova aba ou janela)" [ref=e244] [cursor=pointer]:
+                        - /url: /design?create=&type=TACQ-gtv2Yk&category=tAExRLg81RI&analyticsCorrelationId=5e77eb9c-e271-47f3-a847-cb9b612b6b18&continue_in_browser=true
+                        - generic [ref=e246]:
+                          - img [ref=e252]
+                          - generic [ref=e254]:
+                            - generic [ref=e258]: Apresentação
+                            - generic [ref=e260]: Criar
+                        - generic [ref=e261]: (abre em uma nova aba ou janela)
+                      - button "Redes sociais Ver tudo" [ref=e265] [cursor=pointer]:
+                        - generic [ref=e267]:
+                          - img [ref=e273]
+                          - generic [ref=e275]:
+                            - generic [ref=e279]: Redes sociais
+                            - generic [ref=e281]: Ver tudo
+                      - button "Vídeo Ver tudo" [ref=e285] [cursor=pointer]:
+                        - generic [ref=e287]:
+                          - img [ref=e293]
+                          - generic [ref=e295]:
+                            - generic [ref=e299]: Vídeo
+                            - generic [ref=e301]: Ver tudo
+                      - link "Novo Gráfica Criativa Navegar" [ref=e305] [cursor=pointer]:
+                        - /url: /print-shop?continue_in_browser=true
+                        - generic [ref=e307]:
+                          - generic [ref=e309]: Novo
+                          - img [ref=e315]
+                          - generic [ref=e318]:
+                            - generic [ref=e322]: Gráfica Criativa
+                            - generic [ref=e324]: Navegar
+                      - link "Doc Criar (abre em uma nova aba ou janela)" [ref=e328] [cursor=pointer]:
+                        - /url: /design?create=&type=TAGyBJVQJvY&category=tAFK2fpTBVQ&analyticsCorrelationId=2ca221e8-9f90-4f42-a4a0-d3b1053fd96d&continue_in_browser=true
+                        - generic [ref=e330]:
+                          - img [ref=e336]
+                          - generic [ref=e338]:
+                            - generic [ref=e342]: Doc
+                            - generic [ref=e344]: Criar
+                        - generic [ref=e345]: (abre em uma nova aba ou janela)
+                      - link "Quadro branco Criar (abre em uma nova aba ou janela)" [ref=e349] [cursor=pointer]:
+                        - /url: /design?create=&type=TAEwJH6TtA8&category=tAEv8Hh5on0&analyticsCorrelationId=6b404387-de20-4314-9052-8d52c02872c2&continue_in_browser=true
+                        - generic [ref=e351]:
+                          - img [ref=e357]
+                          - generic [ref=e359]:
+                            - generic [ref=e363]: Quadro branco
+                            - generic [ref=e365]: Criar
+                        - generic [ref=e366]: (abre em uma nova aba ou janela)
+                      - link "Planilha Criar (abre em uma nova aba ou janela)" [ref=e370] [cursor=pointer]:
+                        - /url: /design?create=&type=TAGEjoqFEas&category=tAGIFu61eNM&analyticsCorrelationId=b5991882-209a-40e0-98fd-4fdd331e5f29&continue_in_browser=true
+                        - generic [ref=e372]:
+                          - img [ref=e378]
+                          - generic [ref=e380]:
+                            - generic [ref=e384]: Planilha
+                            - generic [ref=e386]: Criar
+                        - generic [ref=e387]: (abre em uma nova aba ou janela)
+                      - link "Site Criar (abre em uma nova aba ou janela)" [ref=e391] [cursor=pointer]:
+                        - /url: /design?create=&type=TAGcbLa0hys&category=tAEW8R8e5hc&analyticsCorrelationId=6974dff8-5d2d-4ffc-9bb3-3847891e8a3f&continue_in_browser=true
+                        - generic [ref=e393]:
+                          - img [ref=e399]
+                          - generic [ref=e401]:
+                            - generic [ref=e405]: Site
+                            - generic [ref=e407]: Criar
+                        - generic [ref=e408]: (abre em uma nova aba ou janela)
+                      - link "E-mail Criar (abre em uma nova aba ou janela)" [ref=e412] [cursor=pointer]:
+                        - /url: /design?create=&type=TAGx5SQ4CBA&category=tAGx_uWQCEs&analyticsCorrelationId=79709752-5b70-494a-8c58-b5ee9172acd5&continue_in_browser=true
+                        - generic [ref=e414]:
+                          - img [ref=e420]
+                          - generic [ref=e422]:
+                            - generic [ref=e426]: E-mail
+                            - generic [ref=e428]: Criar
+                        - generic [ref=e429]: (abre em uma nova aba ou janela)
+                      - button "Editor de fotos Ver tudo" [ref=e433] [cursor=pointer]:
+                        - generic [ref=e443]:
+                          - generic [ref=e447]: Editor de fotos
+                          - generic [ref=e449]: Ver tudo
+                      - button "Personalizado Criar" [ref=e453] [cursor=pointer]:
+                        - generic [ref=e455]:
+                          - generic [ref=e458]:
+                            - generic:
+                              - img
+                          - generic [ref=e459]:
+                            - generic [ref=e463]: Personalizado
+                            - generic [ref=e465]: Criar
+                      - button "Fazer upload Adicionar mídia" [ref=e469] [cursor=pointer]:
+                        - generic [ref=e471]:
+                          - generic [ref=e474]:
+                            - generic:
+                              - img
+                          - generic [ref=e475]:
+                            - generic [ref=e479]: Fazer upload
+                            - generic [ref=e481]: Adicionar mídia
+                      - button "Mais Ver tudo" [ref=e485] [cursor=pointer]:
+                        - generic [ref=e487]:
+                          - img [ref=e493]
+                          - generic [ref=e495]:
+                            - generic [ref=e499]: Mais
+                            - generic [ref=e501]: Ver tudo
+                    - 'button "Próxima página da lista: Criação Rápida" [ref=e502] [cursor=pointer]':
+                      - generic:
+                        - img
+                - generic [ref=e504]:
+                  - generic [ref=e505]: A seleção em lote foi cancelada
+                  - generic [ref=e509]:
+                    - generic [ref=e510]:
+                      - heading "Recentes" [level=3] [ref=e511]
+                      - generic [ref=e512]:
+                        - generic:
+                          - combobox "Titular" [ref=e519] [cursor=pointer]:
+                            - generic [ref=e520]: Titular
+                            - generic [ref=e521]:
+                              - generic:
+                                - img
+                          - button "Tipo" [ref=e527] [cursor=pointer]:
+                            - generic [ref=e528]: Qualquer tipo
+                            - generic [ref=e529]:
+                              - generic:
+                                - img
+                          - combobox "Classificar por" [ref=e535] [cursor=pointer]:
+                            - generic [ref=e536]:
+                              - generic:
+                                - img
+                          - button "Ver como lista" [ref=e540] [cursor=pointer]:
+                            - generic [ref=e541]:
+                              - generic:
+                                - img
+                    - generic [ref=e547]:
+                      - group "VitrineX AI" [ref=e552]:
+                        - link "VitrineX AI" [ref=e553] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8BhNeAkc&extension=J12D_cFbi2v6UpoAGxVSVA&mode=edit
+                        - generic [ref=e554]:
+                          - generic [ref=e561]:
+                            - generic:
+                              - img
+                          - generic [ref=e566] [cursor=pointer]:
+                            - checkbox "Selecione o item VitrineX AI para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e567]:
+                              - generic:
+                                - img
+                          - generic [ref=e570]:
+                            - 'button "Desmarcar como favorito: VitrineX AI" [ref=e572] [cursor=pointer]':
+                              - generic [ref=e573]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: VitrineX AI" [ref=e576] [cursor=pointer]':
+                              - generic [ref=e577]:
+                                - generic:
+                                  - img
+                        - generic [ref=e579]:
+                          - paragraph [ref=e586]:
+                            - generic [ref=e587]:
+                              - generic [ref=e588]: VitrineX AI
+                              - button "Renomear item VitrineX AI" [ref=e589] [cursor=pointer]:
+                                - generic [ref=e590]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e593]:
+                            - img [ref=e598]
+                            - generic [ref=e604]: •
+                            - paragraph [ref=e608]: Editado há 3 meses
+                            - generic [ref=e611]: 1 página
+                      - group "Website para escolinha de futebol estilo Moderno" [ref=e616]:
+                        - link "Website para escolinha de futebol estilo Moderno" [ref=e617] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHFxUDjsPk&extension=6U6lNbQcQraj9f2mql6EQA&mode=edit
+                        - generic [ref=e618]:
+                          - generic [ref=e628] [cursor=pointer]:
+                            - checkbox "Selecione o item Website para escolinha de futebol estilo Moderno para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e629]:
+                              - generic:
+                                - img
+                          - generic [ref=e632]:
+                            - 'button "Marcar como favorito: Website para escolinha de futebol estilo Moderno" [ref=e634] [cursor=pointer]':
+                              - generic [ref=e635]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Website para escolinha de futebol estilo Moderno" [ref=e638] [cursor=pointer]':
+                              - generic [ref=e639]:
+                                - generic:
+                                  - img
+                        - generic [ref=e641]:
+                          - paragraph [ref=e648]:
+                            - generic [ref=e649]:
+                              - generic [ref=e650]: Website para escolinha de futebol estilo Moderno
+                              - button "Renomear item Website para escolinha de futebol estilo Moderno" [ref=e651] [cursor=pointer]:
+                                - generic [ref=e652]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e655]:
+                            - img [ref=e660]
+                            - generic [ref=e669]: •
+                            - paragraph [ref=e673]: Editado há 10 dias
+                            - generic [ref=e676]: 1 página
+                      - group "Uploads" [ref=e683]:
+                        - link "Uploads" [ref=e684] [cursor=pointer]:
+                          - /url: /folder/FAFv0E83nn8
+                        - generic [ref=e685]:
+                          - generic [ref=e691] [cursor=pointer]:
+                            - img [ref=e692]
+                            - generic [ref=e696]:
+                              - generic:
+                                - img
+                          - generic [ref=e699]:
+                            - 'button "Marcar como favorito: Uploads" [ref=e701] [cursor=pointer]':
+                              - generic [ref=e702]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Uploads" [ref=e705] [cursor=pointer]':
+                              - generic [ref=e706]:
+                                - generic:
+                                  - img
+                        - paragraph [ref=e715]:
+                          - generic [ref=e716]:
+                            - generic [ref=e717]: Uploads
+                            - button "Renomear item Uploads" [ref=e718] [cursor=pointer]:
+                              - generic [ref=e719]:
+                                - generic:
+                                  - img
+                      - group "Design sem nome" [ref=e724]:
+                        - link "Design sem nome" [ref=e725] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHF10pgBKc&extension=OwOe40gCzsreyCDfNQkyYw&mode=edit
+                        - generic [ref=e726]:
+                          - generic [ref=e736] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e737]:
+                              - generic:
+                                - img
+                          - generic [ref=e740]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e742] [cursor=pointer]':
+                              - generic [ref=e743]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e746] [cursor=pointer]':
+                              - generic [ref=e747]:
+                                - generic:
+                                  - img
+                        - generic [ref=e749]:
+                          - paragraph [ref=e756]:
+                            - generic [ref=e757]:
+                              - generic [ref=e758]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e759] [cursor=pointer]:
+                                - generic [ref=e760]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e763]:
+                            - generic [ref=e769]: •
+                            - paragraph [ref=e773]: Editado há 9 dias
+                            - generic [ref=e776]: 1 página
+                      - group "Design sem nome" [ref=e781]:
+                        - link "Design sem nome" [ref=e782] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHFxEPqV3k&extension=MlTlSDMWkYDAM4-A8eQezA&mode=edit
+                        - generic [ref=e783]:
+                          - generic [ref=e791]: 1 de 4
+                          - generic [ref=e796] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e797]:
+                              - generic:
+                                - img
+                          - generic [ref=e800]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e802] [cursor=pointer]':
+                              - generic [ref=e803]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e806] [cursor=pointer]':
+                              - generic [ref=e807]:
+                                - generic:
+                                  - img
+                        - generic [ref=e809]:
+                          - paragraph [ref=e816]:
+                            - generic [ref=e817]:
+                              - generic [ref=e818]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e819] [cursor=pointer]:
+                                - generic [ref=e820]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e823]:
+                            - generic [ref=e826]:
+                              - generic:
+                                - img
+                            - generic [ref=e829]: •
+                            - paragraph [ref=e833]: Editado há 10 dias
+                            - generic [ref=e836]: 4 páginas
+                      - group "Design sem nome" [ref=e841]:
+                        - link "Design sem nome" [ref=e842] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHFxImc4fM&extension=wyA2dckDCJ8c8aGaUPCDaA&mode=edit
+                        - generic [ref=e843]:
+                          - generic [ref=e851]: 1 de 5
+                          - generic [ref=e856] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e857]:
+                              - generic:
+                                - img
+                          - generic [ref=e860]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e862] [cursor=pointer]':
+                              - generic [ref=e863]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e866] [cursor=pointer]':
+                              - generic [ref=e867]:
+                                - generic:
+                                  - img
+                        - generic [ref=e869]:
+                          - paragraph [ref=e876]:
+                            - generic [ref=e877]:
+                              - generic [ref=e878]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e879] [cursor=pointer]:
+                                - generic [ref=e880]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e883]:
+                            - generic [ref=e889]: •
+                            - paragraph [ref=e893]: Editado há 10 dias
+                            - generic [ref=e896]: 5 páginas
+                      - group "Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)" [ref=e901]:
+                        - link "Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)" [ref=e902] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8NQt0qjE&extension=7x9ttO2kM2ihMEK2yEB2vw&mode=edit
+                        - generic [ref=e903]:
+                          - generic [ref=e911]: 1 de 7
+                          - generic [ref=e916] [cursor=pointer]:
+                            - checkbox "Selecione o item Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site) para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e917]:
+                              - generic:
+                                - img
+                          - generic [ref=e920]:
+                            - 'button "Marcar como favorito: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)" [ref=e922] [cursor=pointer]':
+                              - generic [ref=e923]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)" [ref=e926] [cursor=pointer]':
+                              - generic [ref=e927]:
+                                - generic:
+                                  - img
+                        - generic [ref=e929]:
+                          - paragraph [ref=e936]:
+                            - generic [ref=e937]:
+                              - generic [ref=e938]: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)
+                              - button "Renomear item Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)" [ref=e939] [cursor=pointer]:
+                                - generic [ref=e940]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e943]:
+                            - img [ref=e948]
+                            - generic [ref=e957]: •
+                            - paragraph [ref=e961]: Editado há 3 meses
+                            - generic [ref=e964]: 7 páginas
+                      - group "Design sem nome" [ref=e969]:
+                        - link "Design sem nome" [ref=e970] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHCixf-Uw8&extension=ph7QNaruVhbfRKTPQvLDKA&mode=edit
+                        - generic [ref=e971]:
+                          - generic [ref=e981] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e982]:
+                              - generic:
+                                - img
+                          - generic [ref=e985]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e987] [cursor=pointer]':
+                              - generic [ref=e988]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e991] [cursor=pointer]':
+                              - generic [ref=e992]:
+                                - generic:
+                                  - img
+                        - generic [ref=e994]:
+                          - paragraph [ref=e1001]:
+                            - generic [ref=e1002]:
+                              - generic [ref=e1003]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e1004] [cursor=pointer]:
+                                - generic [ref=e1005]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1008]:
+                            - img [ref=e1013]
+                            - generic [ref=e1019]: •
+                            - paragraph [ref=e1023]: Editado há 1 mês
+                            - generic [ref=e1026]: 1 página
+                      - group "Design sem nome (4)_merged.pdf (2/2)" [ref=e1031]:
+                        - link "Design sem nome (4)_merged.pdf (2/2)" [ref=e1032] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG4oo_N9Dc&extension=wMKGlNWqpmFK06gCzLfKVw&mode=edit
+                        - generic [ref=e1033]:
+                          - generic [ref=e1041]: 1 de 38
+                          - generic [ref=e1046] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome (4)_merged.pdf (2/2) para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1047]:
+                              - generic:
+                                - img
+                          - generic [ref=e1050]:
+                            - 'button "Marcar como favorito: Design sem nome (4)_merged.pdf (2/2)" [ref=e1052] [cursor=pointer]':
+                              - generic [ref=e1053]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome (4)_merged.pdf (2/2)" [ref=e1056] [cursor=pointer]':
+                              - generic [ref=e1057]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1059]:
+                          - paragraph [ref=e1066]:
+                            - generic [ref=e1067]:
+                              - generic [ref=e1068]: Design sem nome (4)_merged.pdf (2/2)
+                              - button "Renomear item Design sem nome (4)_merged.pdf (2/2)" [ref=e1069] [cursor=pointer]:
+                                - generic [ref=e1070]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1073]:
+                            - img [ref=e1078]
+                            - generic [ref=e1084]: •
+                            - paragraph [ref=e1088]: Editado há 1 mês
+                            - generic [ref=e1091]: •
+                            - button "Abrir a pasta Uploads" [ref=e1098] [cursor=pointer]:
+                              - generic:
+                                - img
+                              - text: Uploads
+                            - generic [ref=e1102]: 20 páginas
+                      - group "Logo auto escola ícone amarelo e preto" [ref=e1107]:
+                        - link "Logo auto escola ícone amarelo e preto" [ref=e1108] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHCiYtCpJo&extension=EBubsSENWXbFnNOWpPcBuw&mode=edit
+                        - generic [ref=e1109]:
+                          - generic [ref=e1119] [cursor=pointer]:
+                            - checkbox "Selecione o item Logo auto escola ícone amarelo e preto para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1120]:
+                              - generic:
+                                - img
+                          - generic [ref=e1123]:
+                            - 'button "Marcar como favorito: Logo auto escola ícone amarelo e preto" [ref=e1125] [cursor=pointer]':
+                              - generic [ref=e1126]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Logo auto escola ícone amarelo e preto" [ref=e1129] [cursor=pointer]':
+                              - generic [ref=e1130]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1132]:
+                          - paragraph [ref=e1139]:
+                            - generic [ref=e1140]:
+                              - generic [ref=e1141]: Logo auto escola ícone amarelo e preto
+                              - button "Renomear item Logo auto escola ícone amarelo e preto" [ref=e1142] [cursor=pointer]:
+                                - generic [ref=e1143]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1146]:
+                            - img [ref=e1151]
+                            - generic [ref=e1157]: •
+                            - paragraph [ref=e1161]: Editado há 1 mês
+                            - generic [ref=e1164]: 1 página
+                      - group "Design sem nome" [ref=e1169]:
+                        - link "Design sem nome" [ref=e1170] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHBdGeYkNI&extension=XomY9UQdZoRSF-7AM82KWA&mode=edit
+                        - generic [ref=e1171]:
+                          - generic [ref=e1181] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1182]:
+                              - generic:
+                                - img
+                          - generic [ref=e1185]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e1187] [cursor=pointer]':
+                              - generic [ref=e1188]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e1191] [cursor=pointer]':
+                              - generic [ref=e1192]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1194]:
+                          - paragraph [ref=e1201]:
+                            - generic [ref=e1202]:
+                              - generic [ref=e1203]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e1204] [cursor=pointer]:
+                                - generic [ref=e1205]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1208]:
+                            - generic [ref=e1214]: •
+                            - paragraph [ref=e1218]: Editado há 1 mês
+                            - generic [ref=e1221]: 1 página
+                      - group "Design sem nome" [ref=e1226]:
+                        - link "Design sem nome" [ref=e1227] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHAxXCXJFo&extension=QYgpnlaZZPMgmgGvNe-rhQ&mode=edit
+                        - generic [ref=e1228]:
+                          - generic [ref=e1238] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1239]:
+                              - generic:
+                                - img
+                          - generic [ref=e1242]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e1244] [cursor=pointer]':
+                              - generic [ref=e1245]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e1248] [cursor=pointer]':
+                              - generic [ref=e1249]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1251]:
+                          - paragraph [ref=e1258]:
+                            - generic [ref=e1259]:
+                              - generic [ref=e1260]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e1261] [cursor=pointer]:
+                                - generic [ref=e1262]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1265]:
+                            - img [ref=e1270]
+                            - generic [ref=e1276]: •
+                            - paragraph [ref=e1280]: Editado há 2 meses
+                            - generic [ref=e1283]: 1 página
+                      - group "Texto do seu parágrafo" [ref=e1288]:
+                        - link "Texto do seu parágrafo" [ref=e1289] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAHAxREpD7w&extension=hYm6F_B0qGZOio2kBTjIDw&mode=edit
+                        - generic [ref=e1290]:
+                          - generic [ref=e1300] [cursor=pointer]:
+                            - checkbox "Selecione o item Texto do seu parágrafo para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1301]:
+                              - generic:
+                                - img
+                          - generic [ref=e1304]:
+                            - 'button "Marcar como favorito: Texto do seu parágrafo" [ref=e1306] [cursor=pointer]':
+                              - generic [ref=e1307]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Texto do seu parágrafo" [ref=e1310] [cursor=pointer]':
+                              - generic [ref=e1311]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1313]:
+                          - paragraph [ref=e1320]:
+                            - generic [ref=e1321]:
+                              - generic [ref=e1322]: Texto do seu parágrafo
+                              - button "Renomear item Texto do seu parágrafo" [ref=e1323] [cursor=pointer]:
+                                - generic [ref=e1324]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1327]:
+                            - img [ref=e1332]
+                            - generic [ref=e1338]: •
+                            - paragraph [ref=e1342]: Editado há 2 meses
+                            - generic [ref=e1345]: 1 página
+                      - group "Green and Light Blue Watercolor Dinosaur Birthday Party Invitation" [ref=e1350]:
+                        - link "Green and Light Blue Watercolor Dinosaur Birthday Party Invitation" [ref=e1351] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG_YEMYRJQ&extension=3tN1c-H2cjscsfXa_yp7mg&mode=edit
+                        - generic [ref=e1352]:
+                          - generic [ref=e1362] [cursor=pointer]:
+                            - checkbox "Selecione o item Green and Light Blue Watercolor Dinosaur Birthday Party Invitation para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1363]:
+                              - generic:
+                                - img
+                          - generic [ref=e1366]:
+                            - 'button "Marcar como favorito: Green and Light Blue Watercolor Dinosaur Birthday Party Invitation" [ref=e1368] [cursor=pointer]':
+                              - generic [ref=e1369]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Green and Light Blue Watercolor Dinosaur Birthday Party Invitation" [ref=e1372] [cursor=pointer]':
+                              - generic [ref=e1373]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1375]:
+                          - paragraph [ref=e1382]:
+                            - generic [ref=e1383]:
+                              - generic [ref=e1384]: Green and Light Blue Watercolor Dinosaur Birthday Party Invitation
+                              - button "Renomear item Green and Light Blue Watercolor Dinosaur Birthday Party Invitation" [ref=e1385] [cursor=pointer]:
+                                - generic [ref=e1386]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1389]:
+                            - img [ref=e1394]
+                            - generic [ref=e1404]: •
+                            - paragraph [ref=e1408]: Editado há 2 meses
+                            - generic [ref=e1411]: 1 página
+                      - group "Design sem nome" [ref=e1416]:
+                        - link "Design sem nome" [ref=e1417] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8wjSp-kM&extension=fpI-42batrrv3GQYZgV-Zg&mode=edit
+                        - generic [ref=e1418]:
+                          - generic [ref=e1428] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1429]:
+                              - generic:
+                                - img
+                          - generic [ref=e1432]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e1434] [cursor=pointer]':
+                              - generic [ref=e1435]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e1438] [cursor=pointer]':
+                              - generic [ref=e1439]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1441]:
+                          - paragraph [ref=e1448]:
+                            - generic [ref=e1449]:
+                              - generic [ref=e1450]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e1451] [cursor=pointer]:
+                                - generic [ref=e1452]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1455]:
+                            - generic [ref=e1461]: •
+                            - paragraph [ref=e1465]: Editado há 3 meses
+                            - generic [ref=e1468]: 1 página
+                      - group "Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon" [ref=e1473]:
+                        - link "Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon" [ref=e1474] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8NXjkNzk&extension=cwDPruwtxoT1tzHasNHbvA&mode=edit
+                        - generic [ref=e1475]:
+                          - generic [ref=e1485] [cursor=pointer]:
+                            - checkbox "Selecione o item Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1486]:
+                              - generic:
+                                - img
+                          - generic [ref=e1489]:
+                            - 'button "Marcar como favorito: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon" [ref=e1491] [cursor=pointer]':
+                              - generic [ref=e1492]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon" [ref=e1495] [cursor=pointer]':
+                              - generic [ref=e1496]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1498]:
+                          - paragraph [ref=e1505]:
+                            - generic [ref=e1506]:
+                              - generic [ref=e1507]: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon
+                              - button "Renomear item Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon" [ref=e1508] [cursor=pointer]:
+                                - generic [ref=e1509]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1512]:
+                            - img [ref=e1517]
+                            - generic [ref=e1526]: •
+                            - paragraph [ref=e1530]: Editado há 3 meses
+                            - generic [ref=e1533]: 1 página
+                      - group "Banner para youtube de investimentos financeiros moderno preto e verde" [ref=e1538]:
+                        - link "Banner para youtube de investimentos financeiros moderno preto e verde" [ref=e1539] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8NXhTS6Y&extension=rrsFRt9Jef_HzCkuERktbQ&mode=edit
+                        - generic [ref=e1540]:
+                          - generic [ref=e1548]: 1 de 2
+                          - generic [ref=e1553] [cursor=pointer]:
+                            - checkbox "Selecione o item Banner para youtube de investimentos financeiros moderno preto e verde para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1554]:
+                              - generic:
+                                - img
+                          - generic [ref=e1557]:
+                            - 'button "Marcar como favorito: Banner para youtube de investimentos financeiros moderno preto e verde" [ref=e1559] [cursor=pointer]':
+                              - generic [ref=e1560]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Banner para youtube de investimentos financeiros moderno preto e verde" [ref=e1563] [cursor=pointer]':
+                              - generic [ref=e1564]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1566]:
+                          - paragraph [ref=e1573]:
+                            - generic [ref=e1574]:
+                              - generic [ref=e1575]: Banner para youtube de investimentos financeiros moderno preto e verde
+                              - button "Renomear item Banner para youtube de investimentos financeiros moderno preto e verde" [ref=e1576] [cursor=pointer]:
+                                - generic [ref=e1577]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1580]:
+                            - generic [ref=e1586]: •
+                            - paragraph [ref=e1590]: Editado há 3 meses
+                            - generic [ref=e1593]: 2 páginas
+                      - group "Design sem nome" [ref=e1598]:
+                        - link "Design sem nome" [ref=e1599] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8LOY4fQc&extension=xRMZEZvLb5GeJIYDTRaPRw&mode=edit
+                        - generic [ref=e1600]:
+                          - generic [ref=e1610] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1611]:
+                              - generic:
+                                - img
+                          - generic [ref=e1614]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e1616] [cursor=pointer]':
+                              - generic [ref=e1617]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e1620] [cursor=pointer]':
+                              - generic [ref=e1621]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1623]:
+                          - paragraph [ref=e1630]:
+                            - generic [ref=e1631]:
+                              - generic [ref=e1632]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e1633] [cursor=pointer]:
+                                - generic [ref=e1634]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1637]:
+                            - img [ref=e1642]
+                            - generic [ref=e1647]: •
+                            - paragraph [ref=e1651]: Editado há 3 meses
+                            - generic [ref=e1654]: 1 página
+                      - group "Design sem nome" [ref=e1659]:
+                        - link "Design sem nome" [ref=e1660] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8GLRDzds&extension=g94uGNgOXuyZGKJcaGrE9w&mode=edit
+                        - generic [ref=e1661]:
+                          - generic [ref=e1671] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1672]:
+                              - generic:
+                                - img
+                          - generic [ref=e1675]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e1677] [cursor=pointer]':
+                              - generic [ref=e1678]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e1681] [cursor=pointer]':
+                              - generic [ref=e1682]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1684]:
+                          - paragraph [ref=e1691]:
+                            - generic [ref=e1692]:
+                              - generic [ref=e1693]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e1694] [cursor=pointer]:
+                                - generic [ref=e1695]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1698]:
+                            - img [ref=e1703]
+                            - generic [ref=e1708]: •
+                            - paragraph [ref=e1712]: Editado há 3 meses
+                            - generic [ref=e1715]: 1 página
+                      - group "Design sem nome" [ref=e1720]:
+                        - link "Design sem nome" [ref=e1721] [cursor=pointer]:
+                          - /url: https://www.canva.com/design/editor/shell?designId=DAG8LLWv0F4&extension=468fONP-zcLEbC5_JJV3Yg&mode=edit
+                        - generic [ref=e1722]:
+                          - generic [ref=e1732] [cursor=pointer]:
+                            - checkbox "Selecione o item Design sem nome para movê-lo ou enviá-lo para a lixeira. No momento, o item não está selecionado."
+                            - generic [ref=e1733]:
+                              - generic:
+                                - img
+                          - generic [ref=e1736]:
+                            - 'button "Marcar como favorito: Design sem nome" [ref=e1738] [cursor=pointer]':
+                              - generic [ref=e1739]:
+                                - generic:
+                                  - img
+                            - 'button "Mais ações: Design sem nome" [ref=e1742] [cursor=pointer]':
+                              - generic [ref=e1743]:
+                                - generic:
+                                  - img
+                        - generic [ref=e1745]:
+                          - paragraph [ref=e1752]:
+                            - generic [ref=e1753]:
+                              - generic [ref=e1754]: Design sem nome
+                              - button "Renomear item Design sem nome" [ref=e1755] [cursor=pointer]:
+                                - generic [ref=e1756]:
+                                  - generic:
+                                    - img
+                          - generic [ref=e1759]:
+                            - img [ref=e1764]
+                            - generic [ref=e1770]: •
+                            - paragraph [ref=e1774]: Editado há 3 meses
+                            - generic [ref=e1777]: 1 página
+  - generic [ref=e1779]: Abrir menu
+  - generic [ref=e1780]: Criar
+  - generic [ref=e1781]: Magic Layers
+  - generic [ref=e1782]: Apresentação
+  - generic [ref=e1783]: Redes sociais
+  - generic [ref=e1784]: Vídeo
+  - generic [ref=e1785]: Gráfica Criativa
+  - generic [ref=e1786]: Doc
+  - generic [ref=e1787]: Quadro branco
+  - generic [ref=e1788]: Planilha
+  - generic [ref=e1789]: Site
+  - generic [ref=e1790]: E-mail
+  - generic [ref=e1791]: Editor de fotos
+  - generic [ref=e1792]: Personalizado
+  - generic [ref=e1793]: Fazer upload
+  - generic [ref=e1794]: Mais
+  - generic [ref=e1795]: Notificações
+  - generic [ref=e1796]: Titular
+  - generic [ref=e1797]: Tipo
+  - generic [ref=e1798]: Classificar por
+  - generic [ref=e1799]: Ver como lista
+  - generic [ref=e1800]: VitrineX AI
+  - generic [ref=e1801]: VitrineX AI
+  - generic [ref=e1802]: Website para escolinha de futebol estilo Moderno
+  - generic [ref=e1803]: Website para escolinha de futebol estilo Moderno
+  - generic [ref=e1804]: Uploads
+  - generic [ref=e1805]: Uploads
+  - generic [ref=e1806]: Design sem nome
+  - generic [ref=e1807]: Design sem nome
+  - generic [ref=e1808]: Design sem nome
+  - generic [ref=e1809]: Design sem nome
+  - generic [ref=e1810]: Design sem nome
+  - generic [ref=e1811]: Design sem nome
+  - generic [ref=e1812]: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)
+  - generic [ref=e1813]: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon (Site)
+  - generic [ref=e1814]: Design sem nome
+  - generic [ref=e1815]: Design sem nome
+  - generic [ref=e1816]: Design sem nome (4)_merged.pdf (2/2)
+  - generic [ref=e1817]: Design sem nome (4)_merged.pdf (2/2)
+  - generic [ref=e1818]: Logo auto escola ícone amarelo e preto
+  - generic [ref=e1819]: Logo auto escola ícone amarelo e preto
+  - generic [ref=e1820]: Design sem nome
+  - generic [ref=e1821]: Design sem nome
+  - generic [ref=e1822]: Design sem nome
+  - generic [ref=e1823]: Design sem nome
+  - generic [ref=e1824]: Texto do seu parágrafo
+  - generic [ref=e1825]: Texto do seu parágrafo
+  - generic [ref=e1826]: Green and Light Blue Watercolor Dinosaur Birthday Party Invitation
+  - generic [ref=e1827]: Green and Light Blue Watercolor Dinosaur Birthday Party Invitation
+  - generic [ref=e1828]: Design sem nome
+  - generic [ref=e1829]: Design sem nome
+  - generic [ref=e1830]: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon
+  - generic [ref=e1831]: Site de Fitness Estilo Gradiente Marrom-escuro Rosa-neon
+  - generic [ref=e1832]: Banner para youtube de investimentos financeiros moderno preto e verde
+  - generic [ref=e1833]: Banner para youtube de investimentos financeiros moderno preto e verde
+  - generic [ref=e1834]: Design sem nome
+  - generic [ref=e1835]: Design sem nome
+  - generic [ref=e1836]: Design sem nome
+  - generic [ref=e1837]: Design sem nome
+  - generic [ref=e1838]: Design sem nome
+  - generic [ref=e1839]: Design sem nome
+  - generic [ref=e1840]: Uploads
+  - generic [ref=e1841]: Assistente
+  - generic [ref=e2592]: Início da janela de diálogo
+  - generic [ref=e2593]: Camadas Mágicas
+  - generic [ref=e2594]: Gravação de tela
+  - generic [ref=e2595]: Canva Code
+  - generic [ref=e2596]: Texto Mágico
+  - generic [ref=e2597]: Removedor de Fundo de Vídeo

@@ -1,6 +1,8 @@
 {
   "name": "ai-site-builder",
   "version": "0.1.0",
+  "description": "AI Site Builder - Crie sites inteligentes com IA",
+  "author": "AI Site Builder Team",
   "private": true,
   "engines": {
     "node": "22.x"
@@ -14,8 +16,15 @@
     "vercel:preflight": "node scripts/vercel-preflight.mjs",
     "analyze": "ANALYZE=true next build",
     "db:generate": "drizzle-kit generate",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "electron:dev": "concurrently -k \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:build": "node scripts/build-electron.js && electron-builder",
+    "electron:build:uninstaller": "node scripts/build-uninstaller-launcher.js",
+    "electron:build:win": "node scripts/build-electron.js && electron-builder --win && node scripts/build-uninstaller-launcher.js",
+    "electron:pack": "electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps"
   },
+  "main": "electron/main.js",
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.13.0",
     "@browserbasehq/sdk": "^2.9.0",
@@ -36,11 +45,16 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.2.1",
     "dotenv": "^16.6.1",
     "drizzle-kit": "^0.31.10",
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.14",
+    "png-to-ico": "^3.0.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^9.0.5"
   }
 }

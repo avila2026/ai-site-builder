@@ -3,7 +3,10 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig: NextConfig = {
   // Deploy standalone (cria pasta dist pronto para produção)
-  output: 'standalone',
+  // Em produção para Electron, usamos exportação estática
+  output: process.env.NEXT_EXPORT ? 'export' : 'standalone',
+  // Para exportação estática (Electron)
+  distDir: process.env.NEXT_EXPORT ? 'out' : '.next',
 
   // Otimizações de produção
   poweredByHeader: false,

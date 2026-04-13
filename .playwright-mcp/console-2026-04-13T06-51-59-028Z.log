@@ -1,0 +1,12 @@
+[     176ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ https://www.canva.com/design?create=&width=1280&height=720&units=px&analyticsCorrelationId=f048acaa-7491-4649-9e62-b289efffb97e&ui=e30&continue_in_browser=true:0
+[    1142ms] [LOG] ripple[DAHGtgKX0PY:-s3UW3qhWya5aDJsA(1776063113376-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    1243ms] [INFO] ripple[DAHGtgKX0PY:-s3UW3qhWya5aDJsA(1776063113376-0,0)]: unsubscribing from channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    1245ms] [INFO] websocket_client: 1776063120272 connecting... @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2447ms] [INFO] websocket_client: connected @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2448ms] [LOG] ripple[DAHGtgKX0PY:-s3UW3qhWya5aDJsA(1776063113376-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2448ms] [INFO] websocket_client: status CONNECTED @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2755ms] [INFO] websocket_client: request id 9eb88b7eeca3e01a @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    8510ms] [LOG] %cO Canva foi desenvolvido com TypeScript, React, MobX, RxJS, PostCSS, webpack e muito amor. text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    8511ms] [LOG] %cQuer trabalhar com a gente? Confira https://www.canva.com/careers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    8511ms] [LOG] %cQuer trabalhar com a gente? Confira nossos SDK e APIs aqui: https://www.canva.com/developers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[  243508ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PING_FAILED @ https://telemetry.canva.com/v1/traces:0

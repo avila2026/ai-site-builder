@@ -1,0 +1,18 @@
+- generic [ref=e2]:
+  - img [ref=e3]
+  - generic [ref=e5]:
+    - generic:
+      - main:
+        - generic:
+          - heading [level=2]
+          - paragraph
+    - list [ref=e6]:
+      - listitem [ref=e7]: "Ray ID: 9eb85f2d5fa4df51"
+      - listitem [ref=e8]: "Seu endereço IP: 131.221.85.235"
+      - listitem [ref=e9]: "Localização detectada: BR"
+    - paragraph [ref=e10]:
+      - text: Estamos verificando sua conexão. Isso não deve demorar.
+      - text: Caso continue vendo esta página, confira se há algum
+      - link "problema com o Canva" [ref=e11] [cursor=pointer]:
+        - /url: https://www.canvastatus.com/
+      - text: .

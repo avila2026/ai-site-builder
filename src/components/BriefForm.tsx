@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Sparkles, Loader2, Check, X, Image, Wand2, Palette, Layout } from 'lucide-react';
+import { Sparkles, Loader2, Check, X, Image as ImageIcon, Wand2, Palette, Layout } from 'lucide-react';
 import FileUpload, { type UploadedFile } from './FileUpload';
 import {
   templates,
@@ -223,7 +223,7 @@ export default function BriefForm({
             code = data.code;
             content = data.content;
           }
-        } catch (e) {
+        } catch {
           // Linha inválida/fragmentada é ignorada para manter resiliência do stream.
           ignoredLines++;
           console.warn(`Linha ignorada no stream: ${line.substring(0, 50)}...`);
@@ -342,7 +342,7 @@ export default function BriefForm({
               onClick={() => handleFieldChange('siteType', type.id)}
               className={`relative overflow-hidden rounded-lg border px-3 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg ${
                 formData.siteType === type.id
-                  ? 'border-primary bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-lg shadow-primary/30'
+                  ? 'border-primary bg-linear-to-br from-primary to-primary-glow text-primary-foreground shadow-lg shadow-primary/30'
                   : 'border-input bg-background/50 hover:bg-accent/50'
               }`}
               style={{ animationDelay: `${index * 50}ms` }}
@@ -408,7 +408,7 @@ export default function BriefForm({
                   onClick={() => handleFieldChange('templateId', template.id === formData.templateId ? '' : template.id)}
                   className={`group relative overflow-hidden rounded-lg border p-3 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
                     formData.templateId === template.id
-                      ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
+                      ? 'border-primary bg-linear-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
                       : 'border-input bg-background/50 hover:border-primary/30'
                   }`}
                 >
@@ -481,7 +481,7 @@ export default function BriefForm({
                   onClick={() => handleFieldChange('themeId', theme.id === formData.themeId ? '' : theme.id)}
                   className={`group relative overflow-hidden rounded-lg border p-2 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
                     formData.themeId === theme.id
-                      ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
+                      ? 'border-primary bg-linear-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/20'
                       : 'border-input bg-background/50 hover:border-primary/30'
                   }`}
                 >
@@ -553,7 +553,7 @@ export default function BriefForm({
               onClick={() => toggleSection(section)}
               className={`relative overflow-hidden rounded-full border px-4 py-1.5 text-sm transition-all duration-300 hover:scale-105 ${
                 formData.sections.includes(section)
-                  ? 'border-primary bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-md shadow-primary/20'
+                  ? 'border-primary bg-linear-to-r from-primary to-secondary text-primary-foreground shadow-md shadow-primary/20'
                   : 'border-input bg-background/50 hover:bg-accent/50'
               }`}
             >
@@ -587,7 +587,7 @@ export default function BriefForm({
       {/* Upload de Arquivos - Seção expandida */}
       <div className="space-y-4 border-t border-input pt-4">
         <div className="flex items-center gap-2">
-          <Image className="h-5 w-5 text-primary" />
+          <ImageIcon className="h-5 w-5 text-primary" />
           <h3 className="text-sm font-semibold text-foreground">Arquivos de Referência</h3>
           <span className="text-xs text-muted-foreground">(opcional)</span>
         </div>
@@ -632,7 +632,7 @@ export default function BriefForm({
       <button
         type="submit"
         disabled={isGenerating}
-        className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-primary via-secondary to-accent bg-size-200 bg-pos-0 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-pos-100 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+        className="group relative w-full overflow-hidden rounded-lg bg-linear-to-r from-primary via-secondary to-accent bg-size-200 bg-pos-0 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-pos-100 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
         style={{ backgroundSize: '200% 100%' }}
       >
         <span className="relative z-10 flex items-center justify-center gap-2">
@@ -649,7 +649,7 @@ export default function BriefForm({
           )}
         </span>
         {/* Efeito de brilho no hover */}
-        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
       </button>
     </form>
   );

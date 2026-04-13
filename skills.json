@@ -1,0 +1,145 @@
+{
+  "skills": [
+    {
+      "source": "anthropics/skills",
+      "skills": [
+        "algorithmic-art",
+        "brand-guidelines",
+        "canvas-design",
+        "doc-coauthoring",
+        "docx",
+        "frontend-design",
+        "internal-comms",
+        "mcp-builder",
+        "pdf",
+        "pptx",
+        "skill-creator",
+        "slack-gif-creator",
+        "template-skill",
+        "theme-factory",
+        "web-artifacts-builder",
+        "webapp-testing",
+        "xlsx"
+      ]
+    },
+    {
+      "source": "browser-use/browser-use",
+      "skills": [
+        "browser-use"
+      ]
+    },
+    {
+      "source": "firebase/agent-skills",
+      "skills": [
+        "firebase-hosting-basics"
+      ]
+    },
+    {
+      "source": "google-gemini/gemini-skills",
+      "skills": [
+        "gemini-api-dev",
+        "gemini-interactions-api",
+        "gemini-live-api-dev",
+        "vertex-ai-api-dev"
+      ]
+    },
+    {
+      "source": "google-labs-code/stitch-skills",
+      "skills": [
+        "design-md",
+        "react-components",
+        "stitch-design",
+        "stitch-loop"
+      ]
+    },
+    {
+      "source": "inferen-sh/skills",
+      "skills": [
+        "qwen-image-2-pro"
+      ]
+    },
+    {
+      "source": "leonxlnx/taste-skill",
+      "skills": [
+        "industrial-brutalist-ui",
+        "minimalist-ui"
+      ]
+    },
+    {
+      "source": "microsoft/playwright-cli",
+      "skills": [
+        "playwright-cli"
+      ]
+    },
+    {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "skills": [
+        "ui-ux-pro-max"
+      ]
+    },
+    {
+      "source": "remotion-dev/skills",
+      "skills": [
+        "remotion-best-practices"
+      ]
+    },
+    {
+      "source": "replicas-group/skill",
+      "skills": [
+        "replicas-agent"
+      ]
+    },
+    {
+      "source": "runablehq/mini-browser",
+      "skills": [
+        "mini-browser"
+      ]
+    },
+    {
+      "source": "shadcn/ui",
+      "skills": [
+        "shadcn"
+      ]
+    },
+    {
+      "source": "starchild-ai-agent/official-skills",
+      "skills": [
+        "browser-preview",
+        "charting",
+        "coder",
+        "coingecko",
+        "orderly-onboarding",
+        "preview-dev",
+        "skillmarketplace",
+        "twitter",
+        "wallet"
+      ]
+    },
+    {
+      "source": "supercent-io/skills-template",
+      "skills": [
+        "responsive-design"
+      ]
+    },
+    {
+      "source": "vercel-labs/agent-browser",
+      "skills": [
+        "agent-browser",
+        "electron"
+      ]
+    },
+    {
+      "source": "vercel-labs/agent-skills",
+      "skills": [
+        "vercel-react-best-practices",
+        "web-design-guidelines"
+      ]
+    },
+    {
+      "source": "vercel-labs/skills",
+      "skills": [
+        "find-skills"
+      ]
+    }
+  ]
+}

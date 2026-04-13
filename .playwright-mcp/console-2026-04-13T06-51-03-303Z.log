@@ -1,0 +1,29 @@
+[      89ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ https://www.canva.com/design?create=&width=1200&height=630&units=px&analyticsCorrelationId=c118a03c-54cf-4c23-9d04-d13c66112f7a&ui=e30&continue_in_browser=true:0
+[    1538ms] [LOG] ripple[DAHGtpfK47Y:2o3WDVHb8uLSkr0-A(1776063057449-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    1646ms] [INFO] ripple[DAHGtpfK47Y:2o3WDVHb8uLSkr0-A(1776063057449-0,0)]: unsubscribing from channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    1647ms] [INFO] websocket_client: 1776063064950 connecting... @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2354ms] [INFO] websocket_client: connected @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2356ms] [LOG] ripple[DAHGtpfK47Y:2o3WDVHb8uLSkr0-A(1776063057449-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2359ms] [INFO] websocket_client: status CONNECTED @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2572ms] [INFO] websocket_client: request id 9eb88a252d6699ea @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    8874ms] [LOG] %cO Canva foi desenvolvido com TypeScript, React, MobX, RxJS, PostCSS, webpack e muito amor. text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    8874ms] [LOG] %cQuer trabalhar com a gente? Confira https://www.canva.com/careers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    8874ms] [LOG] %cQuer trabalhar com a gente? Confira nossos SDK e APIs aqui: https://www.canva.com/developers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1115735ms] [WARNING] Blocked aria-hidden on an element because its descendant retained focus. The focus must not be hidden from assistive technology users. Avoid using aria-hidden on a focused element or its ancestor. Consider using the inert attribute instead, which will also prevent focus. For more details, see the aria-hidden section of the WAI-ARIA specification at https://w3c.github.io/aria/#aria-hidden.
+Element with focus: <button._5KtATA LQzFZw VgvqkQ _8ERLTg h69Neg unS_Qw LQzFZw VgvqkQ _4_iekA j34Zww aqbYPg _3FvZZg h5mTDw>
+Ancestor with aria-hidden: <div.KxXR9g KwB0XQ JFJaKQ> @ https://www.canva.com/design/DAHGtpfK47Y/YppT2uCOfnkQBshxt76oWg/edit?continue_in_browser=true&ui=e30&referrer=https%3A%2F%2Fwww.canva.com%2F%3Fcontinue_in_browser%3Dtrue:0
+[ 1117219ms] [WARNING] Blocked aria-hidden on an element because its descendant retained focus. The focus must not be hidden from assistive technology users. Avoid using aria-hidden on a focused element or its ancestor. Consider using the inert attribute instead, which will also prevent focus. For more details, see the aria-hidden section of the WAI-ARIA specification at https://w3c.github.io/aria/#aria-hidden.
+Element with focus: <button._5KtATA LQzFZw VgvqkQ _8ERLTg h69Neg unS_Qw LQzFZw VgvqkQ _4_iekA j34Zww aqbYPg _3FvZZg h5mTDw>
+Ancestor with aria-hidden: <div.KxXR9g KwB0XQ JFJaKQ> @ https://www.canva.com/design/DAHGtpfK47Y/YppT2uCOfnkQBshxt76oWg/edit?continue_in_browser=true&ui=e30&referrer=https%3A%2F%2Fwww.canva.com%2F%3Fcontinue_in_browser%3Dtrue:0
+[ 1127560ms] [WARNING] ripple[DAHGtpfK47Y:2o3WDVHb8uLSkr0-A(1776063059425-0,0)]: unexpected completion of incoming server stream @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1127561ms] [INFO] ripple[DAHGtpfK47Y:2o3WDVHb8uLSkr0-A(1776063059425-0,0)]: unsubscribing from channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1128076ms] [LOG] ripple[DAHGtpfK47Y:Z3bp-8NWyGfpgvV8A(1776064184424-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1128175ms] [INFO] ripple[DAHGtpfK47Y:Z3bp-8NWyGfpgvV8A(1776064184424-0,0)]: unsubscribing from channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1128176ms] [INFO] websocket_client: 1776064191478 connecting... @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1129482ms] [INFO] websocket_client: connected @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1129482ms] [LOG] ripple[DAHGtpfK47Y:Z3bp-8NWyGfpgvV8A(1776064184424-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1129483ms] [INFO] websocket_client: status CONNECTED @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1130166ms] [INFO] websocket_client: request id 9eb8a5a5fedb9a45 @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1136232ms] [LOG] %cO Canva foi desenvolvido com TypeScript, React, MobX, RxJS, PostCSS, webpack e muito amor. text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1136232ms] [LOG] %cQuer trabalhar com a gente? Confira https://www.canva.com/careers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[ 1136232ms] [LOG] %cQuer trabalhar com a gente? Confira nossos SDK e APIs aqui: https://www.canva.com/developers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0

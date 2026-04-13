@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(curl -LsSf https://astral.sh/uv/install.sh)",
-      "Bash(sh)"
+      "Bash(sh)",
+      "Bash(npm run:*)"
     ]
   },
   "enabledPlugins": {
@@ -12,6 +13,6 @@
     "aws-serverless@claude-plugins-official": true,
     "amazon-location-service@claude-plugins-official": true
   },
-  "outputStyle": "default",
+  "outputStyle": "Explanatory",
   "prefersReducedMotion": false
 }

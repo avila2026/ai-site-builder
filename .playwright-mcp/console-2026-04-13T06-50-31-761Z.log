@@ -1,0 +1,11 @@
+[      75ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ https://www.canva.com/design?create=&width=1080&height=1920&units=px&analyticsCorrelationId=120b66c9-9ebf-4c86-a315-b19b6d86485e&ui=e30&continue_in_browser=true:0
+[    1737ms] [LOG] ripple[DAHGtsylWQQ:UYkqVn747oFO-benA(1776063025935-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2180ms] [INFO] ripple[DAHGtsylWQQ:UYkqVn747oFO-benA(1776063025935-0,0)]: unsubscribing from channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    2183ms] [INFO] websocket_client: 1776063033943 connecting... @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    3103ms] [INFO] websocket_client: connected @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    3107ms] [LOG] ripple[DAHGtsylWQQ:UYkqVn747oFO-benA(1776063025935-0,0)]: subscribing to channel @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    3113ms] [INFO] websocket_client: status CONNECTED @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    3490ms] [INFO] websocket_client: request id 9eb889636bbac802 @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    9576ms] [LOG] %cO Canva foi desenvolvido com TypeScript, React, MobX, RxJS, PostCSS, webpack e muito amor. text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    9576ms] [LOG] %cQuer trabalhar com a gente? Confira https://www.canva.com/careers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0
+[    9576ms] [LOG] %cQuer trabalhar com a gente? Confira nossos SDK e APIs aqui: https://www.canva.com/developers/ text-shadow: #a0f9fa 0 0 2px; font-family: monospace; font-size: 1.4em; @ https://static.canva.com/web/de7b6a15ca4634aa.sentry_browser.js:0

@@ -1,0 +1,823 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: Carregamento concluído
+  - dialog "Primeiro, vamos falar dos cookies 🍪" [ref=e5]:
+    - heading "Primeiro, vamos falar dos cookies 🍪" [level=4] [ref=e6]
+    - generic [ref=e8]:
+      - text: Utilizamos cookies essenciais para o funcionamento do Canva. Gostaríamos de usar outros cookies para melhorar e personalizar a sua experiência, selecionar melhor os anúncios do Canva que você vê no nosso site e em sites parceiros e analisar o desempenho do nosso site, mas somente se você permitir. Para saber mais sobre suas opções,
+      - link "consulte a nossa Política de cookies" [ref=e9] [cursor=pointer]:
+        - /url: https://www.canva.com/policies/cookies-policy/
+      - text: .
+    - generic [ref=e10]:
+      - button "Aceitar todos os cookies" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: Aceitar todos os cookies
+      - button "Administrar cookies" [ref=e13] [cursor=pointer]:
+        - generic [ref=e14]: Administrar cookies
+  - generic [ref=e16]:
+    - paragraph [ref=e18]:
+      - link "Pular para o conteúdo principal" [ref=e19] [cursor=pointer]:
+        - /url: "#mainId"
+        - generic [ref=e20]: Pular para o conteúdo principal
+    - banner [ref=e24]:
+      - generic [ref=e28]:
+        - link "Página de início do Canva" [ref=e31] [cursor=pointer]:
+          - /url: https://www.canva.com/pt_br/
+          - generic [ref=e32]: Página de início do Canva
+        - navigation [ref=e38]:
+          - list [ref=e39]:
+            - listitem [ref=e40]:
+              - button "Design" [ref=e41] [cursor=pointer]:
+                - generic [ref=e42]: Design
+            - listitem [ref=e43]:
+              - button "Produto" [ref=e44] [cursor=pointer]:
+                - generic [ref=e45]: Produto
+            - listitem [ref=e46]:
+              - button "Planos" [ref=e47] [cursor=pointer]:
+                - generic [ref=e48]: Planos
+            - listitem [ref=e49]:
+              - button "Negócios" [ref=e50] [cursor=pointer]:
+                - generic [ref=e51]: Negócios
+            - listitem [ref=e52]:
+              - button "Educação" [ref=e53] [cursor=pointer]:
+                - generic [ref=e54]: Educação
+            - listitem [ref=e55]:
+              - button "Ajuda" [ref=e56] [cursor=pointer]:
+                - generic [ref=e57]: Ajuda
+        - generic [ref=e60]:
+          - link "Criar uma conta" [ref=e62] [cursor=pointer]:
+            - /url: /pt_br/signup/
+            - generic [ref=e63]: Criar uma conta
+          - link "Entrar" [ref=e64] [cursor=pointer]:
+            - /url: /pt_br/login/
+            - generic [ref=e65]: Entrar
+    - main [ref=e66]:
+      - generic [ref=e70]:
+        - heading "Faz bonito com o Canva" [level=1] [ref=e71]:
+          - generic [ref=e72]: Faz bonito com o Canva
+        - generic [ref=e75]: Transforme ideias em realidade com um toque de IA.
+        - button "Comece a criar" [ref=e79] [cursor=pointer]:
+          - generic [ref=e80]: Comece a criar
+        - generic [ref=e85]:
+          - button "Pausar" [ref=e87] [cursor=pointer]
+          - button "Pausar" [ref=e89] [cursor=pointer]:
+            - generic:
+              - img
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - heading "Modelos pra arrasar em qualquer situação" [level=2] [ref=e100]
+          - generic [ref=e102]:
+            - generic:
+              - link "Comece a criar designs grátis" [ref=e105] [cursor=pointer]:
+                - /url: /pt_br/signup/
+                - generic [ref=e106]: Comece a criar designs grátis
+              - link "Explore todos os modelos (abre em uma nova aba ou janela)" [ref=e109] [cursor=pointer]:
+                - /url: /pt_br/modelos/
+                - generic [ref=e110]: Explore todos os modelos
+                - generic [ref=e111]: (abre em uma nova aba ou janela)
+        - generic [ref=e113]: Início da lista de modelos
+        - paragraph [ref=e115]:
+          - link "Ir para o fim da lista de modelos" [ref=e116] [cursor=pointer]:
+            - /url: "#_R_155bH1_1"
+            - generic [ref=e117]: Ir para o fim da lista de modelos
+        - generic [ref=e118]:
+          - button "Página anterior da lista" [ref=e120] [cursor=pointer]:
+            - generic [ref=e122]:
+              - generic:
+                - img
+          - button "Próxima página da lista" [ref=e186] [cursor=pointer]:
+            - generic [ref=e188]:
+              - generic:
+                - img
+        - paragraph [ref=e190]:
+          - link "Ir para o início da lista de modelos" [ref=e191] [cursor=pointer]:
+            - /url: "#_R_155bH1_0"
+            - generic [ref=e192]: Ir para o início da lista de modelos
+        - generic [ref=e193]: Fim da lista de modelos
+      - generic [ref=e199]:
+        - heading "Ferramentas pra turbinar o seu trabalho" [level=2] [ref=e206]
+        - generic [ref=e208]:
+          - tablist [ref=e211]:
+            - tab "Lançamentos" [selected] [ref=e213] [cursor=pointer]:
+              - generic [ref=e214]:
+                - generic [ref=e215]:
+                  - generic:
+                    - img
+                - paragraph [ref=e216]: Lançamentos
+            - tab "IA" [ref=e218] [cursor=pointer]:
+              - generic [ref=e219]:
+                - generic [ref=e220]:
+                  - generic:
+                    - img
+                - paragraph [ref=e221]: IA
+            - tab "Redes sociais" [ref=e223] [cursor=pointer]:
+              - generic [ref=e224]:
+                - generic [ref=e225]:
+                  - generic:
+                    - img
+                - paragraph [ref=e226]: Redes sociais
+            - tab "Vídeo" [ref=e228] [cursor=pointer]:
+              - generic [ref=e229]:
+                - generic [ref=e230]:
+                  - generic:
+                    - img
+                - paragraph [ref=e231]: Vídeo
+            - tab "Apresentação" [ref=e233] [cursor=pointer]:
+              - generic [ref=e234]:
+                - generic [ref=e235]:
+                  - generic:
+                    - img
+                - paragraph [ref=e236]: Apresentação
+            - tab "Impressão" [ref=e238] [cursor=pointer]:
+              - generic [ref=e239]:
+                - generic [ref=e240]:
+                  - generic:
+                    - img
+                - paragraph [ref=e241]: Impressão
+          - generic [ref=e243]:
+            - generic [ref=e245]:
+              - tabpanel [ref=e248]:
+                - generic [ref=e250]:
+                  - generic [ref=e251]:
+                    - generic [ref=e254]:
+                      - link "Dê a sua vibe com o editor de vídeos 2.0" [ref=e255] [cursor=pointer]:
+                        - /url: /pt_br/editor-videos/
+                      - generic [ref=e256]:
+                        - generic [ref=e257]:
+                          - heading "Dê a sua vibe com o editor de vídeos 2.0" [level=3] [ref=e259]:
+                            - generic [ref=e260]: Dê a sua vibe com o editor de vídeos 2.0
+                          - link "Explore vídeos (abre em uma nova aba ou janela)" [ref=e263] [cursor=pointer]:
+                            - /url: /pt_br/editor-videos/
+                            - generic [ref=e264]: Explore vídeos
+                            - generic [ref=e265]: (abre em uma nova aba ou janela)
+                        - img "Dê a sua vibe com o editor de vídeos 2.0" [ref=e271]
+                    - generic [ref=e276]:
+                      - link "Trabalhe em equipe" [ref=e277] [cursor=pointer]:
+                        - /url: /pt_br/ia-assistente/
+                      - generic [ref=e278]:
+                        - generic [ref=e279]:
+                          - heading "Trabalhe em equipe" [level=3] [ref=e281]:
+                            - generic [ref=e282]: Trabalhe em equipe
+                          - link "Explore o Canva IA (abre em uma nova aba ou janela)" [ref=e285] [cursor=pointer]:
+                            - /url: /pt_br/ia-assistente/
+                            - generic [ref=e286]: Explore o Canva IA
+                            - generic [ref=e287]: (abre em uma nova aba ou janela)
+                        - img "Trabalhe em equipe" [ref=e293]
+                  - generic [ref=e296]:
+                    - generic [ref=e299]:
+                      - link "Explore modelos do Zootopia 2 da coleção da Disney" [ref=e300] [cursor=pointer]:
+                        - /url: "https://www.canva.com/p/disney/collections/AZrXYc-ljbdGrZyN74bz8A "
+                      - generic [ref=e301]:
+                        - generic [ref=e302]:
+                          - heading "Explore modelos do Zootopia 2 da coleção da Disney" [level=3] [ref=e304]:
+                            - generic [ref=e305]: Explore modelos do Zootopia 2 da coleção da Disney
+                          - link "Explore a coleção (abre em uma nova aba ou janela)" [ref=e308] [cursor=pointer]:
+                            - /url: "https://www.canva.com/p/disney/collections/AZrXYc-ljbdGrZyN74bz8A "
+                            - generic [ref=e309]: Explore a coleção
+                            - generic [ref=e310]: (abre em uma nova aba ou janela)
+                        - img "Explore modelos do Zootopia 2 da coleção da Disney" [ref=e316]
+                    - generic [ref=e321]:
+                      - link "Programe com o Canva" [ref=e322] [cursor=pointer]:
+                        - /url: /pt_br/gerador-de-codigo-ia/
+                      - generic [ref=e323]:
+                        - generic [ref=e324]:
+                          - heading "Programe com o Canva" [level=3] [ref=e326]:
+                            - generic [ref=e327]: Programe com o Canva
+                          - link "Explore o Canva Code (abre em uma nova aba ou janela)" [ref=e330] [cursor=pointer]:
+                            - /url: /pt_br/gerador-de-codigo-ia/
+                            - generic [ref=e331]: Explore o Canva Code
+                            - generic [ref=e332]: (abre em uma nova aba ou janela)
+                        - img "Programe com o Canva" [ref=e338]
+              - generic [ref=e341]:
+                - generic:
+                  - tabpanel:
+                    - generic [ref=e343]:
+                      - generic [ref=e344]:
+                        - generic [ref=e347]:
+                          - link "Arrase na escrita com o Texto Mágico" [ref=e348] [cursor=pointer]:
+                            - /url: /pt_br/gerador-de-textos/
+                          - generic [ref=e349]:
+                            - generic [ref=e350]:
+                              - heading "Arrase na escrita com o Texto Mágico" [level=3] [ref=e352]:
+                                - generic [ref=e353]: Arrase na escrita com o Texto Mágico
+                              - link "Explorar o Texto Mágico (abre em uma nova aba ou janela)" [ref=e356] [cursor=pointer]:
+                                - /url: /pt_br/gerador-de-textos/
+                                - generic [ref=e357]: Explorar o Texto Mágico
+                                - generic [ref=e358]: (abre em uma nova aba ou janela)
+                            - img "Interface exibindo um menu de escrita por IA com opções como “Aplicar a voz da marca” e “Continuar escrevendo” sobrepostas a um documento de texto." [ref=e364]
+                        - generic [ref=e369]:
+                          - link "Trabalhe em equipe" [ref=e370] [cursor=pointer]:
+                            - /url: /pt_br/ia-assistente/
+                          - generic [ref=e371]:
+                            - generic [ref=e372]:
+                              - heading "Trabalhe em equipe" [level=3] [ref=e374]:
+                                - generic [ref=e375]: Trabalhe em equipe
+                              - link "Explore o Canva IA (abre em uma nova aba ou janela)" [ref=e378] [cursor=pointer]:
+                                - /url: /pt_br/ia-assistente/
+                                - generic [ref=e379]: Explore o Canva IA
+                                - generic [ref=e380]: (abre em uma nova aba ou janela)
+                            - img "Trabalhe em equipe" [ref=e386]
+                      - generic [ref=e389]:
+                        - generic [ref=e392]:
+                          - link "Remova o fundo de imagens e vídeos com um clique" [ref=e393] [cursor=pointer]:
+                            - /url: /pt_br/recursos/remover-fundo/
+                          - generic [ref=e394]:
+                            - generic [ref=e395]:
+                              - heading "Remova o fundo de imagens e vídeos com um clique" [level=3] [ref=e397]:
+                                - generic [ref=e398]: Remova o fundo de imagens e vídeos com um clique
+                              - link "Explorar o Removedor de Fundo (abre em uma nova aba ou janela)" [ref=e401] [cursor=pointer]:
+                                - /url: /pt_br/recursos/remover-fundo/
+                                - generic [ref=e402]: Explorar o Removedor de Fundo
+                                - generic [ref=e403]: (abre em uma nova aba ou janela)
+                            - img "Uma comparação em tela dividida mostrando uma mulher com um vestindo vermelho, com o fundo original removido e substituído por um padrão xadrez rosa e branco." [ref=e409]
+                        - generic [ref=e414]:
+                          - link "Limpe suas fotos com a Borracha Mágica" [ref=e415] [cursor=pointer]:
+                            - /url: /pt_br/recursos/borracha-magica/
+                          - generic [ref=e416]:
+                            - generic [ref=e417]:
+                              - heading "Limpe suas fotos com a Borracha Mágica" [level=3] [ref=e419]:
+                                - generic [ref=e420]: Limpe suas fotos com a Borracha Mágica
+                              - link "Explorar a Borracha Mágica (abre em uma nova aba ou janela)" [ref=e423] [cursor=pointer]:
+                                - /url: /pt_br/recursos/borracha-magica/
+                                - generic [ref=e424]: Explorar a Borracha Mágica
+                                - generic [ref=e425]: (abre em uma nova aba ou janela)
+                            - img "Limpe suas fotos com a Borracha Mágica" [ref=e431]
+              - generic [ref=e434]:
+                - generic:
+                  - tabpanel:
+                    - generic [ref=e436]:
+                      - generic [ref=e437]:
+                        - generic [ref=e440]:
+                          - link "Vire destaque no feed com modelos especiais" [ref=e441] [cursor=pointer]:
+                            - /url: /pt_br/midias-sociais/
+                          - generic [ref=e442]:
+                            - generic [ref=e443]:
+                              - heading "Vire destaque no feed com modelos especiais" [level=3] [ref=e445]:
+                                - generic [ref=e446]: Vire destaque no feed com modelos especiais
+                              - link "Explorar modelos (abre em uma nova aba ou janela)" [ref=e449] [cursor=pointer]:
+                                - /url: /pt_br/midias-sociais/
+                                - generic [ref=e450]: Explorar modelos
+                                - generic [ref=e451]: (abre em uma nova aba ou janela)
+                            - img "Vire destaque no feed com modelos especiais" [ref=e457]
+                        - generic [ref=e462]:
+                          - link "Limpe suas fotos com a Borracha Mágica" [ref=e463] [cursor=pointer]:
+                            - /url: /pt_br/recursos/borracha-magica/
+                          - generic [ref=e464]:
+                            - generic [ref=e465]:
+                              - heading "Limpe suas fotos com a Borracha Mágica" [level=3] [ref=e467]:
+                                - generic [ref=e468]: Limpe suas fotos com a Borracha Mágica
+                              - link "Explorar a Borracha Mágica (abre em uma nova aba ou janela)" [ref=e471] [cursor=pointer]:
+                                - /url: /pt_br/recursos/borracha-magica/
+                                - generic [ref=e472]: Explorar a Borracha Mágica
+                                - generic [ref=e473]: (abre em uma nova aba ou janela)
+                            - img "Um exemplo comparativo de uma foto em que um elemento é destacado e, em seguida, removido perfeitamente." [ref=e479]
+                      - generic [ref=e482]:
+                        - generic [ref=e485]:
+                          - link "Remova o fundo de imagens e vídeos com um clique" [ref=e486] [cursor=pointer]:
+                            - /url: /pt_br/recursos/remover-fundo/
+                          - generic [ref=e487]:
+                            - generic [ref=e488]:
+                              - heading "Remova o fundo de imagens e vídeos com um clique" [level=3] [ref=e490]:
+                                - generic [ref=e491]: Remova o fundo de imagens e vídeos com um clique
+                              - link "Explorar o Removedor de Fundo (abre em uma nova aba ou janela)" [ref=e494] [cursor=pointer]:
+                                - /url: /pt_br/recursos/remover-fundo/
+                                - generic [ref=e495]: Explorar o Removedor de Fundo
+                                - generic [ref=e496]: (abre em uma nova aba ou janela)
+                            - img "Uma comparação em tela dividida mostrando uma mulher com um vestindo vermelho, com o fundo original removido e substituído por um padrão xadrez rosa e branco." [ref=e502]
+                        - generic [ref=e507]:
+                          - link "Redimensione designs num instante para qualquer canal" [ref=e508] [cursor=pointer]:
+                            - /url: /pt_br/pro/magic-resize/
+                          - generic [ref=e509]:
+                            - generic [ref=e510]:
+                              - heading "Redimensione designs num instante para qualquer canal" [level=3] [ref=e512]:
+                                - generic [ref=e513]: Redimensione designs num instante para qualquer canal
+                              - link "Explorar o Formato Mágico (abre em uma nova aba ou janela)" [ref=e516] [cursor=pointer]:
+                                - /url: /pt_br/pro/magic-resize/
+                                - generic [ref=e517]: Explorar o Formato Mágico
+                                - generic [ref=e518]: (abre em uma nova aba ou janela)
+                            - img "O mesmo design adaptado aos layouts horizontal, vertical e quadrado." [ref=e524]
+              - generic [ref=e527]:
+                - generic:
+                  - tabpanel:
+                    - generic [ref=e529]:
+                      - generic [ref=e530]:
+                        - generic [ref=e533]:
+                          - link "Conquiste seu público com novas animações de foto e vídeo" [ref=e534] [cursor=pointer]:
+                            - /url: /pt_br/criar/video-animado/
+                          - generic [ref=e535]:
+                            - generic [ref=e536]:
+                              - heading "Conquiste seu público com novas animações de foto e vídeo" [level=3] [ref=e538]:
+                                - generic [ref=e539]: Conquiste seu público com novas animações de foto e vídeo
+                              - link "Explorar animações (abre em uma nova aba ou janela)" [ref=e542] [cursor=pointer]:
+                                - /url: /pt_br/criar/video-animado/
+                                - generic [ref=e543]: Explorar animações
+                                - generic [ref=e544]: (abre em uma nova aba ou janela)
+                            - img "Uma interface mostrando um menu “Animações avançadas” sendo usado para aplicar efeitos a uma foto de uma mulher com fones de ouvido." [ref=e550]
+                        - generic [ref=e555]:
+                          - link "Descubra coleções de modelos inspiradas em música" [ref=e556] [cursor=pointer]:
+                            - /url: /pt_br/videos/modelos/
+                          - generic [ref=e557]:
+                            - generic [ref=e558]:
+                              - heading "Descubra coleções de modelos inspiradas em música" [level=3] [ref=e560]:
+                                - generic [ref=e561]: Descubra coleções de modelos inspiradas em música
+                              - link "Explorar modelos (abre em uma nova aba ou janela)" [ref=e564] [cursor=pointer]:
+                                - /url: /pt_br/videos/modelos/
+                                - generic [ref=e565]: Explorar modelos
+                                - generic [ref=e566]: (abre em uma nova aba ou janela)
+                            - img "A pré-visualização de uma biblioteca de música e um elemento com forma de onda sobre uma foto de amigos." [ref=e572]
+                      - generic [ref=e575]:
+                        - generic [ref=e578]:
+                          - link "Remova o fundo de vídeos em instantes" [ref=e579] [cursor=pointer]:
+                            - /url: /pt_br/recursos/remover-fundo-videos/
+                          - generic [ref=e580]:
+                            - generic [ref=e581]:
+                              - heading "Remova o fundo de vídeos em instantes" [level=3] [ref=e583]:
+                                - generic [ref=e584]: Remova o fundo de vídeos em instantes
+                              - link "Explorar o Removedor de Fundo (abre em uma nova aba ou janela)" [ref=e587] [cursor=pointer]:
+                                - /url: /pt_br/recursos/remover-fundo-videos/
+                                - generic [ref=e588]: Explorar o Removedor de Fundo
+                                - generic [ref=e589]: (abre em uma nova aba ou janela)
+                            - img "Uma comparação em tela dividida mostrando um quadro de vídeo de um homem com o fundo original da sala removido e substituído por um padrão xadrez rosa e branco." [ref=e595]
+                        - generic [ref=e600]:
+                          - link "Aumente o engajamento com legendas geradas por IA" [ref=e601] [cursor=pointer]:
+                            - /url: /pt_br/recursos/colocar-legenda-video/
+                          - generic [ref=e602]:
+                            - generic [ref=e603]:
+                              - heading "Aumente o engajamento com legendas geradas por IA" [level=3] [ref=e605]:
+                                - generic [ref=e606]: Aumente o engajamento com legendas geradas por IA
+                              - link "Explorar legendas (abre em uma nova aba ou janela)" [ref=e609] [cursor=pointer]:
+                                - /url: /pt_br/recursos/colocar-legenda-video/
+                                - generic [ref=e610]: Explorar legendas
+                                - generic [ref=e611]: (abre em uma nova aba ou janela)
+                            - img "Uma interface de editor de vídeo mostrando cursores colaborativos e uma legenda que diz “Acessibilidade é fundamental!” sobre um clipe de vídeo." [ref=e617]
+              - generic [ref=e620]:
+                - generic:
+                  - tabpanel:
+                    - generic [ref=e622]:
+                      - generic [ref=e623]:
+                        - generic [ref=e626]:
+                          - link "Visualize dados com gráficos interativos" [ref=e627] [cursor=pointer]:
+                            - /url: /pt_br/graficos/
+                          - generic [ref=e628]:
+                            - generic [ref=e629]:
+                              - heading "Visualize dados com gráficos interativos" [level=3] [ref=e631]:
+                                - generic [ref=e632]: Visualize dados com gráficos interativos
+                              - link "Explorar gráficos (abre em uma nova aba ou janela)" [ref=e635] [cursor=pointer]:
+                                - /url: /pt_br/graficos/
+                                - generic [ref=e636]: Explorar gráficos
+                                - generic [ref=e637]: (abre em uma nova aba ou janela)
+                            - img "Um gráfico de área mostrando uma previsão de vendas com uma dica interativa exibindo pontos de dados específicos." [ref=e643]
+                        - generic [ref=e648]:
+                          - link "Encontre o modelo de apresentação perfeito" [ref=e649] [cursor=pointer]:
+                            - /url: /pt_br/apresentacoes/modelos/
+                          - generic [ref=e650]:
+                            - generic [ref=e651]:
+                              - heading "Encontre o modelo de apresentação perfeito" [level=3] [ref=e653]:
+                                - generic [ref=e654]: Encontre o modelo de apresentação perfeito
+                              - link "Explorar modelos (abre em uma nova aba ou janela)" [ref=e657] [cursor=pointer]:
+                                - /url: /pt_br/apresentacoes/modelos/
+                                - generic [ref=e658]: Explorar modelos
+                                - generic [ref=e659]: (abre em uma nova aba ou janela)
+                            - img "Uma coleção de modelos de apresentação, com um usuário selecionando um modelo intitulado “Nossa Cultura Empresarial”." [ref=e665]
+                      - generic [ref=e668]:
+                        - generic [ref=e671]:
+                          - link "Crie slides em segundos com o Design Mágico" [ref=e672] [cursor=pointer]:
+                            - /url: /pt_br/design-magico/
+                          - generic [ref=e673]:
+                            - generic [ref=e674]:
+                              - heading "Crie slides em segundos com o Design Mágico" [level=3] [ref=e676]:
+                                - generic [ref=e677]: Crie slides em segundos com o Design Mágico
+                              - link "Explorar o Design Mágico (abre em uma nova aba ou janela)" [ref=e680] [cursor=pointer]:
+                                - /url: /pt_br/design-magico/
+                                - generic [ref=e681]: Explorar o Design Mágico
+                                - generic [ref=e682]: (abre em uma nova aba ou janela)
+                            - img "Uma caixa de comando de IA sendo usada para gerar designs coloridos de pitch decks de vendas." [ref=e688]
+                        - generic [ref=e693]:
+                          - link "Anime fotos e vídeos com efeitos que são tendência" [ref=e694] [cursor=pointer]:
+                            - /url: /pt_br/pro/animator/
+                          - generic [ref=e695]:
+                            - generic [ref=e696]:
+                              - heading "Anime fotos e vídeos com efeitos que são tendência" [level=3] [ref=e698]:
+                                - generic [ref=e699]: Anime fotos e vídeos com efeitos que são tendência
+                              - link "Explorar animações (abre em uma nova aba ou janela)" [ref=e702] [cursor=pointer]:
+                                - /url: /pt_br/pro/animator/
+                                - generic [ref=e703]: Explorar animações
+                                - generic [ref=e704]: (abre em uma nova aba ou janela)
+                            - img "Uma interface mostrando um menu “Animações avançadas” sendo usado para aplicar efeitos a uma foto de uma mulher com fones de ouvido." [ref=e710]
+              - generic [ref=e713]:
+                - generic:
+                  - tabpanel:
+                    - generic [ref=e715]:
+                      - generic [ref=e716]:
+                        - generic [ref=e719]:
+                          - link "Gere imagens incríveis e de alta qualidade para suas impressões" [ref=e720] [cursor=pointer]:
+                            - /url: /pt_br/gerador-imagem-ia/
+                          - generic [ref=e721]:
+                            - generic [ref=e722]:
+                              - heading "Gere imagens incríveis e de alta qualidade para suas impressões" [level=3] [ref=e724]:
+                                - generic [ref=e725]: Gere imagens incríveis e de alta qualidade para suas impressões
+                              - link "Explorar o gerador de imagem por IA (abre em uma nova aba ou janela)" [ref=e728] [cursor=pointer]:
+                                - /url: /pt_br/gerador-imagem-ia/
+                                - generic [ref=e729]: Explorar o gerador de imagem por IA
+                                - generic [ref=e730]: (abre em uma nova aba ou janela)
+                            - img "Uma interface mostrando um comando de texto para uma “composição brilhante e ousada para um cartaz” gerando diversas imagens, incluindo um cachorro astronauta e uma paisagem cósmica." [ref=e736]
+                        - generic [ref=e741]:
+                          - link "Crie e imprima designs usando modelos profissionais" [ref=e742] [cursor=pointer]:
+                            - /url: /pt_br/print/
+                          - generic [ref=e743]:
+                            - generic [ref=e744]:
+                              - heading "Crie e imprima designs usando modelos profissionais" [level=3] [ref=e746]:
+                                - generic [ref=e747]: Crie e imprima designs usando modelos profissionais
+                              - link "Explorar produtos para impressão (abre em uma nova aba ou janela)" [ref=e750] [cursor=pointer]:
+                                - /url: /pt_br/print/
+                                - generic [ref=e751]: Explorar produtos para impressão
+                                - generic [ref=e752]: (abre em uma nova aba ou janela)
+                            - img "Uma coleção de modelos coloridos para impressão, com um usuário selecionando um design com o texto “Ame seu trabalho”." [ref=e758]
+                      - generic [ref=e761]:
+                        - generic [ref=e764]:
+                          - link "Redimensione designs em instantes para impressão" [ref=e765] [cursor=pointer]:
+                            - /url: /pt_br/pro/magic-resize/
+                          - generic [ref=e766]:
+                            - generic [ref=e767]:
+                              - heading "Redimensione designs em instantes para impressão" [level=3] [ref=e769]:
+                                - generic [ref=e770]: Redimensione designs em instantes para impressão
+                              - link "Explorar o Formato Mágico (abre em uma nova aba ou janela)" [ref=e773] [cursor=pointer]:
+                                - /url: /pt_br/pro/magic-resize/
+                                - generic [ref=e774]: Explorar o Formato Mágico
+                                - generic [ref=e775]: (abre em uma nova aba ou janela)
+                            - img "Uma ecobag com um design com o texto “Ame seu trabalho” ao lado de um menu com opções para ecobag, um broche e uma caneca." [ref=e781]
+                        - generic [ref=e786]:
+                          - link "Garanta a unidade visual com o Kit de Marca" [ref=e787] [cursor=pointer]:
+                            - /url: /pt_br/pro/kit-de-marca/
+                          - generic [ref=e788]:
+                            - generic [ref=e789]:
+                              - heading "Garanta a unidade visual com o Kit de Marca" [level=3] [ref=e791]:
+                                - generic [ref=e792]: Garanta a unidade visual com o Kit de Marca
+                              - link "Explorar o Kit de Marca (abre em uma nova aba ou janela)" [ref=e795] [cursor=pointer]:
+                                - /url: /pt_br/pro/kit-de-marca/
+                                - generic [ref=e796]: Explorar o Kit de Marca
+                                - generic [ref=e797]: (abre em uma nova aba ou janela)
+                            - img "Exibição visual da identidade da marca de uma empresa, incluindo logotipo, tipografia, paleta de cores em tons de roxo e estilo fotográfico." [ref=e803]
+            - button "Próxima aba" [ref=e807] [cursor=pointer]:
+              - generic [ref=e809]:
+                - generic:
+                  - img
+      - generic [ref=e817]:
+        - heading "Comece a criar com o Canva" [level=2] [ref=e818]
+        - link "Comece de graça agora" [ref=e822] [cursor=pointer]:
+          - /url: /pt_br/signup/
+          - generic [ref=e823]: Comece de graça agora
+    - generic [ref=e825]:
+      - paragraph [ref=e827]:
+        - link "Ir para o fim do rodapé" [ref=e828] [cursor=pointer]:
+          - /url: "#_R_5rH1_"
+          - generic [ref=e829]: Ir para o fim do rodapé
+      - contentinfo [ref=e830]:
+        - generic [ref=e832]:
+          - generic [ref=e839]:
+            - generic [ref=e842]:
+              - heading "Baixe o Canva grátis" [level=2] [ref=e844]
+              - generic [ref=e846]:
+                - generic:
+                  - link "Windows" [ref=e848] [cursor=pointer]:
+                    - /url: https://www.canva.com/pt_br/baixar/windows/
+                    - generic [ref=e849]: Windows
+                  - link "Mac" [ref=e851] [cursor=pointer]:
+                    - /url: https://www.canva.com/pt_br/baixar/mac/
+                    - generic [ref=e852]: Mac
+            - navigation [ref=e855]:
+              - list [ref=e857]:
+                - listitem [ref=e858]:
+                  - heading "Produto" [level=2] [ref=e860]:
+                    - generic [ref=e861]: Produto
+                  - list "Produto" [ref=e862]:
+                    - listitem [ref=e863]:
+                      - link "Últimos lançamentos" [ref=e864] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/launches/
+                        - generic [ref=e865]: Últimos lançamentos
+                    - listitem [ref=e866]:
+                      - link "Kit de Criação Visual" [ref=e867] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/visual-suite/
+                        - generic [ref=e868]: Kit de Criação Visual
+                    - listitem [ref=e869]:
+                      - link "Estúdio Mágico" [ref=e870] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/magia/
+                        - generic [ref=e871]: Estúdio Mágico
+                    - listitem [ref=e872]:
+                      - link "Gestão de marca" [ref=e873] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/negocios/features/brand/
+                        - generic [ref=e874]: Gestão de marca
+                    - listitem [ref=e875]:
+                      - link "Redes sociais" [ref=e876] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/midias-sociais/
+                        - generic [ref=e877]: Redes sociais
+                    - listitem [ref=e878]:
+                      - link "Recursos" [ref=e879] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/recursos/
+                        - generic [ref=e880]: Recursos
+                    - listitem [ref=e881]:
+                      - link "Produtos para impressão" [ref=e882] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/print/
+                        - generic [ref=e883]: Produtos para impressão
+                    - listitem [ref=e884]:
+                      - link "Marketplace de apps" [ref=e885] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/apps/
+                        - generic [ref=e886]: Marketplace de apps
+                    - listitem [ref=e887]:
+                      - link "Affinity" [ref=e888] [cursor=pointer]:
+                        - /url: https://www.affinity.studio/
+                        - generic [ref=e889]:
+                          - text: Affinity
+                          - generic [ref=e892]:
+                            - generic:
+                              - img
+                - listitem [ref=e893]:
+                  - heading "Planos" [level=2] [ref=e895]:
+                    - generic [ref=e896]: Planos
+                  - list "Planos" [ref=e897]:
+                    - listitem [ref=e898]:
+                      - link "Preços" [ref=e899] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/precos/
+                        - generic [ref=e900]: Preços
+                    - listitem [ref=e901]:
+                      - link "Pro" [ref=e902] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/pro/
+                        - generic [ref=e903]: Pro
+                    - listitem [ref=e904]:
+                      - link "Pro+" [ref=e905] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/canva-pro-mais/
+                        - generic [ref=e906]: Pro+
+                    - listitem [ref=e907]:
+                      - link "Enterprise" [ref=e908] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/empresas/
+                        - generic [ref=e909]: Enterprise
+                    - listitem [ref=e910]:
+                      - link "Educação" [ref=e911] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/educacao/
+                        - generic [ref=e912]: Educação
+                    - listitem [ref=e913]:
+                      - link "Ensino superior" [ref=e914] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/for-campus/
+                        - generic [ref=e915]: Ensino superior
+                    - listitem [ref=e916]:
+                      - link "ONGs" [ref=e917] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/canva-para-ongs/
+                        - generic [ref=e918]: ONGs
+                    - listitem [ref=e919]:
+                      - link "Fale com a equipe de vendas" [ref=e920] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/fale-com-vendas/
+                        - generic [ref=e921]: Fale com a equipe de vendas
+                - listitem [ref=e922]:
+                  - heading "Sobre" [level=2] [ref=e924]:
+                    - generic [ref=e925]: Sobre
+                  - list "Sobre" [ref=e926]:
+                    - listitem [ref=e927]:
+                      - link "Sobre o Canva" [ref=e928] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/about/
+                        - generic [ref=e929]: Sobre o Canva
+                    - listitem [ref=e930]:
+                      - link "Sala de imprensa" [ref=e931] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/midia/novidades/
+                        - generic [ref=e932]: Sala de imprensa
+                    - listitem [ref=e933]:
+                      - link "Eventos" [ref=e934] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/events/
+                        - generic [ref=e935]: Eventos
+                    - listitem [ref=e936]:
+                      - link "Carreiras" [ref=e937] [cursor=pointer]:
+                        - /url: https://www.lifeatcanva.com/en
+                        - generic [ref=e938]:
+                          - text: Carreiras
+                          - generic [ref=e941]:
+                            - generic:
+                              - img
+                    - listitem [ref=e942]:
+                      - link "Impacto social" [ref=e943] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/step-two/
+                        - generic [ref=e944]: Impacto social
+                    - listitem [ref=e945]:
+                      - link "Sustentabilidade" [ref=e946] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/sustentabilidade/
+                        - generic [ref=e947]: Sustentabilidade
+                    - listitem [ref=e948]:
+                      - link "Casos de sucesso" [ref=e949] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/casos-de-sucesso/
+                        - generic [ref=e950]: Casos de sucesso
+                - listitem [ref=e951]:
+                  - heading "Comunidade" [level=2] [ref=e953]:
+                    - generic [ref=e954]: Comunidade
+                  - list "Comunidade" [ref=e955]:
+                    - listitem [ref=e956]:
+                      - link "Comunidades do Canva" [ref=e957] [cursor=pointer]:
+                        - /url: https://www.canva.com/community/
+                        - generic [ref=e958]: Comunidades do Canva
+                    - listitem [ref=e959]:
+                      - link "Creators" [ref=e960] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/creators/
+                        - generic [ref=e961]: Creators
+                    - listitem [ref=e962]:
+                      - link "Afiliados" [ref=e963] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/help/canva-affiliate-marketing-program/
+                        - generic [ref=e964]: Afiliados
+                    - listitem [ref=e965]:
+                      - link "Fundo Canva Representa" [ref=e966] [cursor=pointer]:
+                        - /url: https://www.canva.com/canva-represents/
+                        - generic [ref=e967]: Fundo Canva Representa
+                    - listitem [ref=e968]:
+                      - link "Parceiros de conteúdo" [ref=e969] [cursor=pointer]:
+                        - /url: https://www.canva.com/partners/content/
+                        - generic [ref=e970]: Parceiros de conteúdo
+                    - listitem [ref=e971]:
+                      - link "Diretório de parceiros de negócios" [ref=e972] [cursor=pointer]:
+                        - /url: https://partners.canva.com/directory/
+                        - generic [ref=e973]: Diretório de parceiros de negócios
+                    - listitem [ref=e974]:
+                      - link "Desenvolvedores do Canva" [ref=e975] [cursor=pointer]:
+                        - /url: https://www.canva.com/developers/
+                        - generic [ref=e976]:
+                          - text: Desenvolvedores do Canva
+                          - generic [ref=e979]:
+                            - generic:
+                              - img
+                - listitem [ref=e980]:
+                  - heading "Inspiração" [level=2] [ref=e982]:
+                    - generic [ref=e983]: Inspiração
+                  - list "Inspiração" [ref=e984]:
+                    - listitem [ref=e985]:
+                      - link "Tendências de design" [ref=e986] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/design-trends/
+                        - generic [ref=e987]: Tendências de design
+                    - listitem [ref=e988]:
+                      - link "Podcast sobre criatividade em IA" [ref=e989] [cursor=pointer]:
+                        - /url: https://promptedpodcast.com/
+                        - generic [ref=e990]:
+                          - text: Podcast sobre criatividade em IA
+                          - generic [ref=e993]:
+                            - generic:
+                              - img
+                    - listitem [ref=e994]:
+                      - link "Blog “Aprenda”" [ref=e995] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/aprenda/
+                        - generic [ref=e996]: Blog “Aprenda”
+                    - listitem [ref=e997]:
+                      - link "Biblioteca de modelos" [ref=e998] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/modelos/
+                        - generic [ref=e999]: Biblioteca de modelos
+                    - listitem [ref=e1000]:
+                      - link "Combinação de fontes" [ref=e1001] [cursor=pointer]:
+                        - /url: https://www.canva.com/learn/the-ultimate-guide-to-font-pairing/
+                        - generic [ref=e1002]: Combinação de fontes
+                    - listitem [ref=e1003]:
+                      - link "Roda das cores" [ref=e1004] [cursor=pointer]:
+                        - /url: https://www.canva.com/colors/color-wheel/
+                        - generic [ref=e1005]: Roda das cores
+                    - listitem [ref=e1006]:
+                      - link "Cores" [ref=e1007] [cursor=pointer]:
+                        - /url: https://www.canva.com/colors/
+                        - generic [ref=e1008]: Cores
+                    - listitem [ref=e1009]:
+                      - link "Gerador de paletas de cores" [ref=e1010] [cursor=pointer]:
+                        - /url: https://www.canva.com/colors/color-palette-generator/
+                        - generic [ref=e1011]: Gerador de paletas de cores
+                - listitem [ref=e1012]:
+                  - heading "Ajuda" [level=2] [ref=e1014]:
+                    - generic [ref=e1015]: Ajuda
+                  - list "Ajuda" [ref=e1016]:
+                    - listitem [ref=e1017]:
+                      - link "Central de Ajuda" [ref=e1018] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/help/
+                        - generic [ref=e1019]: Central de Ajuda
+                    - listitem [ref=e1020]:
+                      - link "Segurança" [ref=e1021] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/security/
+                        - generic [ref=e1022]: Segurança
+                    - listitem [ref=e1023]:
+                      - link "Centro de Confiança" [ref=e1024] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/trust/
+                        - generic [ref=e1025]: Centro de Confiança
+                    - listitem [ref=e1026]:
+                      - link "IA segura do Canva" [ref=e1027] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/safe-ai-canva-shield/
+                        - generic [ref=e1028]: IA segura do Canva
+                    - listitem [ref=e1029]:
+                      - link "Acessibilidade" [ref=e1030] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/accessibility/
+                        - generic [ref=e1031]: Acessibilidade
+                    - listitem [ref=e1032]:
+                      - link "Serviços empresariais" [ref=e1033] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/empresas/servicos-profissionais/
+                        - generic [ref=e1034]: Serviços empresariais
+                    - listitem [ref=e1035]:
+                      - link "Escola Criativa" [ref=e1036] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/design-school/
+                        - generic [ref=e1037]:
+                          - text: Escola Criativa
+                          - generic [ref=e1040]:
+                            - generic:
+                              - img
+                    - listitem [ref=e1041]:
+                      - link "Mapa do site" [ref=e1042] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/sitemap/
+                        - generic [ref=e1043]: Mapa do site
+                - listitem [ref=e1044]:
+                  - heading "Ferramentas" [level=2] [ref=e1046]:
+                    - generic [ref=e1047]: Ferramentas
+                  - list "Ferramentas" [ref=e1048]:
+                    - listitem [ref=e1049]:
+                      - link "Gerador de código QR" [ref=e1050] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/gerador-qr-code/
+                        - generic [ref=e1051]: Gerador de código QR
+                    - listitem [ref=e1052]:
+                      - link "Gerador de logotipo de IA" [ref=e1053] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/logo-ia/
+                        - generic [ref=e1054]: Gerador de logotipo de IA
+                    - listitem [ref=e1055]:
+                      - link "Gerador de assinaturas" [ref=e1056] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/gerador-de-assinaturas/
+                        - generic [ref=e1057]: Gerador de assinaturas
+                    - listitem [ref=e1058]:
+                      - link "Gerador de nomes comerciais" [ref=e1059] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/gerador-nomes-empresa/
+                        - generic [ref=e1060]: Gerador de nomes comerciais
+                    - listitem [ref=e1061]:
+                      - link "Conversor de PDF" [ref=e1062] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/recursos/conversor-pdf/
+                        - generic [ref=e1063]: Conversor de PDF
+                    - listitem [ref=e1064]:
+                      - link "Conversor de PDF para JPG" [ref=e1065] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/recursos/converter-pdf-jpg/
+                        - generic [ref=e1066]: Conversor de PDF para JPG
+                    - listitem [ref=e1067]:
+                      - link "Conversor de JPG para PDF" [ref=e1068] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/recursos/converter-jpg-pdf/
+                        - generic [ref=e1069]: Conversor de JPG para PDF
+                    - listitem [ref=e1070]:
+                      - link "Editor de gráficos" [ref=e1071] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/graficos/
+                        - generic [ref=e1072]: Editor de gráficos
+          - generic [ref=e1074]:
+            - generic:
+              - generic [ref=e1077]:
+                - generic:
+                  - button "Português (Brasil)" [ref=e1083] [cursor=pointer]:
+                    - generic [ref=e1084]:
+                      - generic:
+                        - img
+                    - generic [ref=e1086]: Português (Brasil)
+                  - generic [ref=e1088]:
+                    - generic:
+                      - link "LinkedIn" [ref=e1090] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/canva
+                        - generic [ref=e1091]:
+                          - generic:
+                            - img
+                        - generic [ref=e1092]: (abre em uma nova aba ou janela)
+                      - link "Instagram" [ref=e1094] [cursor=pointer]:
+                        - /url: https://www.instagram.com/canva/
+                        - generic [ref=e1095]:
+                          - generic:
+                            - img
+                        - generic [ref=e1096]: (abre em uma nova aba ou janela)
+                      - link "Facebook" [ref=e1098] [cursor=pointer]:
+                        - /url: https://www.facebook.com/canva
+                        - generic [ref=e1099]:
+                          - generic:
+                            - img
+                        - generic [ref=e1100]: (abre em uma nova aba ou janela)
+                      - link "TikTok" [ref=e1102] [cursor=pointer]:
+                        - /url: https://www.tiktok.com/@canva
+                        - generic [ref=e1103]:
+                          - generic:
+                            - img
+                        - generic [ref=e1104]: (abre em uma nova aba ou janela)
+                      - link "Pinterest" [ref=e1106] [cursor=pointer]:
+                        - /url: https://au.pinterest.com/canva/
+                        - generic [ref=e1107]:
+                          - generic:
+                            - img
+                        - generic [ref=e1108]: (abre em uma nova aba ou janela)
+                      - link "x" [ref=e1110] [cursor=pointer]:
+                        - /url: https://x.com/canva
+                        - generic [ref=e1111]:
+                          - generic:
+                            - img
+                        - generic [ref=e1112]: (abre em uma nova aba ou janela)
+                      - link "YouTube" [ref=e1114] [cursor=pointer]:
+                        - /url: https://www.youtube.com/@canva
+                        - generic [ref=e1115]:
+                          - generic:
+                            - img
+                        - generic [ref=e1116]: (abre em uma nova aba ou janela)
+              - generic [ref=e1118]:
+                - generic:
+                  - generic [ref=e1121]:
+                    - generic:
+                      - link "Privacidade" [ref=e1123] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/politicas/privacy-policy/
+                        - generic [ref=e1125]: Privacidade
+                      - link "Termos" [ref=e1127] [cursor=pointer]:
+                        - /url: https://www.canva.com/pt_br/politicas/terms-of-use/
+                        - generic [ref=e1129]: Termos
+                  - paragraph [ref=e1132]: © 2026 Todos os direitos reservados
+      - paragraph [ref=e1134]:
+        - link "Ir para o início do rodapé" [ref=e1135] [cursor=pointer]:
+          - /url: "#_R_5r_"
+          - generic [ref=e1136]: Ir para o início do rodapé

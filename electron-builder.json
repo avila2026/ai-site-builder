@@ -1,0 +1,55 @@
+{
+  "appId": "com.ai-site-builder.app",
+  "productName": "AI Site Builder",
+  "directories": {
+    "output": "release-builder",
+    "buildResources": "build"
+  },
+  "electronDownload": {
+    "cache": "D:/1-WORKFLOW/ai-site-builder/.electron-cache"
+  },
+  "files": [
+    "electron/**/*",
+    ".next/standalone/.next/**/*",
+    ".next/standalone/node_modules/**/*",
+    ".next/standalone/public/**/*",
+    ".next/standalone/server.js",
+    ".next/standalone/package.json",
+    "package.json"
+  ],
+  "extraMetadata": {
+    "main": "electron/main.js"
+  },
+  "win": {
+    "target": "nsis",
+    "artifactName": "${productName}-${version}-Setup.${ext}",
+    "icon": "icon.ico",
+    "requestedExecutionLevel": "asInvoker",
+    "signAndEditExecutable": false
+  },
+  "nsis": {
+    "guid": "f4fcc2da-a373-55b9-92fd-8af4d2579e10",
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "AI Site Builder",
+    "runAfterFinish": true,
+    "deleteAppDataOnUninstall": true,
+    "installerIcon": "icon.ico",
+    "include": "build/installer.nsh",
+    "license": "build/LICENSE.txt",
+    "uninstallerIcon": "icon.ico",
+    "language": "1046",
+    "installerLanguages": [
+      "pt_BR",
+      "en_US"
+    ]
+  },
+  "asar": true,
+  "asarUnpack": [
+    ".next/standalone/**/*"
+  ],
+  "compression": "maximum",
+  "publish": null
+}

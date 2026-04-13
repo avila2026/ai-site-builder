@@ -20,5 +20,14 @@
   "files.readonlyInclude": {
     "{**/.c4z/.extsrcs/*.PROTSYM.cbl,**/.c4z/.extsrcs/*.PROTSYM.listing}": true
   },
-  "githubPullRequests.pullRequestDescription": "commit"
+  "githubPullRequests.pullRequestDescription": "commit",
+  "files.autoSave": "onFocusChange",
+  "editor.renderWhitespace": "none",
+  "editor.wordWrap": "on",
+  "editor.accessibilityPageSize": 450,
+  "editor.allowVariableFontsInAccessibilityMode": true,
+  "editor.autoIndentOnPaste": true,
+  "editor.codeActions.triggerOnFocusChange": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "workbench.browser.showInTitleBar": true
 }

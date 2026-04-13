@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["@playwright/test@mcp", "--headless"],
-      "env": {}
-    }
-  }
-}

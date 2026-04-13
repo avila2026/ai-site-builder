@@ -1,0 +1,1070 @@
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - heading "Editor do Canva" [level=1] [ref=e7]
+    - generic [ref=e9]: As alterações serão salvas automaticamente
+    - generic [ref=e10]:
+      - paragraph [ref=e12]:
+        - link "Pular a navegação" [ref=e13] [cursor=pointer]:
+          - /url: "#_r_0_2"
+          - generic [ref=e14]: Pular a navegação
+      - paragraph [ref=e16]:
+        - link "Pular para o conteúdo principal" [ref=e17] [cursor=pointer]:
+          - /url: "#_r_0_3"
+          - generic [ref=e18]: Pular para o conteúdo principal
+      - generic [ref=e19]:
+        - banner [ref=e20]:
+          - menubar "Principal" [ref=e22]:
+            - generic [ref=e24]:
+              - menuitem "Início" [ref=e27] [cursor=pointer]:
+                - generic [ref=e28]:
+                  - generic:
+                    - img
+              - menuitem "Arquivo" [ref=e33] [cursor=pointer]:
+                - generic [ref=e34]: Arquivo
+              - menuitem "Redimensionar" [ref=e37] [cursor=pointer]:
+                - generic [ref=e39]: Redimensionar
+              - menuitem "Edição" [ref=e42] [cursor=pointer]:
+                - generic [ref=e43]:
+                  - generic:
+                    - img
+                - generic [ref=e45]:
+                  - generic [ref=e46]: Edição
+                  - generic [ref=e47]:
+                    - generic:
+                      - img
+              - menuitem "Todas as alterações foram salvas" [ref=e53] [cursor=pointer]:
+                - generic [ref=e54]:
+                  - generic:
+                    - img
+            - generic [ref=e55]:
+              - generic [ref=e57]:
+                - button "AVILAMIX ACRE" [ref=e59] [cursor=pointer]
+                - button "Compartilhar" [ref=e62] [cursor=pointer]:
+                  - generic [ref=e63]:
+                    - generic:
+                      - img
+              - menuitem "Estatísticas" [ref=e67] [cursor=pointer]:
+                - generic [ref=e68]:
+                  - generic:
+                    - img
+              - menuitem "Ver todos os comentários" [ref=e70] [cursor=pointer]:
+                - generic [ref=e71]:
+                  - generic:
+                    - img
+              - menuitem "Compartilhar" [ref=e76] [cursor=pointer]:
+                - generic [ref=e77]:
+                  - generic:
+                    - img
+                - generic [ref=e78]: Compartilhar
+        - generic [ref=e80]:
+          - complementary "Painel lateral" [ref=e81]:
+            - heading "Painel lateral" [level=2] [ref=e83]
+            - tablist "Painel lateral" [ref=e91]:
+              - tab "Modelos" [ref=e92] [cursor=pointer]:
+                - generic "Modelos" [ref=e574]:
+                  - generic [ref=e576]:
+                    - generic:
+                      - img
+                  - generic [ref=e577]: Modelos
+              - tab "Elementos" [ref=e97] [cursor=pointer]:
+                - generic "Elementos" [ref=e578]:
+                  - generic [ref=e580]:
+                    - generic:
+                      - img
+                  - generic [ref=e581]: Elementos
+              - tab "Texto" [active] [selected] [ref=e102] [cursor=pointer]:
+                - generic "Texto" [ref=e582]:
+                  - generic [ref=e584]:
+                    - generic:
+                      - img
+                  - generic [ref=e585]: Texto
+              - tab "Marca" [ref=e107] [cursor=pointer]:
+                - generic "Marca" [ref=e586]:
+                  - generic [ref=e588]:
+                    - generic:
+                      - img
+                    - generic [ref=e592]:
+                      - generic:
+                        - img
+                  - generic [ref=e593]: Marca
+              - tab "Uploads" [ref=e116] [cursor=pointer]:
+                - generic "Uploads" [ref=e118]:
+                  - generic [ref=e119]:
+                    - generic:
+                      - img
+                  - generic "Uploads" [ref=e594]:
+                    - generic [ref=e596]:
+                      - generic:
+                        - img
+                    - generic [ref=e597]: Uploads
+              - tab "Ferramentas" [ref=e125] [cursor=pointer]:
+                - generic "Ferramentas" [ref=e598]:
+                  - generic [ref=e600]:
+                    - generic:
+                      - img
+                  - generic [ref=e601]: Ferramentas
+              - tab "Projetos" [ref=e130] [cursor=pointer]:
+                - generic "Projetos" [ref=e132]:
+                  - generic [ref=e133]:
+                    - generic:
+                      - img
+                  - generic "Projetos" [ref=e602]:
+                    - generic [ref=e604]:
+                      - generic:
+                        - img
+                    - generic [ref=e605]: Projetos
+              - tab "Apps" [ref=e139] [cursor=pointer]:
+                - generic "Apps" [ref=e606]:
+                  - generic [ref=e608]:
+                    - generic:
+                      - img
+                  - generic [ref=e609]: Apps
+              - separator [ref=e145]
+              - tab "Mídia Mágica" [ref=e146] [cursor=pointer]:
+                - generic "Mídia Mágica" [ref=e610]:
+                  - generic [ref=e612]:
+                    - generic:
+                      - img
+                  - generic [ref=e613]: Mídia Mágica
+              - tab "Áudios" [ref=e151] [cursor=pointer]:
+                - generic "Áudios" [ref=e614]:
+                  - generic [ref=e616]:
+                    - generic:
+                      - img
+                  - generic [ref=e617]: Áudios
+              - tab "Vídeos" [ref=e156] [cursor=pointer]:
+                - generic "Vídeos" [ref=e618]:
+                  - generic [ref=e620]:
+                    - generic:
+                      - img
+                  - generic [ref=e621]: Vídeos
+              - tab "Fundo" [ref=e161] [cursor=pointer]:
+                - generic "Fundo" [ref=e622]:
+                  - generic [ref=e624]:
+                    - generic:
+                      - img
+                  - generic [ref=e625]: Fundo
+              - tab "Gráficos" [ref=e166] [cursor=pointer]:
+                - generic "Gráficos" [ref=e626]:
+                  - generic [ref=e628]:
+                    - generic:
+                      - img
+                  - generic [ref=e629]: Gráficos
+              - tab "Voz de IA" [ref=e171] [cursor=pointer]:
+                - generic "Voz de IA" [ref=e630]:
+                  - generic [ref=e632]:
+                    - generic:
+                      - img
+                  - generic [ref=e633]: Voz de IA
+              - tab "D-ID AI Avatars" [ref=e176] [cursor=pointer]:
+                - generic "D-ID AI Avatars" [ref=e634]:
+                  - generic [ref=e638]: D-ID AI Avatars
+              - tab "Real H" [ref=e182] [cursor=pointer]:
+                - generic "Real H" [ref=e639]:
+                  - generic [ref=e643]: ;
+                  - generic [ref=e644]: Real H
+              - tab "AI Music Generator" [ref=e189] [cursor=pointer]:
+                - generic "AI Music Generator" [ref=e645]:
+                  - generic [ref=e649]: AI Music Generator
+              - tab "Image Animate" [ref=e195] [cursor=pointer]:
+                - generic "Image Animate" [ref=e650]:
+                  - generic [ref=e654]: Image Animate
+              - tab "Animator" [ref=e201] [cursor=pointer]:
+                - generic "Animator" [ref=e655]:
+                  - generic [ref=e659]: Animator
+              - tab "Google Drive" [ref=e207] [cursor=pointer]:
+                - generic "Google Drive" [ref=e660]:
+                  - generic [ref=e664]: Google Drive
+              - tab "vitrinex-ai-canva." [ref=e213] [cursor=pointer]:
+                - generic "vitrinex-ai-canva." [ref=e665]:
+                  - generic [ref=e669]: vitrinex-ai-canva.
+              - tab "AI Voice Hub" [ref=e219] [cursor=pointer]:
+                - generic "AI Voice Hub" [ref=e670]:
+                  - generic [ref=e674]: AI Voice Hub
+              - tab "AI Music" [ref=e225] [cursor=pointer]:
+                - generic "AI Music" [ref=e675]:
+                  - generic [ref=e679]: AI Music
+              - tab "Carousel Studio" [ref=e231] [cursor=pointer]:
+                - generic "Carousel Studio" [ref=e680]:
+                  - generic [ref=e684]: Carousel Studio
+              - tab "Preenchimento automático" [ref=e237] [cursor=pointer]:
+                - generic "Preenchimento automático" [ref=e685]:
+                  - generic [ref=e687]:
+                    - generic:
+                      - img
+                  - generic [ref=e688]: Preenchimento automático
+              - tab "YouTube Embed" [ref=e242] [cursor=pointer]:
+                - generic "YouTube Embed" [ref=e689]:
+                  - generic [ref=e693]: YouTube Embed
+            - tabpanel "Texto" [ref=e698]:
+              - generic [ref=e699]:
+                - generic [ref=e702]:
+                  - search [ref=e711]:
+                    - generic [ref=e720]:
+                      - generic [ref=e723]:
+                        - generic:
+                          - img
+                      - combobox "Busque fontes e combinações" [ref=e728]
+                  - generic [ref=e737]:
+                    - button "Adicionar uma caixa de texto" [ref=e738] [cursor=pointer]:
+                      - generic [ref=e739]:
+                        - generic:
+                          - img
+                      - generic [ref=e740]: Adicionar uma caixa de texto
+                    - button "Texto Mágico" [ref=e741] [cursor=pointer]:
+                      - generic [ref=e742]:
+                        - generic:
+                          - img
+                      - generic [ref=e743]: Texto Mágico
+                - region [ref=e747]:
+                  - region [ref=e754]:
+                    - generic [ref=e760]:
+                      - generic [ref=e763]:
+                        - generic [ref=e764]:
+                          - generic [ref=e767]:
+                            - generic:
+                              - button "Kit de marca" [ref=e770] [cursor=pointer]:
+                                - generic [ref=e772]:
+                                  - generic [ref=e773]:
+                                    - generic:
+                                      - img
+                                  - heading "Kit de marca" [level=5] [ref=e775]
+                                  - generic [ref=e776]:
+                                    - generic:
+                                      - img
+                              - button "Editar" [ref=e778] [cursor=pointer]:
+                                - paragraph [ref=e780]: Editar
+                          - generic [ref=e783]:
+                            - button "Cabeçalho" [ref=e784] [cursor=pointer]:
+                              - generic [ref=e789]: Cabeçalho
+                            - button "Subcabeçalho" [ref=e790] [cursor=pointer]:
+                              - generic [ref=e795]: Subcabeçalho
+                            - button "Corpo" [ref=e796] [cursor=pointer]:
+                              - generic [ref=e801]: Corpo
+                        - list [ref=e802]:
+                          - heading "Texto dinâmico" [level=5] [ref=e804]
+                          - generic [ref=e806]:
+                            - button "Legendas" [ref=e807] [cursor=pointer]
+                            - paragraph [ref=e815]: Legendas
+                          - generic [ref=e818]:
+                            - button "Números de página" [ref=e819] [cursor=pointer]
+                            - paragraph [ref=e827]: Números de página
+                        - generic [ref=e829]:
+                          - generic [ref=e831]:
+                            - button "Apps" [ref=e833] [cursor=pointer]:
+                              - generic [ref=e836]: Apps
+                            - button "Ver tudo" [ref=e838] [cursor=pointer]:
+                              - generic [ref=e839]: Ver tudo
+                          - generic [ref=e843]:
+                            - generic [ref=e844]:
+                              - generic [ref=e849]:
+                                - generic [ref=e851]:
+                                  - button "TypeStudio" [ref=e852] [cursor=pointer]
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic [ref=e858]:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - img
+                                - paragraph [ref=e862]: TypeStudio
+                              - generic [ref=e867]:
+                                - generic [ref=e869]:
+                                  - button "TypeCraft" [ref=e870] [cursor=pointer]
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic [ref=e876]:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - img
+                                - paragraph [ref=e880]: TypeCraft
+                              - generic [ref=e885]:
+                                - generic [ref=e887]:
+                                  - button "MotionText" [ref=e888] [cursor=pointer]
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic [ref=e894]:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - img
+                                - paragraph [ref=e898]: MotionText
+                              - generic [ref=e903]:
+                                - generic [ref=e905]:
+                                  - button "TypeExtrude" [ref=e906] [cursor=pointer]
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic [ref=e912]:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - img
+                                - paragraph [ref=e916]: TypeExtrude
+                              - generic [ref=e921]:
+                                - generic [ref=e923]:
+                                  - button "TypeCutOut" [ref=e924] [cursor=pointer]
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic [ref=e930]:
+                                          - generic:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - img
+                                - paragraph [ref=e934]: TypeCutOut
+                            - button "Próxima página da lista" [ref=e937] [cursor=pointer]:
+                              - generic:
+                                - img
+                      - generic [ref=e938]:
+                        - generic [ref=e942]:
+                          - generic [ref=e946]:
+                            - button "Usados recentemente" [ref=e948] [cursor=pointer]:
+                              - generic [ref=e951]: Usados recentemente
+                            - button "Ver tudo" [ref=e953] [cursor=pointer]:
+                              - generic [ref=e954]: Ver tudo
+                          - generic [ref=e956]:
+                            - generic [ref=e957]:
+                              - group [ref=e965]:
+                                - button "Golden Hour" [ref=e966] [cursor=pointer]
+                                - button "Mostrar detalhes em uma janela pop-up" [ref=e970] [cursor=pointer]:
+                                  - generic [ref=e971]:
+                                    - generic:
+                                      - img
+                              - group [ref=e979]:
+                                - button "New Product Alert Text Effect in Bright Yellow Bright Red Background Style" [ref=e980] [cursor=pointer]
+                                - button "Mostrar detalhes em uma janela pop-up" [ref=e984] [cursor=pointer]:
+                                  - generic [ref=e985]:
+                                    - generic:
+                                      - img
+                                - generic [ref=e992]:
+                                  - generic:
+                                    - img
+                              - group [ref=e1000]:
+                                - button "Glowing Red Bold Pizza Party Neon Text Effect" [ref=e1001] [cursor=pointer]
+                                - button "Mostrar detalhes em uma janela pop-up" [ref=e1005] [cursor=pointer]:
+                                  - generic [ref=e1006]:
+                                    - generic:
+                                      - img
+                            - button "Próxima página da lista" [ref=e1008] [cursor=pointer]:
+                              - generic:
+                                - img
+                        - generic [ref=e1009]:
+                          - generic [ref=e1014]: Combinações de fontes
+                          - generic [ref=e1017]:
+                            - group [ref=e1024]:
+                              - button "Promo de verão Text Effect in Green Dark Green Contrast Fusion Style" [ref=e1025] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1029] [cursor=pointer]:
+                                - generic [ref=e1030]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1037]:
+                                - generic:
+                                  - img
+                            - group [ref=e1044]:
+                              - button "Estagiário liberou Text Effect in Green Dark Green Expressive organic Style" [ref=e1045] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1049] [cursor=pointer]:
+                                - generic [ref=e1050]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1057]:
+                                - generic:
+                                  - img
+                            - group [ref=e1064]:
+                              - button "Me inclua fora dessa! Text Effect in Orange Yellow Contrast Fusion Style" [ref=e1065] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1069] [cursor=pointer]:
+                                - generic [ref=e1070]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1077]:
+                                - generic:
+                                  - img
+                            - group [ref=e1084]:
+                              - button "Mega descontos só hoje Text Effect in Orange Yellow Expressive organic Style" [ref=e1085] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1089] [cursor=pointer]:
+                                - generic [ref=e1090]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1097]:
+                                - generic:
+                                  - img
+                            - group [ref=e1104]:
+                              - button "Relatório anual Text Effect in Black and White Corporate Modern Style" [ref=e1105] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1109] [cursor=pointer]:
+                                - generic [ref=e1110]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1117]:
+                                - generic:
+                                  - img
+                            - group [ref=e1124]:
+                              - button "Feito com estilo Text Effect in Blue Dark Blue Contrast Fusion Style" [ref=e1125] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1129] [cursor=pointer]:
+                                - generic [ref=e1130]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1137]:
+                                - generic:
+                                  - img
+                            - group [ref=e1144]:
+                              - button "Promo exclusiva Text Effect in Orange Purple Bold impact Style" [ref=e1145] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1149] [cursor=pointer]:
+                                - generic [ref=e1150]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1157]:
+                                - generic:
+                                  - img
+                            - group [ref=e1164]:
+                              - button "Parabéns para você!" [ref=e1165] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1169] [cursor=pointer]:
+                                - generic [ref=e1170]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1177]:
+                              - button "Pequeninos na moda" [ref=e1178] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1182] [cursor=pointer]:
+                                - generic [ref=e1183]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1190]:
+                              - button "OFF! Corre!" [ref=e1191] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1195] [cursor=pointer]:
+                                - generic [ref=e1196]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1203]:
+                              - button "Ai que tudo! Text Effect in Green Dark Green Contrast Fusion Style" [ref=e1204] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1208] [cursor=pointer]:
+                                - generic [ref=e1209]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1216]:
+                                - generic:
+                                  - img
+                            - group [ref=e1223]:
+                              - button "Hit Certo Text Effect in Blue Pink Expressive organic Style" [ref=e1224] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1228] [cursor=pointer]:
+                                - generic [ref=e1229]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1236]:
+                                - generic:
+                                  - img
+                            - group [ref=e1243]:
+                              - button "Entregou tudo Text Effect in Green blue Expressive organic Style" [ref=e1244] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1248] [cursor=pointer]:
+                                - generic [ref=e1249]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1256]:
+                                - generic:
+                                  - img
+                            - group [ref=e1263]:
+                              - button "Tamo junto sempre! Text Effect in Blue Green Expressive organic Style" [ref=e1264] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1268] [cursor=pointer]:
+                                - generic [ref=e1269]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1276]:
+                                - generic:
+                                  - img
+                            - group [ref=e1283]:
+                              - button "Coffee break" [ref=e1284] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1288] [cursor=pointer]:
+                                - generic [ref=e1289]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1296]:
+                                - generic:
+                                  - img
+                            - group [ref=e1303]:
+                              - button "Simple Purple Lavender Hollow Be Brave Text Effect" [ref=e1304] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1308] [cursor=pointer]:
+                                - generic [ref=e1309]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1316]:
+                                - generic:
+                                  - img
+                            - group [ref=e1323]:
+                              - button "FIRE away" [ref=e1324] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1328] [cursor=pointer]:
+                                - generic [ref=e1329]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1336]:
+                                - generic:
+                                  - img
+                            - group [ref=e1343]:
+                              - button "Bem informado" [ref=e1344] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1348] [cursor=pointer]:
+                                - generic [ref=e1349]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1356]:
+                              - button "Nova Coleção Text Effect in Yellow Red Bold impact Style" [ref=e1357] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1361] [cursor=pointer]:
+                                - generic [ref=e1362]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1369]:
+                              - button "Preço baixo todo dia Text Effect in Red Yellow Blue Bold impact Style" [ref=e1370] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1374] [cursor=pointer]:
+                                - generic [ref=e1375]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1382]:
+                              - button "Custom Paint Text Effect in Orange White Style" [ref=e1383] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1387] [cursor=pointer]:
+                                - generic [ref=e1388]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1395]:
+                                - generic:
+                                  - img
+                            - group [ref=e1402]:
+                              - button "Glamping Text Effect in White Neon Pink Style" [ref=e1403] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1407] [cursor=pointer]:
+                                - generic [ref=e1408]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1415]:
+                                - generic:
+                                  - img
+                            - group [ref=e1422]:
+                              - button "Next Gen Text Effect in Dark Blue Blue Style" [ref=e1423] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1427] [cursor=pointer]:
+                                - generic [ref=e1428]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1435]:
+                                - generic:
+                                  - img
+                            - group [ref=e1442]:
+                              - button "Bright Bold Yellow Neon Shine Shine Shine Text Effect" [ref=e1443] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1447] [cursor=pointer]:
+                                - generic [ref=e1448]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1455]:
+                                - generic:
+                                  - img
+                            - group [ref=e1462]:
+                              - button "Bright Green Retro Glitch Press Start Text Effect" [ref=e1463] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1467] [cursor=pointer]:
+                                - generic [ref=e1468]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1475]:
+                                - generic:
+                                  - img
+                            - group [ref=e1482]:
+                              - button "Test Element Template" [ref=e1483] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1487] [cursor=pointer]:
+                                - generic [ref=e1488]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1495]:
+                                - generic:
+                                  - img
+                            - group [ref=e1502]:
+                              - button "Let's Party Text Effect in Red Pink Festive Style" [ref=e1503] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1507] [cursor=pointer]:
+                                - generic [ref=e1508]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1515]:
+                                - generic:
+                                  - img
+                            - group [ref=e1522]:
+                              - button "Sabedoria vem de dentro" [ref=e1523] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1527] [cursor=pointer]:
+                                - generic [ref=e1528]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1535]:
+                              - button "A vida é doce" [ref=e1536] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1540] [cursor=pointer]:
+                                - generic [ref=e1541]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1548]:
+                              - button "O corpo fala" [ref=e1549] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1553] [cursor=pointer]:
+                                - generic [ref=e1554]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1561]:
+                              - button "Futuristic Video Game Player One Glitch Text Effect" [ref=e1562] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1566] [cursor=pointer]:
+                                - generic [ref=e1567]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1574]:
+                                - generic:
+                                  - img
+                            - group [ref=e1581]:
+                              - button "New Product Alert Text Effect in Bright Yellow Bright Red Background Style" [ref=e1582] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1586] [cursor=pointer]:
+                                - generic [ref=e1587]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1594]:
+                                - generic:
+                                  - img
+                            - group [ref=e1601]:
+                              - button "Tech & Innovation in Business Text Effect in Purple Grey Style" [ref=e1602] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1606] [cursor=pointer]:
+                                - generic [ref=e1607]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1614]:
+                                - generic:
+                                  - img
+                            - group [ref=e1621]:
+                              - button "Cut&Paste Text Effect in Pastel Purple Style" [ref=e1622] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1626] [cursor=pointer]:
+                                - generic [ref=e1627]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1634]:
+                                - generic:
+                                  - img
+                            - group [ref=e1641]:
+                              - button "Business Journal Text Effect in Black Style" [ref=e1642] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1646] [cursor=pointer]:
+                                - generic [ref=e1647]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1654]:
+                                - generic:
+                                  - img
+                            - group [ref=e1661]:
+                              - button "Profit Plan Text Effect in Olive Green Slate Grey Classy Style" [ref=e1662] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1666] [cursor=pointer]:
+                                - generic [ref=e1667]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1674]:
+                                - generic:
+                                  - img
+                            - group [ref=e1681]:
+                              - button "Moving Parts Text Effect in Dark Blue Style" [ref=e1682] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1686] [cursor=pointer]:
+                                - generic [ref=e1687]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1694]:
+                                - generic:
+                                  - img
+                            - group [ref=e1701]:
+                              - button "Somente verdades" [ref=e1702] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1706] [cursor=pointer]:
+                                - generic [ref=e1707]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1714]:
+                              - button "Corpo são, mente sã" [ref=e1715] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1719] [cursor=pointer]:
+                                - generic [ref=e1720]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1727]:
+                              - button "Nova estação" [ref=e1728] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1732] [cursor=pointer]:
+                                - generic [ref=e1733]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1740]:
+                              - button "Sale Text Effect in White Red Light Red Style" [ref=e1741] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1745] [cursor=pointer]:
+                                - generic [ref=e1746]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1753]:
+                                - generic:
+                                  - img
+                            - group [ref=e1760]:
+                              - button "Cute as a Button Text Effect in Purple Pink Cream Splice Style" [ref=e1761] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1765] [cursor=pointer]:
+                                - generic [ref=e1766]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1773]:
+                                - generic:
+                                  - img
+                            - group [ref=e1780]:
+                              - button "Flair Text Effect in Burgundy Light Pink Style" [ref=e1781] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1785] [cursor=pointer]:
+                                - generic [ref=e1786]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1793]:
+                                - generic:
+                                  - img
+                            - group [ref=e1800]:
+                              - button "Subscribe Text Effect in Dark Green Purple White Style" [ref=e1801] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1805] [cursor=pointer]:
+                                - generic [ref=e1806]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1813]:
+                                - generic:
+                                  - img
+                            - group [ref=e1820]:
+                              - button "Team Effort Text Effect in Green Style" [ref=e1821] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1825] [cursor=pointer]:
+                                - generic [ref=e1826]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1833]:
+                                - generic:
+                                  - img
+                            - group [ref=e1840]:
+                              - button "Brand Storytelling & Content Creation Text Effect in Black Style" [ref=e1841] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1845] [cursor=pointer]:
+                                - generic [ref=e1846]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1853]:
+                                - generic:
+                                  - img
+                            - group [ref=e1860]:
+                              - button "80s Retro Pixel Glitch Insert Coin Text Effect" [ref=e1861] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1865] [cursor=pointer]:
+                                - generic [ref=e1866]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1873]:
+                                - generic:
+                                  - img
+                            - group [ref=e1880]:
+                              - button "Gestão ágil Text Effect in Grey Corporate Modern Style" [ref=e1881] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1885] [cursor=pointer]:
+                                - generic [ref=e1886]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1893]:
+                              - button "Advocacia para todos" [ref=e1894] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1898] [cursor=pointer]:
+                                - generic [ref=e1899]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1906]:
+                              - button "Cerveja e história" [ref=e1907] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1911] [cursor=pointer]:
+                                - generic [ref=e1912]:
+                                  - generic:
+                                    - img
+                            - group [ref=e1919]:
+                              - button "Mystic tours Text Effect in Green Light Blue Style" [ref=e1920] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1924] [cursor=pointer]:
+                                - generic [ref=e1925]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1932]:
+                                - generic:
+                                  - img
+                            - group [ref=e1939]:
+                              - button "Bright Yellow Hollow Sale Sale Sale Text Effect" [ref=e1940] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1944] [cursor=pointer]:
+                                - generic [ref=e1945]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1952]:
+                                - generic:
+                                  - img
+                            - group [ref=e1959]:
+                              - button "Pixel Dreams Text Effect in Bright Purple Bright Blue Glitch Style" [ref=e1960] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1964] [cursor=pointer]:
+                                - generic [ref=e1965]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1972]:
+                                - generic:
+                                  - img
+                            - group [ref=e1979]:
+                              - button "Hipster Brand Text Effect in Black Style" [ref=e1980] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e1984] [cursor=pointer]:
+                                - generic [ref=e1985]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e1992]:
+                                - generic:
+                                  - img
+                            - group [ref=e1999]:
+                              - button "Elegant Cursive Text Effect in Gold Rose Pink Lift Style" [ref=e2000] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2004] [cursor=pointer]:
+                                - generic [ref=e2005]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2012]:
+                                - generic:
+                                  - img
+                            - group [ref=e2019]:
+                              - button "Menu Text Effect in White Gold Style" [ref=e2020] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2024] [cursor=pointer]:
+                                - generic [ref=e2025]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2032]:
+                                - generic:
+                                  - img
+                            - group [ref=e2039]:
+                              - button "Bulk Deal Text Effect in Violet Style" [ref=e2040] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2044] [cursor=pointer]:
+                                - generic [ref=e2045]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2052]:
+                                - generic:
+                                  - img
+                            - group [ref=e2059]:
+                              - button "Tá no papo! Text Effect in Blue Brown Expressive organic Style" [ref=e2060] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2064] [cursor=pointer]:
+                                - generic [ref=e2065]:
+                                  - generic:
+                                    - img
+                            - group [ref=e2072]:
+                              - button "Descontaço na área Text Effect in Dark Green Green Bold impact Style" [ref=e2073] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2077] [cursor=pointer]:
+                                - generic [ref=e2078]:
+                                  - generic:
+                                    - img
+                            - group [ref=e2085]:
+                              - button "Meta batida Text Effect in Dark Blue Corporate Modern Style" [ref=e2086] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2090] [cursor=pointer]:
+                                - generic [ref=e2091]:
+                                  - generic:
+                                    - img
+                            - group [ref=e2098]:
+                              - button "Product Information Text Effect in Purple White Style" [ref=e2099] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2103] [cursor=pointer]:
+                                - generic [ref=e2104]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2111]:
+                                - generic:
+                                  - img
+                            - group [ref=e2118]:
+                              - button "Cool Blue Echo Pool Party Text Effect" [ref=e2119] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2123] [cursor=pointer]:
+                                - generic [ref=e2124]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2131]:
+                                - generic:
+                                  - img
+                            - group [ref=e2138]:
+                              - button "Thank You Text Effect in Blue Style" [ref=e2139] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2143] [cursor=pointer]:
+                                - generic [ref=e2144]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2151]:
+                                - generic:
+                                  - img
+                            - group [ref=e2158]:
+                              - button "Tax Tips Text Effect in Slate Grey Green Traditional Corporate Style" [ref=e2159] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2163] [cursor=pointer]:
+                                - generic [ref=e2164]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2171]:
+                                - generic:
+                                  - img
+                            - group [ref=e2178]:
+                              - button "Seasonal (Spring/Summer) Marketing & Promotions Text Effect in Green Style" [ref=e2179] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2183] [cursor=pointer]:
+                                - generic [ref=e2184]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2191]:
+                                - generic:
+                                  - img
+                            - group [ref=e2198]:
+                              - button "This logo Text Effect in Black Grey Style" [ref=e2199] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2203] [cursor=pointer]:
+                                - generic [ref=e2204]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2211]:
+                                - generic:
+                                  - img
+                            - group [ref=e2218]:
+                              - button "Futuristic Bright Red Glitch Game Over Text Effect" [ref=e2219] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2223] [cursor=pointer]:
+                                - generic [ref=e2224]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2231]:
+                                - generic:
+                                  - img
+                            - group [ref=e2238]:
+                              - button "Planejamento mensal Text Effect in Blue Corporate Modern Style" [ref=e2239] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2243] [cursor=pointer]:
+                                - generic [ref=e2244]:
+                                  - generic:
+                                    - img
+                            - group [ref=e2251]:
+                              - button "O gerente enloqueceu Text Effect in Orange Yellow Expressive organic Style" [ref=e2252] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2256] [cursor=pointer]:
+                                - generic [ref=e2257]:
+                                  - generic:
+                                    - img
+                            - group [ref=e2264]:
+                              - button "Bebemorando!" [ref=e2265] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2269] [cursor=pointer]:
+                                - generic [ref=e2270]:
+                                  - generic:
+                                    - img
+                            - group [ref=e2277]:
+                              - button "Parker & Maise Business Logo Text Effect in Beige Denim Blue Trendy Business Style" [ref=e2278] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2282] [cursor=pointer]:
+                                - generic [ref=e2283]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2290]:
+                                - generic:
+                                  - img
+                            - group [ref=e2297]:
+                              - button "New menu for foodies" [ref=e2298] [cursor=pointer]
+                              - button "Mostrar detalhes em uma janela pop-up" [ref=e2302] [cursor=pointer]:
+                                - generic [ref=e2303]:
+                                  - generic:
+                                    - img
+                              - generic [ref=e2310]:
+                                - generic:
+                                  - img
+            - button "Ocultar" [ref=e2314] [cursor=pointer]:
+              - generic [ref=e2315]:
+                - generic:
+                  - img
+          - generic [ref=e454]:
+            - generic:
+              - button "Acesso ao editor"
+            - main "Tela" [ref=e455]:
+              - generic [ref=e459]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - application
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - group "Controles da página":
+                                  - button "Duplicar página" [ref=e463] [cursor=pointer]:
+                                    - img [ref=e466]
+                                  - button "Adicionar página" [ref=e471] [cursor=pointer]:
+                                    - img [ref=e474]
+                          - generic [ref=e480]:
+                            - button "Adicionar página" [ref=e481] [cursor=pointer]:
+                              - generic [ref=e482]:
+                                - generic:
+                                  - img
+                                - heading "Adicionar página" [level=5] [ref=e484]
+                            - button "Adicionar tipo de página" [ref=e487] [cursor=pointer]:
+                              - generic:
+                                - img
+            - contentinfo [ref=e488]:
+              - generic [ref=e489]:
+                - generic [ref=e490]:
+                  - button "Notas" [ref=e494] [cursor=pointer]:
+                    - generic [ref=e495]:
+                      - generic:
+                        - img
+                    - generic [ref=e496]: Notas
+                  - button "Mostrar temporizador" [ref=e500] [cursor=pointer]:
+                    - generic [ref=e501]:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - img
+                    - generic [ref=e502]: Temporizador
+                - generic [ref=e503]:
+                  - combobox "Opções de zoom" [ref=e525] [cursor=pointer]:
+                    - generic [ref=e527]: 40%
+                  - button "Páginas" [ref=e531] [cursor=pointer]:
+                    - generic [ref=e532]:
+                      - generic:
+                        - img
+                    - generic [ref=e533]: Páginas
+                  - paragraph [ref=e536]: 1/1
+                  - button "Visualização em grade" [ref=e541] [cursor=pointer]:
+                    - generic [ref=e542]:
+                      - generic:
+                        - img
+                  - button "Apresentar em tela cheia" [ref=e546] [cursor=pointer]:
+                    - generic [ref=e547]:
+                      - generic:
+                        - img
+                  - button "Assistente" [ref=e552] [cursor=pointer]:
+                    - generic [ref=e553]:
+                      - generic:
+                        - img
+  - generic [ref=e556]: Tela
+  - generic [ref=e557]: A navegação principal contém botões com opções para o documento. Para ir de um botão a outro, use as teclas de direita e esquerda. Para ativar o botão, aperte Enter. Para voltar à tela, aperte “Ctrl+F2”.
+  - generic [ref=e558]: A tela, ou editor, é onde fica seu design. Para acessar a página, aperte Enter. Para acessar os grupos ou elementos da página, aperte Enter novamente. Aperte Tab para passar para a próxima página, grupo ou elemento. Para usar a barra de ferramentas, use a tecla “Ctrl+F1”. Se um elemento estiver selecionado, você pode movê-lo usando as teclas de seta; para girar, use as teclas “,” e “.”; para redimensionar, use as teclas de seta junto com a tecla “Ctrl”. Você pode modificar os incrementos de todos esses atalhos com a tecla “Shift”.
+  - generic [ref=e559]: Duplicar página
+  - generic [ref=e560]: Adicionar página
+  - generic [ref=e561]: Notas
+  - generic [ref=e562]: Zoom
+  - generic [ref=e563]: Mostrar temporizador
+  - generic [ref=e564]: No painel lateral, você pode aplicar modelos ou adicionar elementos. Para voltar ao editor, aperte “Ctrl+F2”.
+  - generic [ref=e565]: Todas as alterações foram salvas
+  - generic [ref=e566]: Mostrar miniaturas da página
+  - generic [ref=e567]: Visualização em grade
+  - generic [ref=e568]: Início
+  - generic [ref=e569]: Assistente
+  - generic [ref=e570]: Apresentar em tela cheia
+  - generic [ref=e571]: Compartilhar
+  - generic [ref=e572]: Este botão abre o menu com todas as opções para compartilhar e imprimir seu design.
+  - generic [ref=e573]: Estatísticas
+  - generic [ref=e2316]: Ocultar
+  - generic [ref=e2317]: Abaixo aparecerão sugestões à medida que você escrever no campo indicado

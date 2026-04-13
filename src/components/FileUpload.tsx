@@ -137,6 +137,7 @@ export default function FileUpload({
           <div className="flex items-center gap-4">
             {preview && (
               <div className="relative overflow-hidden rounded-lg bg-accent transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={preview}
                   alt={existingFile?.filename || 'Preview'}
@@ -171,7 +172,7 @@ export default function FileUpload({
             <span>Arquivo carregado com sucesso</span>
           </div>
           {/* Brilho no hover */}
-          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+          <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
         </div>
       </div>
     );
@@ -197,6 +198,8 @@ export default function FileUpload({
         <input
           ref={fileInputRef}
           type="file"
+          title="Selecione um arquivo de upload"
+          aria-label="Selecione um arquivo de upload"
           accept={accept}
           onChange={(e) => {
             const file = e.target.files?.[0];
@@ -210,7 +213,7 @@ export default function FileUpload({
         {isUploading && (
           <div className="absolute left-0 top-0 h-1 w-full bg-primary/10">
             <div
-              className="h-full bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-300"
+              className="h-full bg-linear-to-r from-primary via-secondary to-accent transition-all duration-300"
               style={{ width: `${uploadProgress}%` }}
             />
           </div>

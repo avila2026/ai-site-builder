@@ -37,6 +37,14 @@ yarn-error.log*
 # vercel
 .vercel
 
+# electron builder releases (large files)
+/release-builder/
+/release/
+.electron-cache/
+*.7z
+*.exe
+
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

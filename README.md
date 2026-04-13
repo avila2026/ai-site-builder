@@ -63,7 +63,7 @@ SITE_GENERATION_PROVIDER="stitch"
 ### Obrigatórias (Ollama)
 
 ```env
-OLLAMA_MODEL="qwen3.5:cloud"
+OLLAMA_MODEL="gemma4:31b-cloud"
 ```
 
 ### Opcionais
@@ -174,11 +174,11 @@ Veja [docs/VERCEL_DEPLOY.md](docs/VERCEL_DEPLOY.md) para detalhes.
 Para usar Ollama local ao invés de cloud:
 
 1. Instale Ollama: https://ollama.ai
-2. Baixe modelo: `ollama pull qwen2.5:7b`
+2. Baixe modelo: `ollama pull gemma4:31b-cloud`
 3. Configure no `.env.local`:
 
 ```env
-OLLAMA_MODEL=qwen2.5:7b
+OLLAMA_MODEL=gemma4:31b-cloud
 OLLAMA_BASE_URL=http://localhost:11434
 SITE_GENERATION_PROVIDER=ollama
 ```
