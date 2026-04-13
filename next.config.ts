@@ -57,7 +57,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:all*',
+        source: '/:path*',
         headers: [
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -68,14 +68,20 @@ const nextConfig: NextConfig = {
       },
       // Cache agressivo para assets estáticos
       {
-        source: '/:path*{/fonts,images,static}/:all*',
+        source: '/fonts/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
+        source: '/images/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
       // Cache para assets do Next.js
       {
-        source: '/_next/static/:all*',
+        source: '/_next/static/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],

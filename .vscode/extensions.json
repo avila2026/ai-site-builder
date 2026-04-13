@@ -13,6 +13,7 @@
         "openai.chatgpt",
         "rmabir71.git-autopush",
         "salesforce.salesforcedx-vscode-lwc",
-        "ms-vscode.cmake-tools"
+        "ms-vscode.cmake-tools",
+        "oracle.oracle-java"
     ]
 }

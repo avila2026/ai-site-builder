@@ -1,0 +1,412 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e6]:
+        - img [ref=e7]
+        - generic [ref=e9]: AI Site Builder
+      - navigation [ref=e10]:
+        - button "Criar Site" [ref=e11]:
+          - img [ref=e12]
+          - text: Criar Site
+      - generic [ref=e15]:
+        - paragraph [ref=e16]:
+          - img [ref=e17]
+          - text: Integrações
+        - generic [ref=e22]:
+          - img [ref=e23]
+          - generic [ref=e26]: Ollama
+        - generic [ref=e29]:
+          - img [ref=e30]
+          - generic [ref=e32]: Autonoma
+        - generic [ref=e35]:
+          - img [ref=e36]
+          - generic [ref=e38]: BrowserBase
+        - generic [ref=e41]:
+          - img [ref=e42]
+          - generic [ref=e44]: Stitch
+        - generic [ref=e47]:
+          - img [ref=e48]
+          - generic [ref=e52]: Neon DB
+        - generic [ref=e55]:
+          - img [ref=e56]
+          - generic [ref=e58]: Auth0
+  - generic [ref=e59]:
+    - banner [ref=e60]:
+      - generic [ref=e62]:
+        - paragraph [ref=e63]: AI Site Builder
+        - paragraph [ref=e64]: v1.0.0
+    - main [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e70]:
+          - img [ref=e72]
+          - heading "Crie seu site com IA" [level=1] [ref=e74]
+          - paragraph [ref=e75]: Descreva o site dos seus sonhos e nossa IA vai construí-lo em segundos. Rápido, bonito e gratuito.
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]: Nome do Site / Empresa *
+                - textbox "Nome do Site / Empresa *" [ref=e84]:
+                  - /placeholder: "Ex: Minha Empresa Ltda"
+              - generic [ref=e85]:
+                - generic [ref=e86]: Tipo de Site *
+                - generic [ref=e87]:
+                  - button "Portfólio" [ref=e88]
+                  - button "Business" [ref=e89]
+                  - button "E-commerce" [ref=e90]
+                  - button "Blog" [ref=e91]
+                  - button "Landing Page" [ref=e92]
+                  - button "Site Pessoal" [ref=e93]
+              - generic [ref=e94]:
+                - generic [ref=e95]:
+                  - img [ref=e96]
+                  - text: Escolha seu Template
+                  - generic [ref=e98]: (opcional)
+                - generic [ref=e99]:
+                  - button "Todos" [ref=e100]
+                  - button "Business" [ref=e101]
+                  - button "Portfólio" [ref=e102]
+                  - button "E-commerce" [ref=e103]
+                  - button "Blog" [ref=e104]
+                  - button "Landing Page" [ref=e105]
+                  - button "Pessoal" [ref=e106]
+                - generic [ref=e107]:
+                  - button "Business Moderno 5 features ✨ ⚙️ ✨ 💬 +1 Business" [ref=e108]:
+                    - generic [ref=e109]:
+                      - img [ref=e111]
+                      - generic [ref=e122]:
+                        - heading "Business Moderno" [level=4] [ref=e123]
+                        - generic [ref=e124]: 5 features
+                      - generic "hero-fullscreen, grid-services, cta-destacado, testimonials-carousel, contato-form" [ref=e125]:
+                        - generic "hero-fullscreen" [ref=e126]: ✨
+                        - generic "grid-services" [ref=e127]: ⚙️
+                        - generic "cta-destacado" [ref=e128]: ✨
+                        - generic "testimonials-carousel" [ref=e129]: 💬
+                        - generic [ref=e130]: "+1"
+                    - generic [ref=e131]: Business
+                  - button "Business Corporate 5 features 📱 ✨ ⚙️ 👥 +1 Business" [ref=e132]:
+                    - generic [ref=e133]:
+                      - img [ref=e135]
+                      - generic [ref=e146]:
+                        - heading "Business Corporate" [level=4] [ref=e147]
+                        - generic [ref=e148]: 5 features
+                      - generic "nav-sidebar, hero-classic, services-list, team-section, contact-info" [ref=e149]:
+                        - generic "nav-sidebar" [ref=e150]: 📱
+                        - generic "hero-classic" [ref=e151]: ✨
+                        - generic "services-list" [ref=e152]: ⚙️
+                        - generic "team-section" [ref=e153]: 👥
+                        - generic [ref=e154]: "+1"
+                    - generic [ref=e155]: Business
+                  - button "Portfolio Minimal 4 features ✨ 🎨 👤 ✨ Portfólio" [ref=e156]:
+                    - generic [ref=e157]:
+                      - img [ref=e159]
+                      - generic [ref=e165]:
+                        - heading "Portfolio Minimal" [level=4] [ref=e166]
+                        - generic [ref=e167]: 4 features
+                      - generic "hero-simple, gallery-grid, about-minimal, contact-subtle" [ref=e168]:
+                        - generic "hero-simple" [ref=e169]: ✨
+                        - generic "gallery-grid" [ref=e170]: 🎨
+                        - generic "about-minimal" [ref=e171]: 👤
+                        - generic "contact-subtle" [ref=e172]: ✨
+                    - generic [ref=e173]: Portfólio
+                  - button "Portfolio Criativo 5 features ✨ 🎨 ✨ ✨ +1 Portfólio" [ref=e174]:
+                    - generic [ref=e175]:
+                      - img [ref=e177]
+                      - generic [ref=e183]:
+                        - heading "Portfolio Criativo" [level=4] [ref=e184]
+                        - generic [ref=e185]: 5 features
+                      - generic "hero-animated, masonry-gallery, project-detail, skills-visual, contact-form" [ref=e186]:
+                        - generic "hero-animated" [ref=e187]: ✨
+                        - generic "masonry-gallery" [ref=e188]: 🎨
+                        - generic "project-detail" [ref=e189]: ✨
+                        - generic "skills-visual" [ref=e190]: ✨
+                        - generic [ref=e191]: "+1"
+                    - generic [ref=e192]: Portfólio
+                  - button "E-commerce Clean 5 features ✨ 🛒 ✨ ✨ +1 E-commerce" [ref=e193]:
+                    - generic [ref=e194]:
+                      - img [ref=e196]
+                      - generic [ref=e208]:
+                        - heading "E-commerce Clean" [level=4] [ref=e209]
+                        - generic [ref=e210]: 5 features
+                      - generic "hero-banner, product-grid, filter-sidebar, cart-preview, product-detail" [ref=e211]:
+                        - generic "hero-banner" [ref=e212]: ✨
+                        - generic "product-grid" [ref=e213]: 🛒
+                        - generic "filter-sidebar" [ref=e214]: ✨
+                        - generic "cart-preview" [ref=e215]: ✨
+                        - generic [ref=e216]: "+1"
+                    - generic [ref=e217]: E-commerce
+                  - button "Landing Gradient 5 features ✨ ✨ 💰 💬 +1 Landing Page" [ref=e218]:
+                    - generic [ref=e219]:
+                      - img [ref=e221]
+                      - generic [ref=e229]:
+                        - heading "Landing Gradient" [level=4] [ref=e230]
+                        - generic [ref=e231]: 5 features
+                      - generic "hero-gradient, features-cards, pricing-table, testimonials, cta-final" [ref=e232]:
+                        - generic "hero-gradient" [ref=e233]: ✨
+                        - generic "features-cards" [ref=e234]: ✨
+                        - generic "pricing-table" [ref=e235]: 💰
+                        - generic "testimonials" [ref=e236]: 💬
+                        - generic [ref=e237]: "+1"
+                    - generic [ref=e238]: Landing Page
+                  - button "Blog Editorial 5 features ✨ ✨ ✨ ✨ +1 Blog" [ref=e239]:
+                    - generic [ref=e240]:
+                      - img [ref=e242]
+                      - generic [ref=e253]:
+                        - heading "Blog Editorial" [level=4] [ref=e254]
+                        - generic [ref=e255]: 5 features
+                      - generic "hero-article, article-grid, sidebar, categories, newsletter" [ref=e256]:
+                        - generic "hero-article" [ref=e257]: ✨
+                        - generic "article-grid" [ref=e258]: ✨
+                        - generic "sidebar" [ref=e259]: ✨
+                        - generic "categories" [ref=e260]: ✨
+                        - generic [ref=e261]: "+1"
+                    - generic [ref=e262]: Blog
+                  - button "Personal Card 5 features ✨ ✨ ✨ ✨ +1 Pessoal" [ref=e263]:
+                    - generic [ref=e264]:
+                      - img [ref=e266]
+                      - generic [ref=e272]:
+                        - heading "Personal Card" [level=4] [ref=e273]
+                        - generic [ref=e274]: 5 features
+                      - generic "centered-card, avatar, social-links, bio-short, contact-links" [ref=e275]:
+                        - generic "centered-card" [ref=e276]: ✨
+                        - generic "avatar" [ref=e277]: ✨
+                        - generic "social-links" [ref=e278]: ✨
+                        - generic "bio-short" [ref=e279]: ✨
+                        - generic [ref=e280]: "+1"
+                    - generic [ref=e281]: Pessoal
+              - generic [ref=e282]:
+                - generic [ref=e283]:
+                  - img [ref=e284]
+                  - text: Escolha seu Tema Visual
+                  - generic [ref=e290]: (opcional)
+                - generic [ref=e291]:
+                  - button "Todos" [ref=e292]
+                  - button "Moderno" [ref=e293]
+                  - button "Minimalista" [ref=e294]
+                  - button "Corporativo" [ref=e295]
+                  - button "Criativo" [ref=e296]
+                  - button "Escuro" [ref=e297]
+                  - button "Claro" [ref=e298]
+                - generic [ref=e299]:
+                  - button "Modern Dark Button Secondary Heading Aa Body text sample Paleta Purple/Pink/Cyan sobre fundo escuro - estilo tech moderno" [ref=e300]:
+                    - generic [ref=e301]:
+                      - heading "Modern Dark" [level=4] [ref=e302]
+                      - generic [ref=e303]:
+                        - generic:
+                          - generic [ref=e304]: Button
+                          - generic [ref=e305]: Secondary
+                        - generic:
+                          - generic: Heading Aa
+                          - generic: Body text sample
+                      - generic:
+                        - paragraph: Paleta
+                        - generic:
+                          - 'generic "primary: #8b5cf6"'
+                          - 'generic "secondary: #ec4899"'
+                          - 'generic "accent: #06b6d4"'
+                          - 'generic "background: #0a0a0f"'
+                          - 'generic "foreground: #fafafa"'
+                          - 'generic "muted: #71717a"'
+                          - 'generic "border: #27272a"'
+                      - paragraph: Purple/Pink/Cyan sobre fundo escuro - estilo tech moderno
+                  - button "Modern Light Button Secondary Heading Aa Body text sample Paleta Purple/Pink/Cyan sobre fundo claro - clean e moderno" [ref=e306]:
+                    - generic [ref=e307]:
+                      - heading "Modern Light" [level=4] [ref=e308]
+                      - generic [ref=e309]:
+                        - generic:
+                          - generic [ref=e310]: Button
+                          - generic [ref=e311]: Secondary
+                        - generic:
+                          - generic: Heading Aa
+                          - generic: Body text sample
+                      - generic:
+                        - paragraph: Paleta
+                        - generic:
+                          - 'generic "primary: #8b5cf6"'
+                          - 'generic "secondary: #ec4899"'
+                          - 'generic "accent: #06b6d4"'
+                          - 'generic "background: #fafafa"'
+                          - 'generic "foreground: #0a0a0f"'
+                          - 'generic "muted: #71717a"'
+                          - 'generic "border: #e5e5e5"'
+                      - paragraph: Purple/Pink/Cyan sobre fundo claro - clean e moderno
+                  - button "Minimal White Button Secondary Heading Aa Body text sample Paleta Cinza/Branco com acentos sutis - máximo minimalismo" [ref=e312]:
+                    - generic [ref=e313]:
+                      - heading "Minimal White" [level=4] [ref=e314]
+                      - generic [ref=e315]:
+                        - generic:
+                          - generic [ref=e316]: Button
+                          - generic [ref=e317]: Secondary
+                        - generic:
+                          - generic: Heading Aa
+                          - generic: Body text sample
+                      - generic:
+                        - paragraph: Paleta
+                        - generic:
+                          - 'generic "primary: #18181b"'
+                          - 'generic "secondary: #71717a"'
+                          - 'generic "accent: #27272a"'
+                          - 'generic "background: #ffffff"'
+                          - 'generic "foreground: #0a0a0a"'
+                          - 'generic "muted: #a1a1aa"'
+                          - 'generic "border: #e5e5e5"'
+                      - paragraph: Cinza/Branco com acentos sutis - máximo minimalismo
+                  - button "Corporate Blue Button Secondary Heading Aa Body text sample Paleta Azul/Cinza/Branco profissional - ideal para empresas" [ref=e318]:
+                    - generic [ref=e319]:
+                      - heading "Corporate Blue" [level=4] [ref=e320]
+                      - generic [ref=e321]:
+                        - generic:
+                          - generic [ref=e322]: Button
+                          - generic [ref=e323]: Secondary
+                        - generic:
+                          - generic: Heading Aa
+                          - generic: Body text sample
+                      - generic:
+                        - paragraph: Paleta
+                        - generic:
+                          - 'generic "primary: #2563eb"'
+                          - 'generic "secondary: #1e40af"'
+                          - 'generic "accent: #3b82f6"'
+                          - 'generic "background: #f8fafc"'
+                          - 'generic "foreground: #0f172a"'
+                          - 'generic "muted: #64748b"'
+                          - 'generic "border: #e2e8f0"'
+                      - paragraph: Azul/Cinza/Branco profissional - ideal para empresas
+                  - button "Creative Gradient Button Secondary Heading Aa Body text sample Paleta Gradientes vibrantes multi-cor - estilo criativo e ousado" [ref=e324]:
+                    - generic [ref=e325]:
+                      - heading "Creative Gradient" [level=4] [ref=e326]
+                      - generic [ref=e327]:
+                        - generic:
+                          - generic [ref=e328]: Button
+                          - generic [ref=e329]: Secondary
+                        - generic:
+                          - generic: Heading Aa
+                          - generic: Body text sample
+                      - generic:
+                        - paragraph: Paleta
+                        - generic:
+                          - 'generic "primary: #f97316"'
+                          - 'generic "secondary: #8b5cf6"'
+                          - 'generic "accent: #ec4899"'
+                          - 'generic "background: #0a0a0f"'
+                          - 'generic "foreground: #fafafa"'
+                          - 'generic "muted: #a1a1aa"'
+                          - 'generic "border: #27272a"'
+                      - paragraph: Gradientes vibrantes multi-cor - estilo criativo e ousado
+                  - button "Dark Neon Button Secondary Heading Aa Body text sample Paleta Cores neon sobre fundo preto - estilo futurista" [ref=e330]:
+                    - generic [ref=e331]:
+                      - heading "Dark Neon" [level=4] [ref=e332]
+                      - generic [ref=e333]:
+                        - generic:
+                          - generic [ref=e334]: Button
+                          - generic [ref=e335]: Secondary
+                        - generic:
+                          - generic: Heading Aa
+                          - generic: Body text sample
+                      - generic:
+                        - paragraph: Paleta
+                        - generic:
+                          - 'generic "primary: #00ff88"'
+                          - 'generic "secondary: #00d4ff"'
+                          - 'generic "accent: #ff00ff"'
+                          - 'generic "background: #000000"'
+                          - 'generic "foreground: #ffffff"'
+                          - 'generic "muted: #666666"'
+                          - 'generic "border: #333333"'
+                      - paragraph: Cores neon sobre fundo preto - estilo futurista
+              - generic [ref=e336]:
+                - generic [ref=e337]: Descreva seu site *
+                - generic [ref=e338]:
+                  - textbox "Descreva seu site *" [ref=e339]:
+                    - /placeholder: "Ex: Quero um site moderno para minha empresa de consultoria. Deve transmitir profissionalismo e inovação..."
+                  - generic [ref=e340]: 0/20
+              - generic [ref=e341]:
+                - generic [ref=e342]: Cores Preferidas (opcional)
+                - textbox "Cores Preferidas (opcional)" [ref=e343]:
+                  - /placeholder: "Ex: Azul e branco, ou deixe em branco para sugerirmos"
+              - generic [ref=e344]:
+                - generic [ref=e345]: Seções Desejadas (opcional)
+                - generic [ref=e346]:
+                  - button "Hero" [ref=e347]
+                  - button "Sobre" [ref=e348]
+                  - button "Serviços" [ref=e349]
+                  - button "Portfólio" [ref=e350]
+                  - button "Depoimentos" [ref=e351]
+                  - button "Contato" [ref=e352]
+                  - button "FAQ" [ref=e353]
+              - generic [ref=e354]:
+                - generic [ref=e355]:
+                  - img [ref=e356]
+                  - heading "Arquivos de Referência" [level=3] [ref=e360]
+                  - generic [ref=e361]: (opcional)
+                - generic [ref=e362]:
+                  - generic [ref=e363]:
+                    - generic [ref=e364]: Logo da Empresa
+                    - generic [ref=e365]:
+                      - button "Choose File" [ref=e366] [cursor=pointer]
+                      - generic [ref=e367]:
+                        - img [ref=e368]
+                        - paragraph [ref=e372]: Arraste e solte ou clique para selecionar
+                        - paragraph [ref=e373]: Sua logo para incorporar no site
+                        - paragraph [ref=e374]: image/*
+                  - generic [ref=e375]:
+                    - generic [ref=e376]: Paleta de Cores
+                    - generic [ref=e377]:
+                      - button "Choose File" [ref=e378] [cursor=pointer]
+                      - generic [ref=e379]:
+                        - img [ref=e380]
+                        - paragraph [ref=e382]: Arraste e solte ou clique para selecionar
+                        - paragraph [ref=e383]: Arquivo com cores de referência (.txt, .json)
+                        - paragraph [ref=e384]: .txt • .json
+                - generic [ref=e385]:
+                  - generic [ref=e386]: Prompt de Referência
+                  - generic [ref=e387]:
+                    - button "Choose File" [ref=e388] [cursor=pointer]
+                    - generic [ref=e389]:
+                      - img [ref=e390]
+                      - paragraph [ref=e392]: Arraste e solte ou clique para selecionar
+                      - paragraph [ref=e393]: Arquivo com descrição detalhada ou exemplos (.txt, .md, .json)
+                      - paragraph [ref=e394]: .txt • .md • .json
+              - button "Gerar Site com IA" [ref=e395]:
+                - generic [ref=e396]:
+                  - img [ref=e397]
+                  - generic [ref=e399]: Gerar Site com IA
+            - generic [ref=e401]:
+              - generic [ref=e404]:
+                - img [ref=e406]
+                - heading "Geração Mágica" [level=3] [ref=e409]
+                - paragraph [ref=e410]: Seu site pronto em segundos
+              - generic [ref=e413]:
+                - img [ref=e415]
+                - heading "Design Único" [level=3] [ref=e421]
+                - paragraph [ref=e422]: Cada site é personalizado
+              - generic [ref=e425]:
+                - img [ref=e427]
+                - heading "Deploy Rápido" [level=3] [ref=e432]
+                - paragraph [ref=e433]: Publique com um clique
+          - generic [ref=e436]:
+            - img [ref=e438]
+            - generic [ref=e440]:
+              - paragraph [ref=e441]: Nenhum site gerado ainda
+              - paragraph [ref=e442]: Preencha o formulário ao lado para criar seu site com IA
+        - generic [ref=e443]:
+          - generic [ref=e444]:
+            - img [ref=e446]
+            - generic [ref=e448]:
+              - heading "Ultra Rápido" [level=3] [ref=e449]
+              - paragraph [ref=e450]: Geração em tempo real
+          - generic [ref=e451]:
+            - img [ref=e453]
+            - generic [ref=e455]:
+              - heading "100% Gratuito" [level=3] [ref=e456]
+              - paragraph [ref=e457]: Sem custos escondidos
+          - generic [ref=e458]:
+            - img [ref=e460]
+            - generic [ref=e463]:
+              - heading "Deploy Fácil" [level=3] [ref=e464]
+              - paragraph [ref=e465]: Vercel ou GitHub Pages
+          - generic [ref=e466]:
+            - img [ref=e468]
+            - generic [ref=e470]:
+              - heading "IA Avançada" [level=3] [ref=e471]
+              - paragraph [ref=e472]: Tecnologia de ponta

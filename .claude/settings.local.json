@@ -12,6 +12,6 @@
     "aws-serverless@claude-plugins-official": true,
     "amazon-location-service@claude-plugins-official": true
   },
-  "outputStyle": "Explanatory",
-  "prefersReducedMotion": true
+  "outputStyle": "default",
+  "prefersReducedMotion": false
 }
