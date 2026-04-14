@@ -8,7 +8,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbo -H 127.0.0.1",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

@@ -173,7 +173,15 @@ async function waitForServerReady(timeoutMs = 30000) {
   throw new Error(`Servidor Next.js não respondeu em ${timeoutMs}ms`);
 }
 
-function startNextServer() {
+async function startNextServer() {
+  if (isDev) {
+    writeLog("next-server-dev-check", "Checking if dev server is already running");
+    if (await probeServer()) {
+      writeLog("next-server-dev-found", "Dev server is already running, skipping bootstrap");
+      return;
+    }
+  }
+
   return new Promise((resolve, reject) => {
     const serverPath = getNextServerPath();
     if (!serverPath) {
