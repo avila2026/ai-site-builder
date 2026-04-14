@@ -277,7 +277,9 @@ function isAllowedAuthUrl(targetUrl) {
       return true;
     }
 
-    const auth0Domain = process.env.AUTH0_DOMAIN || desktopEnvVars.AUTH0_DOMAIN;
+    const auth0Domain = normalizeAuth0Domain(
+      process.env.AUTH0_DOMAIN || desktopEnvVars.AUTH0_DOMAIN,
+    );
     if (!auth0Domain) {
       return false;
     }
@@ -285,6 +287,21 @@ function isAllowedAuthUrl(targetUrl) {
   } catch {
     return false;
   }
+}
+
+function normalizeAuth0Domain(rawValue) {
+  if (!rawValue) return "";
+  const trimmed = rawValue.trim();
+  if (!trimmed) return "";
+  try {
+    if (trimmed.includes("://")) {
+      return new URL(trimmed).hostname;
+    }
+  } catch {
+    return "";
+  }
+
+  return trimmed.split("/")[0];
 }
 
 function closeAuthWindowAndRefresh() {
