@@ -132,8 +132,8 @@ function probeServer() {
       {
         host: "127.0.0.1",
         port: activePort,
-        path: "/api/health",
-        timeout: 2000,
+        path: "/",
+        timeout: 5000,
       },
       (response) => {
         response.resume();
@@ -149,7 +149,7 @@ function probeServer() {
   });
 }
 
-async function waitForServerReady(timeoutMs = 30000) {
+async function waitForServerReady(timeoutMs = 60000) {
   const deadline = Date.now() + timeoutMs;
 
   while (Date.now() < deadline) {
@@ -264,7 +264,7 @@ async function startNextServer() {
       finishReject(
         new Error("Timeout aguardando o bootstrap do servidor Next.js."),
       );
-    }, 35000);
+    }, 60000);
 
     waitForServerReady()
       .then(() => {
