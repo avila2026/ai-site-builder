@@ -9,23 +9,28 @@ interface MainLayoutProps {
 }
 
 interface IntegrationStatus {
-  ollama: { connected: boolean; checking: boolean };
-  autonoma: { connected: boolean };
-  browserbase: { connected: boolean };
-  stitch: { connected: boolean };
-  database: { connected: boolean };
-  auth0: { connected: boolean };
+  ollama: { configured: boolean; connected: boolean; checking: boolean; message: string };
+  autonoma: { configured: boolean; connected: boolean; message: string };
+  browserbase: { configured: boolean; connected: boolean; message: string };
+  stitch: { configured: boolean; connected: boolean; message: string };
+  database: { configured: boolean; connected: boolean; message: string };
+  auth0: { configured: boolean; connected: boolean; message: string };
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [status, setStatus] = useState<IntegrationStatus>({
-    ollama: { connected: false, checking: true },
-    autonoma: { connected: false },
-    browserbase: { connected: false },
-    stitch: { connected: false },
-    database: { connected: false },
-    auth0: { connected: false },
+    ollama: {
+      configured: true,
+      connected: false,
+      checking: true,
+      message: 'Verificando conexão com Ollama...',
+    },
+    autonoma: { configured: false, connected: false, message: 'Autonoma não configurada.' },
+    browserbase: { configured: false, connected: false, message: 'BrowserBase não configurada.' },
+    stitch: { configured: false, connected: false, message: 'Stitch não configurado.' },
+    database: { configured: false, connected: false, message: 'Neon DB não configurado.' },
+    auth0: { configured: false, connected: false, message: 'Auth0 não configurado.' },
   });
 
   const menuItems = [
@@ -41,19 +46,46 @@ export default function MainLayout({ children }: MainLayoutProps) {
         setStatus(prev => ({
           ...prev,
           ollama: {
+            configured: data.ollama?.configured !== false,
             connected: data.ollama?.connected === true,
             checking: false,
+            message: data.ollama?.message || 'Status do Ollama indisponível.',
           },
-          autonoma: { connected: data.autonoma?.connected === true },
-          browserbase: { connected: data.browserbase?.connected === true },
-          stitch: { connected: data.stitch?.connected === true },
-          database: { connected: data.database?.connected === true },
-          auth0: { connected: data.auth0?.connected === true },
+          autonoma: {
+            configured: data.autonoma?.configured === true,
+            connected: data.autonoma?.connected === true,
+            message: data.autonoma?.message || 'Status da Autonoma indisponível.',
+          },
+          browserbase: {
+            configured: data.browserbase?.configured === true,
+            connected: data.browserbase?.connected === true,
+            message: data.browserbase?.message || 'Status da BrowserBase indisponível.',
+          },
+          stitch: {
+            configured: data.stitch?.configured === true,
+            connected: data.stitch?.connected === true,
+            message: data.stitch?.message || 'Status do Stitch indisponível.',
+          },
+          database: {
+            configured: data.database?.configured === true,
+            connected: data.database?.connected === true,
+            message: data.database?.message || 'Status do banco indisponível.',
+          },
+          auth0: {
+            configured: data.auth0?.configured === true,
+            connected: data.auth0?.connected === true,
+            message: data.auth0?.message || 'Status do Auth0 indisponível.',
+          },
         }));
       } catch {
         setStatus(prev => ({
           ...prev,
-          ollama: { connected: false, checking: false },
+          ollama: {
+            configured: true,
+            connected: false,
+            checking: false,
+            message: 'Falha ao consultar /api/health.',
+          },
         }));
       }
     };
@@ -117,14 +149,16 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </p>
 
               {/* Ollama Status */}
-              <Tooltip content={status.ollama.checking ? 'Verificando conexão...' : status.ollama.connected ? 'Ollama conectado e pronto para usar' : 'Ollama não disponível - verifique se está rodando'} position="right">
+              <Tooltip content={status.ollama.checking ? 'Verificando conexão...' : status.ollama.message} position="right">
                 <div className="flex items-center gap-2 cursor-help group">
                   {status.ollama.checking ? (
                     <div className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
                   ) : status.ollama.connected ? (
                     <div className="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse" />
-                  ) : (
+                  ) : status.ollama.configured ? (
                     <div className="h-2 w-2 rounded-full bg-red-500" />
+                  ) : (
+                    <div className="h-2 w-2 rounded-full bg-gray-500" />
                   )}
                   <div className="flex items-center gap-1.5">
                     <Server className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
@@ -134,9 +168,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </Tooltip>
 
               {/* Autonoma Status */}
-              <Tooltip content={status.autonoma.connected ? 'Autonoma conectado' : 'Autonoma não conectado'} position="right">
+              <Tooltip content={status.autonoma.message} position="right">
                 <div className="flex items-center gap-2 cursor-help group">
-                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.autonoma.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.autonoma.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : status.autonoma.configured ? 'bg-red-500' : 'bg-gray-500'}`} />
                   <div className="flex items-center gap-1.5">
                     <Cloud className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors">Autonoma</span>
@@ -145,9 +179,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </Tooltip>
 
               {/* BrowserBase Status */}
-              <Tooltip content={status.browserbase.connected ? 'BrowserBase conectado' : 'BrowserBase não conectado'} position="right">
+              <Tooltip content={status.browserbase.message} position="right">
                 <div className="flex items-center gap-2 cursor-help group">
-                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.browserbase.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.browserbase.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : status.browserbase.configured ? 'bg-red-500' : 'bg-gray-500'}`} />
                   <div className="flex items-center gap-1.5">
                     <Cloud className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors">BrowserBase</span>
@@ -156,9 +190,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </Tooltip>
 
               {/* Stitch Status */}
-              <Tooltip content={status.stitch.connected ? 'Stitch conectado' : 'Stitch não conectado'} position="right">
+              <Tooltip content={status.stitch.message} position="right">
                 <div className="flex items-center gap-2 cursor-help group">
-                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.stitch.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.stitch.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : status.stitch.configured ? 'bg-red-500' : 'bg-gray-500'}`} />
                   <div className="flex items-center gap-1.5">
                     <Cloud className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors">Stitch</span>
@@ -167,9 +201,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </Tooltip>
 
               {/* Database Status */}
-              <Tooltip content={status.database.connected ? 'Neon DB conectado' : 'Neon DB não conectado'} position="right">
+              <Tooltip content={status.database.message} position="right">
                 <div className="flex items-center gap-2 cursor-help group">
-                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.database.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.database.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : status.database.configured ? 'bg-red-500' : 'bg-gray-500'}`} />
                   <div className="flex items-center gap-1.5">
                     <Database className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors">Neon DB</span>
@@ -178,9 +212,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </Tooltip>
 
               {/* Auth0 Status */}
-              <Tooltip content={status.auth0.connected ? 'Auth0 conectado - autenticação ativa' : 'Auth0 não conectado'} position="right">
+              <Tooltip content={status.auth0.message} position="right">
                 <div className="flex items-center gap-2 cursor-help group">
-                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.auth0.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : 'bg-gray-500'}`} />
+                  <div className={`h-2 w-2 rounded-full transition-all duration-300 ${status.auth0.connected ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-connection-pulse' : status.auth0.configured ? 'bg-red-500' : 'bg-gray-500'}`} />
                   <div className="flex items-center gap-1.5">
                     <Shield className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors">Auth0</span>

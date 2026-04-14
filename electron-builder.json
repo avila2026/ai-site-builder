@@ -3,7 +3,7 @@
   "productName": "AI Site Builder",
   "directories": {
     "output": "release-builder",
-    "buildResources": "build"
+    "buildResources": "electron/build-resources"
   },
   "electronDownload": {
     "cache": "D:/1-WORKFLOW/ai-site-builder/.electron-cache"
@@ -35,10 +35,10 @@
     "createStartMenuShortcut": true,
     "shortcutName": "AI Site Builder",
     "runAfterFinish": true,
-    "deleteAppDataOnUninstall": true,
+    "deleteAppDataOnUninstall": false,
     "installerIcon": "icon.ico",
-    "include": "build/installer.nsh",
-    "license": "build/LICENSE.txt",
+    "include": "installer.nsh",
+    "license": "LICENSE.txt",
     "uninstallerIcon": "icon.ico",
     "language": "1046",
     "installerLanguages": [

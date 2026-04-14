@@ -43,8 +43,12 @@ function main() {
   const builderConfig = readJson(path.join(projectDir, 'electron-builder.json'));
   const nsisConfig = builderConfig.nsis || {};
   const outputDir = path.join(projectDir, builderConfig.directories?.output || 'release-builder');
-  const iconPath = path.join(projectDir, 'build', 'icon.ico');
-  const scriptPath = path.join(projectDir, 'build', 'uninstall-launcher.nsi');
+  const buildResourcesDir = path.join(
+    projectDir,
+    builderConfig.directories?.buildResources || 'electron/build-resources'
+  );
+  const iconPath = path.join(buildResourcesDir, 'icon.ico');
+  const scriptPath = path.join(buildResourcesDir, 'uninstall-launcher.nsi');
   const productName = builderConfig.productName || packageJson.productName || packageJson.name;
   const version = packageJson.version;
   const guid = nsisConfig.guid;
@@ -54,7 +58,7 @@ function main() {
   }
 
   if (!fs.existsSync(iconPath)) {
-    throw new Error('build/icon.ico nao encontrado. Rode "npm run electron:build:win" para preparar os assets.');
+    throw new Error('icon.ico nao encontrado em build resources. Rode "npm run electron:build:win" para preparar os assets.');
   }
 
   if (!fs.existsSync(scriptPath)) {

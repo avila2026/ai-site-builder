@@ -13,8 +13,9 @@ const pngToIco = require('png-to-ico').default;
 console.log('📦 Preparando build para Electron...\n');
 
 async function ensureWindowsIcon() {
-  const buildDir = path.join(__dirname, '..', 'build');
+  const buildDir = path.join(__dirname, '..', 'electron', 'build-resources');
   const icoPath = path.join(buildDir, 'icon.ico');
+  fs.mkdirSync(buildDir, { recursive: true });
 
   if (fs.existsSync(icoPath)) {
     return;
@@ -27,10 +28,10 @@ async function ensureWindowsIcon() {
   const pngPath = pngCandidates.find(candidate => fs.existsSync(candidate));
 
   if (!pngPath) {
-    throw new Error('Nenhum ícone PNG encontrado em build/icon.png ou public/icon-512.png');
+    throw new Error('Nenhum ícone PNG encontrado em electron/build-resources/icon.png ou public/icon-512.png');
   }
 
-  console.log('🖼️  Gerando build/icon.ico para o instalador...\n');
+  console.log('🖼️  Gerando electron/build-resources/icon.ico para o instalador...\n');
   const icoBuffer = await pngToIco(pngPath);
   fs.writeFileSync(icoPath, icoBuffer);
 }

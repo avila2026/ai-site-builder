@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
 import { Auth0Client } from "@auth0/nextjs-auth0/server";
 import { findOrCreateUser, hasDatabaseConfig } from "@/lib/db";
+import { getAppBaseUrl } from "@/lib/app-base-url";
 
 const auth0Config = {
   domain: process.env.AUTH0_DOMAIN,
   clientId: process.env.AUTH0_CLIENT_ID,
   clientSecret: process.env.AUTH0_CLIENT_SECRET,
   secret: process.env.AUTH0_SECRET,
-  appBaseUrl: process.env.APP_BASE_URL,
+  appBaseUrl: getAppBaseUrl(),
 };
+const appBaseUrl = auth0Config.appBaseUrl;
 
 export function isAuth0Configured() {
   return Boolean(
@@ -31,7 +33,7 @@ export const auth0 = isAuth0Configured()
         if (error) {
           console.error("Auth0 callback error:", error);
           return NextResponse.redirect(
-            new URL("/", process.env.APP_BASE_URL || "http://localhost:3000")
+            new URL("/", appBaseUrl)
           );
         }
 
@@ -50,7 +52,7 @@ export const auth0 = isAuth0Configured()
         }
 
         return NextResponse.redirect(
-          new URL(context.returnTo || "/", process.env.APP_BASE_URL || "http://localhost:3000")
+          new URL(context.returnTo || "/", appBaseUrl)
         );
       },
       // Rotas customizadas (sem prefixo /api)

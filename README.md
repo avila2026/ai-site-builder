@@ -49,6 +49,8 @@ Acesse: http://localhost:3000
 | `npm run stitch:smoke` | Smoke test da integração Stitch |
 | `npm run db:generate` | Gerar migrations do banco |
 | `npm run db:push` | Aplicar migrations no banco |
+| `npm run electron:dev` | Rodar app desktop em desenvolvimento |
+| `npm run electron:build:win` | Gerar instalador Windows do desktop |
 
 ## Variáveis de Ambiente
 
@@ -184,6 +186,14 @@ SITE_GENERATION_PROVIDER=ollama
 ```
 
 Veja [docs/OLLAMA_SETUP.md](docs/OLLAMA_SETUP.md) para detalhes.
+
+## Desktop Electron (Windows)
+
+- Porta local fixa no app instalado: `http://127.0.0.1:39213`
+- Arquivo de ambiente no desktop instalado: `%APPDATA%\\AI Site Builder\\.env`
+- Uploads persistidos em: `%APPDATA%\\AI Site Builder\\uploads`
+
+Guia completo: [INSTALLER-GUIDE.md](INSTALLER-GUIDE.md)
 
 ## Integrações
 

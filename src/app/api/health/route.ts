@@ -4,22 +4,53 @@ import { getIntegrationStatus } from "@/lib/integration-status";
 
 export async function GET() {
   try {
-    const status = await getIntegrationStatus();
+    const integrations = await getIntegrationStatus();
+    const generatorConnected = integrations.ollama.connected || integrations.stitch.connected;
 
     return NextResponse.json({
-      status: status.ollama.connected ? "connected" : "degraded",
-      ...status,
+      status: generatorConnected ? "connected" : "degraded",
+      ...integrations,
     });
   } catch (error) {
     return NextResponse.json(
       {
         status: "disconnected",
-        ollama: { connected: false },
-        autonoma: { connected: false },
-        browserbase: { connected: false },
-        stitch: { connected: false, configured: false, reachable: false },
-        database: { connected: false },
-        auth0: { connected: false },
+        ollama: {
+          configured: true,
+          connected: false,
+          message: "Falha ao checar Ollama.",
+        },
+        autonoma: {
+          configured: false,
+          connected: false,
+          message: "Falha ao checar Autonoma.",
+        },
+        browserbase: {
+          configured: false,
+          connected: false,
+          message: "Falha ao checar BrowserBase.",
+        },
+        stitch: {
+          configured: false,
+          connected: false,
+          message: "Falha ao checar Stitch.",
+          reachable: false,
+        },
+        database: {
+          configured: false,
+          connected: false,
+          message: "Falha ao checar banco.",
+        },
+        auth0: {
+          configured: false,
+          connected: false,
+          message: "Falha ao checar Auth0.",
+        },
+        github: {
+          configured: false,
+          connected: false,
+          message: "Falha ao checar GitHub.",
+        },
         error: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 503 }
