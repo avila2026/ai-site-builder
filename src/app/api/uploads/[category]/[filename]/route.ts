@@ -39,10 +39,11 @@ function sanitizeFilename(raw: string) {
 
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { category: string; filename: string } },
+  { params }: { params: Promise<{ category: string; filename: string }> },
 ) {
-  const category = decodeURIComponent(params.category || "");
-  const filename = sanitizeFilename(decodeURIComponent(params.filename || ""));
+  const { category: rawCategory, filename: rawFilename } = await params;
+  const category = decodeURIComponent(rawCategory || "");
+  const filename = sanitizeFilename(decodeURIComponent(rawFilename || ""));
 
   if (!isUploadCategory(category) || !filename) {
     return new Response("Arquivo não encontrado", { status: 404 });
