@@ -13,9 +13,17 @@
     ".next/standalone/.next/**/*",
     ".next/standalone/node_modules/**/*",
     ".next/standalone/public/**/*",
+    "!.next/standalone/public/uploads",
+    "!.next/standalone/public/uploads/**/*",
     ".next/standalone/server.js",
     ".next/standalone/package.json",
     "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "electron/build-resources/icon.ico",
+      "to": "icon.ico"
+    }
   ],
   "extraMetadata": {
     "main": "electron/main.js"

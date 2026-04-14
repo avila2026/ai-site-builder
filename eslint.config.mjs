@@ -16,6 +16,9 @@ const eslintConfig = [
       "node_modules/**",
       "drizzle/**",
       "dist/**",
+      "build/**",
+      "release/**",
+      "release-builder/**",
       ".agents/**",
       ".claude/**",
       ".playwright-cli/**",
@@ -24,6 +27,12 @@ const eslintConfig = [
     ],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["electron/**/*.js", "scripts/**/*.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

@@ -270,6 +270,12 @@ function isAuthCallbackUrl(targetUrl) {
   return parsed.pathname === "/auth/callback";
 }
 
+function isAnyAuthUrl(targetUrl) {
+  if (!isLocalUrl(targetUrl)) return false;
+  const parsed = new URL(targetUrl);
+  return parsed.pathname.startsWith("/auth/");
+}
+
 function isAllowedAuthUrl(targetUrl) {
   try {
     const parsed = new URL(targetUrl);
@@ -342,6 +348,7 @@ function openAuthWindow(entryUrl) {
       sandbox: true,
     },
   });
+  let hasVisitedExternalAuth = false;
 
   authWindow.webContents.setWindowOpenHandler(({ url }) => {
     if (isAllowedAuthUrl(url)) {
@@ -357,13 +364,29 @@ function openAuthWindow(entryUrl) {
       shell.openExternal(navigationUrl);
       return;
     }
+    if (!isLocalUrl(navigationUrl)) {
+      hasVisitedExternalAuth = true;
+      return;
+    }
+
     if (isAuthCallbackUrl(navigationUrl)) {
       setTimeout(closeAuthWindowAndRefresh, 400);
+      return;
+    }
+
+    if (hasVisitedExternalAuth && !isAnyAuthUrl(navigationUrl)) {
+      event.preventDefault();
+      setTimeout(closeAuthWindowAndRefresh, 100);
     }
   });
 
   authWindow.webContents.on("did-navigate", (_event, navigationUrl) => {
-    if (isAuthCallbackUrl(navigationUrl)) {
+    if (!isLocalUrl(navigationUrl)) {
+      hasVisitedExternalAuth = true;
+      return;
+    }
+
+    if (isAuthCallbackUrl(navigationUrl) || (hasVisitedExternalAuth && !isAnyAuthUrl(navigationUrl))) {
       setTimeout(closeAuthWindowAndRefresh, 400);
     }
   });
@@ -400,6 +423,7 @@ function attachMainWindowSecurity(win) {
       return;
     }
     event.preventDefault();
+    shell.openExternal(navigationUrl);
   });
 }
 
