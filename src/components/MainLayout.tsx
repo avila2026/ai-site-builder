@@ -39,6 +39,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
     { id: 'builder', label: 'Criar Site', icon: Sparkles },
   ];
 
+  // ID of the menu item that represents the current page. Today the app has
+  // a single route so this is a constant; once real routing lands, replace
+  // with `usePathname()` from next/navigation and match against per-item href.
+  const activeItemId = 'builder';
+
   // Check integrations health on mount
   useEffect(() => {
     const checkHealth = async () => {
@@ -165,7 +170,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 <button
                   key={item.id}
                   type="button"
-                  aria-current="page"
+                  aria-current={item.id === activeItemId ? 'page' : undefined}
                   className="flex w-full items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground"
                 >
                   <Icon className="h-5 w-5" aria-hidden="true" />
