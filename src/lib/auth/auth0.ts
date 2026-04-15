@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Auth0Client } from "@auth0/nextjs-auth0/server";
 import { findOrCreateUser, hasDatabaseConfig } from "@/lib/db";
-import { getAppBaseUrl } from "@/lib/app-base-url";
+import { getAppBaseUrl } from "@/lib/auth/app-base-url";
 
 const auth0Config = {
   domain: process.env.AUTH0_DOMAIN,

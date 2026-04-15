@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateSiteContent, generateSiteCode, type SiteGenerationRequest } from '@/lib/ollama-client';
+import { generateSiteContent, generateSiteCode, type SiteGenerationRequest } from '@/lib/providers/ollama-client';
 import {
   generateSiteWithStitch,
   isStitchConfigured,
   StitchGenerationError,
-} from '@/lib/stitch-client';
+} from '@/lib/providers/stitch-client';
 
 type GenerationProvider = 'ollama' | 'stitch';
 

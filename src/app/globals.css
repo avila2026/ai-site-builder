@@ -1,34 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0f;
-  --foreground: #fafafa;
-  --card: #12121a;
-  --card-foreground: #fafafa;
-  --popover: #12121a;
-  --popover-foreground: #fafafa;
-  --primary: #8b5cf6;
-  --primary-glow: #7c3aed;
-  --primary-foreground: #fafafa;
-  --secondary: #ec4899;
-  --secondary-glow: #db2777;
+  --background: #f8fafc; /* zinc-50 / slate-50 */
+  --foreground: #0f172a; /* slate-900 */
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #ea580c; /* orange-600 - Cor de Segurança/Alerta */
+  --primary-glow: #c2410c;
+  --primary-foreground: #ffffff;
+  --secondary: #334155; /* slate-700 */
+  --secondary-glow: #1e293b;
   --secondary-foreground: #fafafa;
-  --muted: #1e1e2e;
-  --muted-foreground: #a1a1aa;
-  --accent: #06b6d4;
-  --accent-glow: #0891b2;
+  --muted: #f1f5f9; /* slate-100 */
+  --muted-foreground: #64748b; /* slate-500 */
+  --accent: #475569; /* slate-600 */
+  --accent-glow: #334155;
   --accent-foreground: #fafafa;
   --destructive: #ef4444;
   --destructive-foreground: #fafafa;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #8b5cf6;
-  --radius: 1rem;
+  --border: #e2e8f0; /* slate-200 */
+  --input: #e2e8f0;
+  --ring: #ea580c;
+  --radius: 0.25rem; /* rounded-sm para aspecto industrial */
 
-  /* Gradientes */
-  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
-  --gradient-glow: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%);
+  /* Gradientes Industriais */
+  --gradient-primary: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  --gradient-secondary: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+  --gradient-glow: radial-gradient(circle, rgba(234, 88, 12, 0.2) 0%, transparent 70%);
 }
 
 @theme inline {

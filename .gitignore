@@ -37,6 +37,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+.vercel-project.json
 
 # electron builder releases (large files)
 /release-builder/
@@ -50,4 +51,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
+# claude / session artifacts
+.pi/
+.pi.zip
+.webui_secret_key
+.next-dev.*.log
+.playwright-cli/
+.playwright-mcp/
+
+# docs screenshots (large images, não precisam de versionamento)
+docs/screenshots/
