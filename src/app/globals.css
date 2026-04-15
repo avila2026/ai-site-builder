@@ -365,3 +365,33 @@ body {
   outline: none;
   box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
 }
+
+/* === prefers-reduced-motion ===
+ * Respeita usuários com animações reduzidas (vestibular disorders, epilepsia,
+ * foco/ADHD, economia de bateria). Neutraliza todas as animações e transições
+ * longas, e esconde as partículas decorativas de fundo.
+ *
+ * Usa 0.01ms em vez de 0 para que listeners de animationend/transitionend
+ * ainda disparem — padrão recomendado pelo W3C.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Fundos e elementos puramente decorativos: remover completamente. */
+  .particles,
+  .particle {
+    display: none !important;
+  }
+
+  .animated-bg {
+    animation: none !important;
+    background: var(--background) !important;
+  }
+}
