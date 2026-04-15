@@ -15,20 +15,24 @@
     rel="stylesheet" />
   <style>
     :root {
-      --bg: #080a0d;
-      --bg-elevated: #11161d;
-      --panel: rgba(16, 22, 29, 0.92);
-      --panel-soft: rgba(23, 31, 41, 0.86);
-      --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.16);
-      --text: #f2efe8;
-      --muted: #9ea7b2;
-      --steel: #d6dde6;
-      --dust: #ccbda4;
-      --primary: #f46a1f;
-      --primary-deep: #d24c14;
-      --accent: #c52f22;
-      --shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+      --bg: #121416;
+      --bg-elevated: #18202a;
+      --panel: rgba(24, 34, 46, 0.9);
+      --panel-soft: rgba(29, 40, 54, 0.82);
+      --line: rgba(var(--primary-rgb), 0.14);
+      --line-strong: rgba(var(--primary-rgb), 0.28);
+      --text: #f4f8ff;
+      --muted: #9fb2ca;
+      --steel: #d7e4f4;
+      --dust: #a7c8ff;
+      --primary: #a7c8ff;
+      --primary-deep: #002d5c;
+      --accent: #66df6e;
+      --shadow: 0 28px 70px rgba(var(--primary-deep-rgb), 0.3);
+      --tertiary: #66df6e;
+      --primary-rgb: 167, 200, 255;
+      --primary-deep-rgb: 0, 45, 92;
+      --tertiary-rgb: 102, 223, 110;
       --max: 1200px;
     }
 
@@ -46,9 +50,9 @@
       font-family: "Barlow", system-ui, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 18% 16%, rgba(197, 47, 34, 0.18), transparent 20%),
-        radial-gradient(circle at 84% 12%, rgba(244, 106, 31, 0.18), transparent 18%),
-        linear-gradient(180deg, #07090c 0%, #0c1015 54%, #080a0d 100%);
+        radial-gradient(circle at 18% 16%, rgba(var(--primary-deep-rgb), 0.18), transparent 20%),
+        radial-gradient(circle at 84% 12%, rgba(var(--primary-rgb), 0.18), transparent 18%),
+        linear-gradient(180deg, #0f1318 0%, #131a22 54%, #121416 100%);
       overflow-x: hidden;
     }
 
@@ -81,8 +85,8 @@
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
         repeating-linear-gradient(-58deg,
-          rgba(244, 106, 31, 0.16) 0,
-          rgba(244, 106, 31, 0.16) 18px,
+          rgba(var(--primary-rgb), 0.16) 0,
+          rgba(var(--primary-rgb), 0.16) 18px,
           transparent 18px,
           transparent 36px);
       transform: rotate(-6deg);
@@ -148,9 +152,9 @@
       border-radius: 12px;
       background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 58%),
-        linear-gradient(145deg, #ff8d54, var(--primary-deep));
+        linear-gradient(145deg, var(--primary), var(--primary-deep));
       box-shadow:
-        0 18px 38px rgba(210, 76, 20, 0.22),
+        0 18px 38px rgba(var(--primary-deep-rgb), 0.22),
         inset 0 1px 0 rgba(255, 255, 255, 0.24);
     }
 
@@ -266,8 +270,8 @@
       width: 8px;
       height: 8px;
       flex: 0 0 auto;
-      background: linear-gradient(180deg, #ffb587, var(--primary));
-      box-shadow: 0 0 16px rgba(244, 106, 31, 0.42);
+      background: linear-gradient(180deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 16px rgba(var(--primary-rgb), 0.42);
     }
 
     h1,
@@ -289,7 +293,7 @@
     h1 span {
       display: block;
       color: var(--primary);
-      text-shadow: 0 0 26px rgba(244, 106, 31, 0.28);
+      text-shadow: 0 0 26px rgba(var(--primary-rgb), 0.28);
     }
 
     .hero-copy p {
@@ -328,9 +332,15 @@
     }
 
     .button-primary {
-      background: linear-gradient(135deg, #ff8a4b 0%, var(--primary-deep) 100%);
-      box-shadow: 0 18px 34px rgba(210, 76, 20, 0.25);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+      box-shadow: 0 18px 34px rgba(var(--primary-deep-rgb), 0.25);
       color: #fff;
+    }
+
+    .button-whatsapp {
+      background: linear-gradient(135deg, #78e983 0%, var(--tertiary) 100%);
+      box-shadow: 0 18px 34px rgba(var(--tertiary-rgb), 0.34);
+      color: #06210b;
     }
 
     .button-secondary {
@@ -419,8 +429,8 @@
       background:
         linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent),
         repeating-linear-gradient(-45deg,
-          rgba(244, 106, 31, 0.92) 0,
-          rgba(244, 106, 31, 0.92) 16px,
+          rgba(var(--primary-rgb), 0.92) 0,
+          rgba(var(--primary-rgb), 0.92) 16px,
           rgba(16, 21, 27, 0.92) 16px,
           rgba(16, 21, 27, 0.92) 32px);
       z-index: 1;
@@ -485,7 +495,7 @@
       place-items: center;
       padding: 22px;
       background:
-        radial-gradient(circle at center, rgba(244, 106, 31, 0.2), transparent 60%),
+        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.2), transparent 60%),
         rgba(255, 255, 255, 0.02);
       font-family: "Teko", sans-serif;
       font-size: 2rem;
@@ -557,7 +567,7 @@
       width: min(92%, 620px);
       aspect-ratio: 1.18 / 1;
       z-index: 4;
-      background: radial-gradient(circle at 58% 60%, rgba(244, 106, 31, 0.18), transparent 48%);
+      background: radial-gradient(circle at 58% 60%, rgba(var(--primary-rgb), 0.18), transparent 48%);
     }
 
     .hero-rig-image {
@@ -576,7 +586,7 @@
       padding: 24px;
       border: 1px dashed var(--line-strong);
       background:
-        radial-gradient(circle at center, rgba(244, 106, 31, 0.16), transparent 60%),
+        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.16), transparent 60%),
         rgba(11, 15, 20, 0.68);
       color: var(--steel);
       text-align: center;
@@ -656,7 +666,7 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background:
-        linear-gradient(90deg, rgba(197, 47, 34, 0.08), transparent 18%, transparent 82%, rgba(244, 106, 31, 0.08)),
+        linear-gradient(90deg, rgba(var(--primary-deep-rgb), 0.08), transparent 18%, transparent 82%, rgba(var(--primary-rgb), 0.08)),
         rgba(255, 255, 255, 0.018);
     }
 
@@ -684,8 +694,8 @@
       width: 9px;
       height: 9px;
       border-radius: 2px;
-      background: linear-gradient(180deg, #ffb182, var(--primary));
-      box-shadow: 0 0 14px rgba(244, 106, 31, 0.34);
+      background: linear-gradient(180deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.34);
       transform: rotate(45deg);
     }
 
@@ -788,9 +798,9 @@
       background:
         linear-gradient(90deg,
           transparent,
-          rgba(244, 106, 31, 0.22) 16%,
+          rgba(var(--primary-rgb), 0.22) 16%,
           rgba(255, 255, 255, 0.18) 50%,
-          rgba(197, 47, 34, 0.22) 84%,
+          rgba(var(--primary-deep-rgb), 0.22) 84%,
           transparent);
     }
 
@@ -800,7 +810,7 @@
       width: min(100%, 760px);
       height: 58px;
       object-fit: contain;
-      filter: drop-shadow(0 0 18px rgba(244, 106, 31, 0.18));
+      filter: drop-shadow(0 0 18px rgba(var(--primary-rgb), 0.18));
     }
 
     .detail-zone {
@@ -819,7 +829,7 @@
     .detail-main {
       padding: 34px;
       background:
-        linear-gradient(135deg, rgba(244, 106, 31, 0.1), transparent 34%),
+        linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), transparent 34%),
         rgba(12, 16, 22, 0.82);
     }
 
@@ -847,7 +857,7 @@
       aspect-ratio: 1 / 1;
       overflow: hidden;
       background:
-        radial-gradient(circle at 35% 35%, rgba(244, 106, 31, 0.14), transparent 52%),
+        radial-gradient(circle at 35% 35%, rgba(var(--primary-rgb), 0.14), transparent 52%),
         linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(9, 12, 16, 0.72));
     }
 
@@ -901,9 +911,9 @@
       flex: 0 0 auto;
       margin-top: 7px;
       border-radius: 2px;
-      background: linear-gradient(180deg, #ffb182, var(--primary));
+      background: linear-gradient(180deg, var(--primary), var(--primary-deep));
       transform: rotate(45deg);
-      box-shadow: 0 0 14px rgba(244, 106, 31, 0.34);
+      box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.34);
     }
 
     .detail-side {
@@ -953,7 +963,7 @@
       overflow: hidden;
       border: 1px solid var(--line);
       background:
-        radial-gradient(circle at 16% 42%, rgba(244, 106, 31, 0.22), transparent 32%),
+        radial-gradient(circle at 16% 42%, rgba(var(--primary-rgb), 0.22), transparent 32%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 36%),
         linear-gradient(145deg, #121821 0%, #0b0e13 100%);
       box-shadow: var(--shadow);
@@ -967,8 +977,8 @@
       right: 18px;
       height: 14px;
       background: repeating-linear-gradient(-45deg,
-          rgba(197, 47, 34, 0.86) 0,
-          rgba(197, 47, 34, 0.86) 16px,
+          rgba(var(--primary-deep-rgb), 0.86) 0,
+          rgba(var(--primary-deep-rgb), 0.86) 16px,
           rgba(13, 16, 21, 0.88) 16px,
           rgba(13, 16, 21, 0.88) 32px);
       opacity: 0.7;
@@ -1245,8 +1255,8 @@
     <header class="container topbar">
       <a class="brand" href="#inicio" aria-label="Ir para o topo">
         <div class="brand-mark" data-asset-host>
-          <img class="brand-logo-image" data-asset-image src="./assets/logos/site-logo.svg"
-            alt="Logo da AVILA Linha Pesada" decoding="async" />
+          <img class="brand-logo-image" data-asset-image src="./assets/logos/avila-logo.png"
+            alt="Logo oficial AVILA Posto de Molas — freios, molas, soldas e acessórios" decoding="async" />
           <span class="brand-logo-fallback" data-asset-fallback aria-hidden="true">AV</span>
         </div>
         <div class="brand-copy">
@@ -1276,7 +1286,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary"
+            <a class="button button-primary button-whatsapp"
               href="https://wa.me/5568999999999?text=Ol%C3%A1%20AVILA%2C%20preciso%20de%20pe%C3%A7a%20para%20caminh%C3%A3o.%20Vou%20mandar%20modelo%2C%20medida%20ou%20foto%20para%20or%C3%A7amento."
               target="_blank" rel="noreferrer">
               Chamar no WhatsApp
@@ -1313,7 +1323,7 @@
             <div class="hero-panel-label">Estrada de oficina</div>
 
             <div class="hero-parts" data-asset-host>
-              <img class="hero-parts-image" data-asset-image src="./assets/icons/leaf-spring.jpg"
+              <img class="hero-parts-image" data-asset-image src="./assets/icons/feixe-de-molas.jpg"
                 alt="Feixe de molas para caminhão" />
               <div class="hero-parts-fallback" data-asset-fallback>
                 Feixe de molas
@@ -1330,7 +1340,7 @@
             </div>
 
             <div class="hero-signal" data-asset-host aria-hidden="true">
-              <img class="hero-signal-image" data-asset-image src="./assets/animations/hero-animation.svg" alt=""
+              <img class="hero-signal-image" data-asset-image src="./assets/icons/engrenagens-3d.png" alt="Engrenagens mecânicas 3D"
                 decoding="async" />
               <div class="hero-signal-fallback" data-asset-fallback>
                 Painel
@@ -1340,7 +1350,7 @@
             </div>
 
             <div class="hero-rig" data-asset-host>
-              <img class="hero-rig-image" data-asset-image src="./assets/icons/truck.gif"
+              <img class="hero-rig-image" data-asset-image src="./assets/icons/caminhao-grande.gif"
                 alt="Caminhão de linha pesada em destaque" />
               <div class="hero-rig-fallback" data-asset-fallback>
                 <div>
@@ -1439,35 +1449,35 @@
             <div class="icon-showcase" aria-label="Categorias e serviços em destaque">
               <figure class="icon-tile">
                 <div class="icon-tile-media icon-tile-media--photo">
-                  <img src="./assets/icons/leaf-spring.jpg" alt="Feixe de molas automotivo" loading="lazy" />
+                  <img src="./assets/icons/feixe-de-molas.jpg" alt="Feixe de molas para caminhão e veículos pesados" loading="lazy" />
                 </div>
                 <figcaption>Feixe de molas</figcaption>
               </figure>
 
               <figure class="icon-tile">
                 <div class="icon-tile-media">
-                  <img src="./assets/icons/truck.gif" alt="Caminhão de linha pesada" loading="lazy" />
+                  <img src="./assets/icons/caminhao-bau.gif" alt="Caminhão baú animado — atendimento linha pesada" loading="lazy" />
                 </div>
                 <figcaption>Linha pesada</figcaption>
               </figure>
 
               <figure class="icon-tile">
                 <div class="icon-tile-media">
-                  <img src="./assets/icons/service-gear.gif" alt="Ícone de oficina e reparo" loading="lazy" />
+                  <img src="./assets/icons/servico-mecanico.gif" alt="Engrenagem e chave — serviço mecânico especializado" loading="lazy" />
                 </div>
                 <figcaption>Oficina e reparo</figcaption>
               </figure>
 
               <figure class="icon-tile">
                 <div class="icon-tile-media">
-                  <img src="./assets/icons/tire.gif" alt="Pneu para rodagem e manutenção" loading="lazy" />
+                  <img src="./assets/icons/pneu-offroad.gif" alt="Pneu off-road para linha pesada e veículos 4x4" loading="lazy" />
                 </div>
                 <figcaption>Pneus e rodagem</figcaption>
               </figure>
 
               <figure class="icon-tile">
                 <div class="icon-tile-media">
-                  <img src="./assets/icons/mechanic.gif" alt="Atendimento técnico no balcão" loading="lazy" />
+                  <img src="./assets/icons/mecanico-3d.gif" alt="Mecânico 3D com chave — atendimento técnico especializado" loading="lazy" />
                 </div>
                 <figcaption>Atendimento técnico</figcaption>
               </figure>
@@ -1525,7 +1535,7 @@
             </div>
 
             <div class="cta-stack">
-              <a class="button button-primary"
+              <a class="button button-primary button-whatsapp"
                 href="https://wa.me/5568999999999?text=Ol%C3%A1%20AVILA%2C%20preciso%20de%20pe%C3%A7a%20para%20caminh%C3%A3o.%20Vou%20mandar%20modelo%2C%20medida%20ou%20foto%20para%20or%C3%A7amento."
                 target="_blank" rel="noreferrer">
                 Abrir WhatsApp

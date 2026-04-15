@@ -24,11 +24,11 @@ export const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:rotate-12 active:scale-95"
+        className="group relative flex items-center justify-center w-16 h-16 bg-[#66df6e] rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:rotate-12 active:scale-95"
         aria-label="Conversar no WhatsApp"
       >
         {/* Efeito de Pulse Industrial */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-40"></span>
+        <span className="absolute inset-0 rounded-full bg-[#66df6e] animate-ping opacity-40"></span>
 
         <MessageCircle
           className="relative z-10 w-8 h-8 text-white"
@@ -36,7 +36,7 @@ export const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
         />
 
         {/* Glow suave ao redor */}
-        <div className="absolute inset-0 rounded-full ring-4 ring-[#25D366] ring-opacity-20 group-hover:ring-opacity-50 transition-all"></div>
+        <div className="absolute inset-0 rounded-full ring-4 ring-[#66df6e] ring-opacity-20 group-hover:ring-opacity-50 transition-all"></div>
       </a>
     </div>
   );

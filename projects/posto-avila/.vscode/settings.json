@@ -1,3 +1,5 @@
 {
-    "commentTranslate.targetLanguage": "pt"
+    "commentTranslate.targetLanguage": "pt",
+    "commentTranslate.hover.enabled": true,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true
 }
