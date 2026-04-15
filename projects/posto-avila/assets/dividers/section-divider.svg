@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" viewBox="0 0 1440 96">
+  <title id="title">Divider industrial</title>
+  <desc id="desc">Divisor horizontal com linhas tecnicas e detalhe central laranja.</desc>
+  <defs>
+    <linearGradient id="line" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity="0" />
+      <stop offset="15%" stop-color="#ea580c" stop-opacity=".35" />
+      <stop offset="50%" stop-color="#fff" stop-opacity=".35" />
+      <stop offset="85%" stop-color="#ea580c" stop-opacity=".35" />
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="core" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffb07d" />
+      <stop offset="60%" stop-color="#ea580c" />
+      <stop offset="100%" stop-color="#7c2d08" />
+    </linearGradient>
+  </defs>
+  <path stroke="url(#line)" stroke-width="2" d="M0 48h620" />
+  <path stroke="url(#line)" stroke-width="2" d="M820 48h620" />
+  <path stroke="#fff" stroke-opacity=".09" stroke-width="8" d="M40 48h190m980 0h190" />
+  <g transform="translate(720 48)">
+    <rect width="112" height="32" x="-56" y="-16" fill="#0b121b" stroke="#fff" stroke-opacity=".14"
+      rx="16" />
+    <path fill="url(#core)" d="m-18 0 12-12H6L18 0 6 12H-6Z" />
+    <circle r="4" fill="#fff" />
+  </g>
+</svg>

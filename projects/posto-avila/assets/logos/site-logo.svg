@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Logo AVILA</title>
+  <desc id="desc">Marca quadrada com monograma AV e acabamento industrial.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9d63"/>
+      <stop offset="55%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#8f3306"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="6" y="6" width="108" height="108" rx="26" fill="#091018"/>
+  <rect x="9" y="9" width="102" height="102" rx="23" fill="url(#bg)"/>
+  <path d="M19 19h82c-6 0-12 3-16 8L27 85c-5 5-8 10-8 16V19Z" fill="url(#shine)" opacity=".4"/>
+
+  <path d="M29 81 50 38h11l21 43H70l-4-9H45l-4 9H29Zm21-19h11l-5.5-12.2L50 62Z" fill="#fff"/>
+  <path d="M66 38h12l11 25 11-25h12L91 81H79L66 38Z" fill="#091018" opacity=".88"/>
+</svg>
