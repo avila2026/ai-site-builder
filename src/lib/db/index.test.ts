@@ -87,7 +87,8 @@ describe('findOrCreateUser', () => {
 
   it('retorna usuário existente quando auth0Sub já está cadastrado', async () => {
     const { drizzle } = await import('drizzle-orm/neon-http');
-    (drizzle as jest.Mock).mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (drizzle as unknown as jest.Mock).mockReturnValue({
       select: jest.fn().mockReturnThis(),
       from: jest.fn().mockReturnThis(),
       where: jest.fn().mockReturnThis(),
@@ -106,7 +107,8 @@ describe('findOrCreateUser', () => {
   it('cria e retorna novo usuário quando não encontrado', async () => {
     const NEW_USER = { ...EXISTING_USER, id: 'uuid-novo' };
     const { drizzle } = await import('drizzle-orm/neon-http');
-    (drizzle as jest.Mock).mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (drizzle as unknown as jest.Mock).mockReturnValue({
       select: jest.fn().mockReturnThis(),
       from: jest.fn().mockReturnThis(),
       where: jest.fn().mockReturnThis(),

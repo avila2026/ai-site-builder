@@ -19,9 +19,6 @@ const MOCK_BRIEF = {
   updatedAt: new Date(),
 };
 
-const mockInsert = jest.fn();
-const mockSelect = jest.fn();
-
 jest.mock('@/lib/auth0', () => ({ auth0: { getSession: jest.fn() } }));
 
 jest.mock('@/lib/db', () => ({
@@ -29,21 +26,26 @@ jest.mock('@/lib/db', () => ({
   getDb: jest.fn(),
 }));
 
+function getMockAuth0() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return jest.mocked(require('@/lib/auth0').auth0) as any;
+}
+
+function makeMockDb() {
+  return {
+    query: { savedBriefs: { findMany: jest.fn().mockResolvedValue([MOCK_BRIEF]) } },
+    insert: jest.fn().mockReturnValue({
+      values: jest.fn().mockReturnValue({
+        returning: jest.fn().mockResolvedValue([MOCK_BRIEF]),
+      }),
+    }),
+  };
+}
+
 describe('GET /api/briefs', () => {
   beforeEach(async () => {
     const { getDb } = await import('@/lib/db');
-    (getDb as jest.Mock).mockReturnValue({
-      query: {
-        savedBriefs: {
-          findMany: jest.fn().mockResolvedValue([MOCK_BRIEF]),
-        },
-      },
-      insert: jest.fn().mockReturnValue({
-        values: jest.fn().mockReturnValue({
-          returning: jest.fn().mockResolvedValue([MOCK_BRIEF]),
-        }),
-      }),
-    });
+    (getDb as jest.Mock).mockReturnValue(makeMockDb());
   });
 
   it('retorna 503 quando banco não está configurado', async () => {
@@ -55,8 +57,7 @@ describe('GET /api/briefs', () => {
   });
 
   it('retorna 401 quando usuário não está autenticado', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(null);
+    getMockAuth0().getSession.mockResolvedValueOnce(null);
 
     const res = await GET();
     expect(res.status).toBe(401);
@@ -65,8 +66,7 @@ describe('GET /api/briefs', () => {
   });
 
   it('retorna lista de briefs do usuário autenticado', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(MOCK_SESSION);
+    getMockAuth0().getSession.mockResolvedValueOnce(MOCK_SESSION);
 
     const res = await GET();
     expect(res.status).toBe(200);
@@ -79,18 +79,7 @@ describe('GET /api/briefs', () => {
 describe('POST /api/briefs', () => {
   beforeEach(async () => {
     const { getDb } = await import('@/lib/db');
-    (getDb as jest.Mock).mockReturnValue({
-      query: {
-        savedBriefs: {
-          findMany: jest.fn().mockResolvedValue([MOCK_BRIEF]),
-        },
-      },
-      insert: jest.fn().mockReturnValue({
-        values: jest.fn().mockReturnValue({
-          returning: jest.fn().mockResolvedValue([MOCK_BRIEF]),
-        }),
-      }),
-    });
+    (getDb as jest.Mock).mockReturnValue(makeMockDb());
   });
 
   function makeRequest(body: object) {
@@ -102,16 +91,14 @@ describe('POST /api/briefs', () => {
   }
 
   it('retorna 401 quando usuário não está autenticado', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(null);
+    getMockAuth0().getSession.mockResolvedValueOnce(null);
 
     const res = await POST(makeRequest({ siteName: 'Teste', siteType: 'blog', description: 'Desc' }));
     expect(res.status).toBe(401);
   });
 
   it('retorna 400 quando siteName está faltando', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(MOCK_SESSION);
+    getMockAuth0().getSession.mockResolvedValueOnce(MOCK_SESSION);
 
     const res = await POST(makeRequest({ siteType: 'blog', description: 'Desc' }));
     expect(res.status).toBe(400);
@@ -120,8 +107,7 @@ describe('POST /api/briefs', () => {
   });
 
   it('retorna 400 quando siteType está faltando', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(MOCK_SESSION);
+    getMockAuth0().getSession.mockResolvedValueOnce(MOCK_SESSION);
 
     const res = await POST(makeRequest({ siteName: 'Teste', description: 'Desc' }));
     expect(res.status).toBe(400);
@@ -130,8 +116,7 @@ describe('POST /api/briefs', () => {
   });
 
   it('retorna 400 quando description está faltando', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(MOCK_SESSION);
+    getMockAuth0().getSession.mockResolvedValueOnce(MOCK_SESSION);
 
     const res = await POST(makeRequest({ siteName: 'Teste', siteType: 'blog' }));
     expect(res.status).toBe(400);
@@ -140,8 +125,7 @@ describe('POST /api/briefs', () => {
   });
 
   it('cria brief com sucesso e retorna 201', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(MOCK_SESSION);
+    getMockAuth0().getSession.mockResolvedValueOnce(MOCK_SESSION);
 
     const res = await POST(
       makeRequest({
@@ -159,8 +143,7 @@ describe('POST /api/briefs', () => {
   });
 
   it('associa o brief ao userId da sessão Auth0', async () => {
-    const { auth0 } = await import('@/lib/auth0');
-    (auth0 as { getSession: jest.Mock }).getSession.mockResolvedValueOnce(MOCK_SESSION);
+    getMockAuth0().getSession.mockResolvedValueOnce(MOCK_SESSION);
 
     const { getDb } = await import('@/lib/db');
     const mockDb = getDb as jest.Mock;
