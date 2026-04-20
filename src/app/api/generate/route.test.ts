@@ -56,6 +56,11 @@ describe('POST /api/generate', () => {
     description: 'Site de apresentação pessoal',
   };
 
+  // Salva e restaura process.env para evitar vazamento entre testes
+  const originalEnv = process.env;
+  beforeEach(() => { process.env = { ...originalEnv }; });
+  afterEach(() => { process.env = originalEnv; });
+
   it('retorna 400 quando siteName está faltando', async () => {
     const req = makeRequest({ siteType: 'landing', description: 'Desc' });
     const res = await POST(req);
@@ -117,7 +122,6 @@ describe('POST /api/generate', () => {
     process.env.SITE_GENERATION_PROVIDER = 'stitch';
     const req = makeRequest(VALID_BODY);
     const res = await POST(req);
-    delete process.env.SITE_GENERATION_PROVIDER;
 
     const raw = await collectStream(res);
     const lines = raw
@@ -140,8 +144,6 @@ describe('POST /api/generate', () => {
     process.env.STITCH_FALLBACK_TO_OLLAMA = 'true';
     const req = makeRequest(VALID_BODY);
     const res = await POST(req);
-    delete process.env.SITE_GENERATION_PROVIDER;
-    delete process.env.STITCH_FALLBACK_TO_OLLAMA;
 
     const raw = await collectStream(res);
     const lines = raw

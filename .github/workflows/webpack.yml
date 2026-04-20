@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: CI
 
 on:
   push:
@@ -21,8 +21,10 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
-    - name: Build
-      run: |
-        npm install
-        npx webpack
+    - name: Install dependencies
+      run: npm ci --ignore-scripts
+
+    - name: Run tests
+      run: npm test
