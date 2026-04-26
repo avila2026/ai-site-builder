@@ -3,7 +3,22 @@
     "allow": [
       "Bash(curl -LsSf https://astral.sh/uv/install.sh)",
       "Bash(sh)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(npm -v)",
+      "Bash(ollama --version)",
+      "Bash(curl -s --max-time 5 http://localhost:11434/api/tags)",
+      "Bash(ollama list *)",
+      "Bash(curl -s --max-time 10 http://localhost:11434/api/tags)",
+      "Bash(npm install *)",
+      "Bash(curl -s --max-time 60 http://localhost:11434/api/generate -H \"Content-Type: application/json\" -d '{\"model\":\"gemma4:31b-cloud\",\"prompt\":\"Responda exatamente a palavra: PRONTO\",\"stream\":false}')",
+      "Bash(curl -s --max-time 2 http://127.0.0.1:3000/api/health)",
+      "Bash(curl -s http://127.0.0.1:3000/api/health)",
+      "Bash(curl -s -o /dev/null -w \"HOME_HTTP=%{http_code}\\\\n\" http://127.0.0.1:3000/)",
+      "Read(//d/1-WORKFLOW/ai-site-builder/node_modules/lightningcss-win32-x64-msvc/**)",
+      "Read(//d/1-WORKFLOW/ai-site-builder/node_modules/next/**)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(curl -s -o /dev/null -w \"HOME=%{http_code}\\\\n\" http://127.0.0.1:3000/)",
+      "Bash(curl -s --max-time 240 -X POST http://127.0.0.1:3000/api/generate -H \"Content-Type: application/json\" -d '{\"siteName\":\"Teste Local\",\"siteType\":\"landing\",\"description\":\"Pagina de teste para validar geracao com gemma4:31b-cloud\"}')"
     ]
   },
   "enabledPlugins": {

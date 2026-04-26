@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getIntegrationStatus } from "@/lib/integration-status";
+import { getIntegrationStatus } from "@/lib/utils/integration-status";
 
 export async function GET() {
   try {

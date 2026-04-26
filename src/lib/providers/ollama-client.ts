@@ -3,7 +3,7 @@
  * Usa modelo kimi-k2.5:cloud (gratuito) ou modelos locais
  */
 
-import { buildFullPromptSection } from './templates';
+import { buildFullPromptSection } from '@/lib/templates';
 
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://localhost:11434';
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'gemma4:31b-cloud';

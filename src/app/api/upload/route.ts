@@ -3,7 +3,7 @@ import { mkdir, readdir, writeFile } from "fs/promises";
 import { join } from "path";
 import { NextRequest, NextResponse } from "next/server";
 
-import { isElectronDesktopRuntime } from "@/lib/app-base-url";
+import { isElectronDesktopRuntime } from "@/lib/auth/app-base-url";
 
 const ALLOWED_TYPES: Record<string, string> = {
   "image/jpeg": ".jpg",

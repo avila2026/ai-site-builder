@@ -1,228 +1,211 @@
 # AI Site Builder
 
-Construtor de sites com IA usando Next.js 15, Stitch SDK, Ollama e múltiplos providers de IA.
+Construtor de sites com IA usando Next.js 15, Stitch SDK (Google), Ollama e Auth0.
 
-## Status do Projeto
+## Stack
 
-✅ **Produção Ready** - Integrado com Vercel, Stitch SDK, Neon Database e Auth0
-
-## Features
-
-- **Geração com IA**: Stitch SDK (Google) ou Ollama (cloud/local)
-- **Fallback Automático**: Se Stitch falhar, usa Ollama automaticamente
-- **Preview na Vercel**: Deploy rápido com validação prévia
-- **Auth0**: Autenticação opcional com login social
-- **Database**: Neon PostgreSQL para salvar briefs e usuários
-- **Streaming**: Resposta em tempo real com NDJSON
+| Camada | Tecnologia |
+|--------|-----------|
+| Framework | Next.js 15 (App Router) + React 19 |
+| Linguagem | TypeScript 5 |
+| Estilos | Tailwind CSS 4 |
+| IA — cloud | Stitch SDK (Google) |
+| IA — local | Ollama |
+| Database | Neon PostgreSQL + Drizzle ORM |
+| Auth | Auth0 v4 |
+| Desktop | Electron 41 (Windows) |
+| Deploy | Vercel |
 
 ## Quick Start
 
-### 1. Instalar dependências
-
 ```bash
+# 1. Instalar dependências
 npm install
-```
 
-### 2. Configurar ambiente
-
-```bash
+# 2. Configurar ambiente
 cp .env.local.example .env.local
 # Edite .env.local com suas credenciais
-```
 
-### 3. Rodar em desenvolvimento
-
-```bash
+# 3. Rodar em desenvolvimento
 npm run dev
 ```
 
 Acesse: http://localhost:3000
 
-## Comandos Disponíveis
+## Comandos
 
 | Comando | Descrição |
 |---------|-----------|
-| `npm run dev` | Servidor de desenvolvimento |
+| `npm run dev` | Dev server (Next.js 15 + Turbopack) |
 | `npm run build` | Build de produção |
-| `npm run start` | Start em produção |
+| `npm run start` | Servidor de produção |
 | `npm run vercel:preflight` | Validação pré-deploy Vercel |
 | `npm run stitch:smoke` | Smoke test da integração Stitch |
-| `npm run db:generate` | Gerar migrations do banco |
-| `npm run db:push` | Aplicar migrations no banco |
-| `npm run electron:dev` | Rodar app desktop em desenvolvimento |
-| `npm run electron:build:win` | Gerar instalador Windows do desktop |
+| `npm run db:generate` | Gerar migrations Drizzle |
+| `npm run db:push` | Aplicar migrations no Neon |
+| `npm run electron:dev` | App desktop em desenvolvimento |
+| `npm run electron:build:win` | Gerar instalador Windows (.exe) |
 
 ## Variáveis de Ambiente
 
-### Obrigatórias (Stitch)
-
 ```env
-STITCH_API_KEY="..."
-STITCH_PROJECT_ID="1827742389953977950"
+# Provedor de geração (obrigatório: "stitch" ou "ollama")
 SITE_GENERATION_PROVIDER="stitch"
-```
 
-### Obrigatórias (Ollama)
+# Stitch (Google)
+STITCH_API_KEY="..."
+STITCH_PROJECT_ID="..."
 
-```env
+# Ollama (local ou cloud)
 OLLAMA_MODEL="gemma4:31b-cloud"
-```
+OLLAMA_BASE_URL="http://localhost:11434"   # padrão local
 
-### Opcionais
-
-```env
-# Auth0
+# Auth0 (opcional — se não configurado, auth é bypassada)
 AUTH0_DOMAIN="..."
 AUTH0_CLIENT_ID="..."
 AUTH0_CLIENT_SECRET="..."
-AUTH0_SECRET="..."
+AUTH0_SECRET="..."                          # string aleatória ≥ 32 chars
 
-# Database (Neon)
+# Database Neon (opcional — necessário para salvar briefs)
 DATABASE_URL="postgresql://..."
 
-# 21st.dev
+# Outros providers (opcionais)
 TWENTY_FIRST_DEV_API_KEY="..."
-
-# BrowserBase
 BROWSERBASE_API_KEY="..."
 BROWSERBASE_PROJECT_ID="..."
+AUTONOMA_CLIENT_ID="..."
+AUTONOMA_SECRET_ID="..."
+GITHUB_PAT="..."                            # para exportar sites como repositório
 ```
+
+Consulte [.env.local.example](.env.local.example) para a lista completa.
 
 ## Arquitetura
 
-### Providers de Geração
-
-```
-┌─────────────────┐
-│  /api/generate  │
-└────────┬────────┘
-         │
-    ┌────┴────┐
-    │  Escolhe provider pelo SITE_GENERATION_PROVIDER
-    ├─────────────────────┬──────────────────────┐
-    │                     │                      │
-┌───▼────┐          ┌────▼─────┐           ┌────▼────┐
-│ Stitch │          │  Ollama  │           │ Fallback│
-│  SDK   │─────────▶│  Cloud   │◀──────────│ Automático│
-└────────┘          └──────────┘           └─────────┘
-```
-
 ### Fluxo de Geração
 
-1. Usuário preenche brief no frontend
-2. `/api/generate` escolhe provider (Stitch ou Ollama)
-3. IA gera HTML com Tailwind CSS
-4. Streaming NDJSON envia progresso em tempo real
-5. Frontend renderiza preview
+```
+POST /api/generate
+       │
+       ├── SITE_GENERATION_PROVIDER=stitch
+       │       └── Stitch SDK → HTML gerado
+       │               └── (erro recuperável) → fallback Ollama
+       │
+       └── SITE_GENERATION_PROVIDER=ollama
+               └── Ollama → conteúdo → código HTML/Tailwind
+                       └── stream NDJSON → frontend → <SitePreview>
+```
 
-## Estrutura do Projeto
+### Estrutura do Projeto
 
 ```
 ai-site-builder/
 ├── src/
 │   ├── app/
 │   │   ├── api/
-│   │   │   ├── auth/       # Endpoints Auth0
-│   │   │   ├── generate/   # Geração de sites
-│   │   │   ├── health/     # Health check
-│   │   │   └── ...
+│   │   │   ├── agent/          # sandbox 21st.dev e status de integrações
+│   │   │   ├── autonoma/       # trigger de testes Autonoma
+│   │   │   ├── briefs/         # CRUD de briefs salvos (requer auth + db)
+│   │   │   ├── browserbase/    # sessões de browser remoto
+│   │   │   ├── generate/       # geração de sites (Stitch ou Ollama)
+│   │   │   ├── github/         # exportar site como repositório GitHub
+│   │   │   ├── health/         # status de todas as integrações
+│   │   │   ├── upload/         # upload de arquivos (logo, imagens, prompt)
+│   │   │   └── uploads/        # servir arquivos uploaded
+│   │   ├── auth/               # rotas Auth0 (login, logout, callback)
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── components/
+│   │   ├── BriefForm.tsx        # formulário principal de geração
+│   │   ├── FileUpload.tsx       # upload de arquivos
+│   │   ├── SitePreview.tsx      # iframe de preview do HTML gerado
+│   │   ├── Toast.tsx            # notificações
+│   │   └── ui/                 # TemplatePreview, ThemePreview
 │   ├── lib/
-│   │   ├── auth0.ts        # Configuração Auth0
-│   │   ├── stitch-client.ts # Cliente Stitch
-│   │   ├── ollama-client.ts # Cliente Ollama
-│   │   └── db/             # Database (Neon)
-│   └── ...
+│   │   ├── auth/               # auth0.ts, app-base-url.ts
+│   │   ├── db/                 # schema Drizzle, conexão Neon
+│   │   ├── providers/          # stitch-client, ollama-client, github-rest,
+│   │   │                       # autonoma-client, browserbase-client, 21st-client
+│   │   ├── templates/          # 8 templates, 6 temas, prompt builder
+│   │   └── utils/              # integration-status, cacheConfig
+│   └── middleware.ts           # proteção de rotas via Auth0
+│
+├── electron/
+│   ├── main.js                 # processo principal (IPC, janela, .env parser)
+│   └── preload.js              # bridge contextIsolation
+│
 ├── scripts/
-│   ├── vercel-preflight.mjs # Validação pré-deploy
-│   └── stitch-smoke.mjs     # Smoke test Stitch
+│   ├── build-electron.js       # prepara build Electron
+│   ├── vercel-preflight.mjs    # valida envs antes do deploy
+│   └── stitch-smoke.mjs        # smoke test Stitch
+│
 ├── docs/
-│   ├── OLLAMA_SETUP.md      # Setup Ollama local
-│   └── VERCEL_DEPLOY.md     # Guia de deploy
-└── .env.local.example
+│   ├── setup/                  # auth0.md, ollama.md, vercel-deploy.md
+│   ├── integrations/           # stitch.md, autonoma-api.md, autonoma-vercel.md
+│   ├── guides/                 # installer.md, design-improvements.md
+│   └── reference/              # performance.md
+│
+├── drizzle/                    # migrations geradas pelo Drizzle Kit
+├── projects/                   # sites de exemplo/gerados
+└── public/
 ```
 
 ## Deploy na Vercel
 
-### 1. Vincular projeto
-
 ```bash
+# 1. Vincular projeto
 vercel link
-```
 
-### 2. Configurar envs no Dashboard
-
-Adicione as variáveis em **Settings > Environment Variables**
-
-### 3. Validar localmente
-
-```bash
+# 2. Validar envs localmente
 npm run vercel:preflight
+
+# 3. Deploy
+vercel          # preview
+vercel --prod   # produção
 ```
 
-### 4. Deploy
-
-```bash
-vercel          # Preview
-vercel --prod   # Produção
-```
-
-Veja [docs/VERCEL_DEPLOY.md](docs/VERCEL_DEPLOY.md) para detalhes.
+Veja [docs/setup/vercel-deploy.md](docs/setup/vercel-deploy.md) para detalhes completos.
 
 ## Ollama Local
 
-Para usar Ollama local ao invés de cloud:
+```bash
+# Instale Ollama em https://ollama.ai e baixe o modelo
+ollama pull gemma4:12b
 
-1. Instale Ollama: https://ollama.ai
-2. Baixe modelo: `ollama pull gemma4:31b-cloud`
-3. Configure no `.env.local`:
-
-```env
-OLLAMA_MODEL=gemma4:31b-cloud
+# Configure no .env.local
+OLLAMA_MODEL=gemma4:12b
 OLLAMA_BASE_URL=http://localhost:11434
 SITE_GENERATION_PROVIDER=ollama
 ```
 
-Veja [docs/OLLAMA_SETUP.md](docs/OLLAMA_SETUP.md) para detalhes.
+Veja [docs/setup/ollama.md](docs/setup/ollama.md).
 
 ## Desktop Electron (Windows)
 
-- Porta local fixa no app instalado: `http://127.0.0.1:39213`
-- Arquivo de ambiente no desktop instalado: `%APPDATA%\\AI Site Builder\\.env`
-- Uploads persistidos em: `%APPDATA%\\AI Site Builder\\uploads`
+- **Dev**: `npm run electron:dev` (abre Next.js + janela Electron)
+- **Build**: `npm run electron:build:win` → gera `.exe` instalador em `release/`
+- **Porta no instalado**: `http://127.0.0.1:39213`
+- **Arquivo de ambiente**: `%APPDATA%\AI Site Builder\.env`
+- **Uploads**: `%APPDATA%\AI Site Builder\uploads`
 
-Guia completo: [INSTALLER-GUIDE.md](INSTALLER-GUIDE.md)
+Veja [docs/guides/installer.md](docs/guides/installer.md).
+
+## Auth0
+
+Auth0 é **opcional**. Se as variáveis `AUTH0_*` não estiverem definidas, o middleware bypassa autenticação (útil em desenvolvimento local e modo Electron offline).
+
+Veja [docs/setup/auth0.md](docs/setup/auth0.md).
 
 ## Integrações
 
-| Serviço | Status | Docs |
-|---------|--------|------|
-| Stitch SDK | ✅ Ativo | [docs/STITCH_INTEGRATION.md](docs/STITCH_INTEGRATION.md) |
-| Ollama | ✅ Cloud/Local | [docs/OLLAMA_SETUP.md](docs/OLLAMA_SETUP.md) |
-| Vercel | ✅ Deploy | [docs/VERCEL_DEPLOY.md](docs/VERCEL_DEPLOY.md) |
-| Neon DB | ✅ Configurado | - |
-| Auth0 | ✅ Pronto | [docs/AUTH0_SETUP.md](docs/AUTH0_SETUP.md) |
-| BrowserBase | ✅ Configurado | - |
-| 21st.dev | ✅ Configurado | - |
-| Autonoma | ✅ Configurado | [docs/AUTONOMA_API_OVERVIEW.md](docs/AUTONOMA_API_OVERVIEW.md) |
+| Serviço | Docs |
+|---------|------|
+| Stitch SDK | [docs/integrations/stitch.md](docs/integrations/stitch.md) |
+| Autonoma | [docs/integrations/autonoma-api.md](docs/integrations/autonoma-api.md) |
+| Vercel | [docs/setup/vercel-deploy.md](docs/setup/vercel-deploy.md) |
+| Auth0 | [docs/setup/auth0.md](docs/setup/auth0.md) |
+| Ollama | [docs/setup/ollama.md](docs/setup/ollama.md) |
 
-## Tech Stack
+## Autor
 
-- **Framework**: Next.js 15 (App Router)
-- **Linguagem**: TypeScript 5
-- **Estilos**: Tailwind CSS 4
-- **UI**: Framer Motion, Lucide React
-- **IA**: Stitch SDK, Ollama
-- **Database**: Neon PostgreSQL + Drizzle ORM
-- **Auth**: Auth0
-- **Deploy**: Vercel
-
-## Contribuidores
-
-- Jean Carlos
-
-## Licença
-
-MIT
+Jean Carlos — MIT

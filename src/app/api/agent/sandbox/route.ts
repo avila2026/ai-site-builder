@@ -5,7 +5,7 @@ import {
   delete21stSandbox,
   get21stSandbox,
   has21stApiKey,
-} from "@/lib/21st-client";
+} from "@/lib/providers/21st-client";
 
 export async function GET(request: NextRequest) {
   if (!has21stApiKey()) {

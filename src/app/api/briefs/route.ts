@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { desc, eq } from "drizzle-orm";
 
-import { auth0 } from "@/lib/auth0";
+import { auth0 } from "@/lib/auth/auth0";
 import { getDb, hasDatabaseConfig } from "@/lib/db";
 import { savedBriefs } from "@/lib/db/schema";
 

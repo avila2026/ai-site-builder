@@ -4,7 +4,7 @@ import {
   GitHubRequestError,
   hasGitHubPat,
   putFile,
-} from '@/lib/github-rest';
+} from '@/lib/providers/github-rest';
 
 export const runtime = 'nodejs';
 
