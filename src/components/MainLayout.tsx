@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Sparkles, Database, Zap, Server, Cloud, Shield, Link } from 'lucide-react';
 import Tooltip from '@/components/ui/Tooltip';
 
@@ -19,6 +19,8 @@ interface IntegrationStatus {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [status, setStatus] = useState<IntegrationStatus>({
     ollama: {
       configured: true,
@@ -36,6 +38,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const menuItems = [
     { id: 'builder', label: 'Criar Site', icon: Sparkles },
   ];
+
+  // ID of the menu item that represents the current page. Today the app has
+  // a single route so this is a constant; once real routing lands, replace
+  // with `usePathname()` from next/navigation and match against per-item href.
+  const activeItemId = 'builder';
 
   // Check integrations health on mount
   useEffect(() => {
@@ -93,11 +100,37 @@ export default function MainLayout({ children }: MainLayoutProps) {
     checkHealth();
   }, []);
 
+  // Drawer a11y: Escape to close, focus management, body scroll lock.
+  // Only engages when sidebarOpen flips true (cleanup runs on close).
+  useEffect(() => {
+    if (!sidebarOpen) return;
+
+    // Move focus into the drawer so keyboard users can dismiss it.
+    closeButtonRef.current?.focus();
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSidebarOpen(false);
+    };
+    document.addEventListener('keydown', handleKey);
+
+    // Lock body scroll while drawer is open (no-op on desktop where drawer is static).
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = previousOverflow;
+      // Return focus to the trigger on close (standard drawer pattern).
+      openButtonRef.current?.focus();
+    };
+  }, [sidebarOpen]);
+
   return (
     <div className="flex h-screen bg-background">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div
+          aria-hidden="true"
           className="fixed inset-0 z-40 bg-black/50 lg:hidden animate-fade-in"
           onClick={() => setSidebarOpen(false)}
         />
@@ -105,6 +138,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
       {/* Sidebar */}
       <aside
+        id="main-sidebar"
+        aria-label="Navegação principal"
         className={`fixed inset-y-0 left-0 z-50 w-64 transform bg-card border-r border-border transition-transform duration-300 lg:static lg:translate-x-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
@@ -117,10 +152,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <span className="text-lg font-semibold">AI Site Builder</span>
             </div>
             <button
+              ref={closeButtonRef}
+              type="button"
               onClick={() => setSidebarOpen(false)}
+              aria-label="Fechar menu de navegação"
               className="lg:hidden p-2 hover:bg-accent rounded-lg"
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
 
@@ -131,9 +169,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
               return (
                 <button
                   key={item.id}
+                  type="button"
+                  aria-current={item.id === activeItemId ? 'page' : undefined}
                   className="flex w-full items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground"
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-5 w-5" aria-hidden="true" />
                   {item.label}
                 </button>
               );
@@ -231,10 +271,15 @@ export default function MainLayout({ children }: MainLayoutProps) {
         {/* Header */}
         <header className="glass sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border px-4 lg:px-6">
           <button
+            ref={openButtonRef}
+            type="button"
             onClick={() => setSidebarOpen(true)}
+            aria-label="Abrir menu de navegação"
+            aria-expanded={sidebarOpen}
+            aria-controls="main-sidebar"
             className="lg:hidden p-2 hover:bg-accent/50 rounded-lg transition-colors"
           >
-            <Menu className="h-5 w-5" />
+            <Menu className="h-5 w-5" aria-hidden="true" />
           </button>
 
           {/* Logo em mobile */}
