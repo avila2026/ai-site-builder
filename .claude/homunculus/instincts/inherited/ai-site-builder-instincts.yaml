@@ -1,0 +1,592 @@
+# Instincts generated from https://github.com/avila2026/ai-site-builder
+# Generated: 2026-07-21T04:25:49.766Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: ai-site-builder-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, merge, test
+
+## Evidence
+
+- 6 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat(tests): adiciona infraestrutura de testes e testes da Fase 1, fix(ci): corrige workflow CI e vazamento de env vars nos testes
+
+---
+id: ai-site-builder-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Commit Length
+
+## Action
+
+Write moderate-length commit messages (~57 characters)
+
+## Evidence
+
+- Average commit message length: 57 chars
+- Based on 6 commits
+
+---
+id: ai-site-builder-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: ai-site-builder-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: ai-site-builder-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: ai-site-builder-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: app, lib, components
+
+---
+id: ai-site-builder-test-colocate
+trigger: "when writing tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Test Colocate
+
+## Action
+
+Place test file next to the source file (e.g., Button.test.tsx next to Button.tsx)
+
+## Evidence
+
+- Colocated test pattern detected
+- Tests live alongside source files
+
+---
+id: ai-site-builder-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: ai-site-builder-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: ai-site-builder-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Test Mocking
+
+## Action
+
+Use jest.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: jest.mock
+- Consistent across test files
+
+---
+id: ai-site-builder-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: yes
+
+---
+id: ai-site-builder-workflow-add-or-update-tests-for-api-or-lib-module
+trigger: "when doing add or update tests for api or lib module"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Workflow Add Or Update Tests For Api Or Lib Module
+
+## Action
+
+Follow the add-or-update-tests-for-api-or-lib-module workflow:
+1. Create or update .test.ts files corresponding to API route or lib module
+2. Modify jest.config.js or jest.config.ts if new modules need to be included or thresholds adjusted
+3. Update package.json if new test dependencies or scripts are needed
+4. Run tests and adjust as needed for coverage or CI
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/app/api/*/route.test.ts, src/lib/**/*.test.ts, jest.config.js
+
+---
+id: ai-site-builder-workflow-ci-workflow-or-test-infrastructure-fix
+trigger: "when doing ci workflow or test infrastructure fix"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/avila2026/ai-site-builder
+---
+
+# Ai Site Builder Workflow Ci Workflow Or Test Infrastructure Fix
+
+## Action
+
+Follow the ci-workflow-or-test-infrastructure-fix workflow:
+1. Edit .github/workflows/*.yml to fix CI commands or environment
+2. Update jest.config.js/.ts for compatibility or test thresholds
+3. Adjust test files to fix environment leaks or TypeScript errors
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .github/workflows/*.yml, jest.config.js, jest.config.ts
+
+---
+id: ai-site-builder-instinct-file-naming-camelCase
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct File Naming CamelCase
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Observed in src/app, src/lib, src/components
+
+---
+id: ai-site-builder-instinct-function-naming-camelCase
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Function Naming CamelCase
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- Consistent with TypeScript best practices
+
+---
+id: ai-site-builder-instinct-class-naming-PascalCase
+trigger: "When creating a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Class Naming PascalCase
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: ai-site-builder-instinct-constant-naming-SCREAMING_SNAKE_CASE
+trigger: "When defining a constant value"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Constant Naming SCREAMING_SNAKE_CASE
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: ai-site-builder-instinct-import-alias
+trigger: "When importing modules within the project"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Import Alias
+
+## Action
+
+Use import aliases instead of relative paths
+
+## Evidence
+
+- Pattern in importStyle: alias
+- Seen in codebase imports
+
+---
+id: ai-site-builder-instinct-export-mixed
+trigger: "When exporting modules or functions"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Export Mixed
+
+## Action
+
+Use both default and named exports as appropriate
+
+## Evidence
+
+- Pattern in exportStyle: mixed
+
+---
+id: ai-site-builder-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Test File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts and colocate it with the module
+
+## Evidence
+
+- Pattern in testing.filePattern
+- Pattern in architecture.folderStructure.testLocation
+- Seen in src/app/api/*/route.test.ts
+
+---
+id: ai-site-builder-instinct-test-framework-jest
+trigger: "When writing or updating tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Test Framework Jest
+
+## Action
+
+Use Jest as the testing framework
+
+## Evidence
+
+- Pattern in testing.framework
+- jest.config.js present
+- Commits referencing jest
+
+---
+id: ai-site-builder-instinct-test-types-unit-integration
+trigger: "When designing tests for a module"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Test Types Unit Integration
+
+## Action
+
+Write both unit and integration tests as appropriate
+
+## Evidence
+
+- Pattern in testing.testTypes
+
+---
+id: ai-site-builder-instinct-test-mocking-jest-mock
+trigger: "When mocking dependencies in tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Test Mocking Jest Mock
+
+## Action
+
+Use jest.mock for mocking
+
+## Evidence
+
+- Pattern in testing.mockingStyle
+
+---
+id: ai-site-builder-instinct-test-coverage-config
+trigger: "When configuring test coverage thresholds"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Test Coverage Config
+
+## Action
+
+Set and adjust coverage thresholds in jest.config.js or jest.config.ts
+
+## Evidence
+
+- Pattern in testing.coverageConfig
+- Commits modifying jest.config.js for coverage
+
+---
+id: ai-site-builder-instinct-git-commit-conventional
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Git Commit Conventional
+
+## Action
+
+Use conventional commit format: <type>(<scope>): <description>
+
+## Evidence
+
+- Pattern in commits.type: conventional
+- Examples: fix(ci): ..., feat(tests): ...
+
+---
+id: ai-site-builder-instinct-git-commit-prefixes
+trigger: "When choosing a commit type"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Git Commit Prefixes
+
+## Action
+
+Use one of the prefixes: fix, feat, merge, test
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples in commit history
+
+---
+id: ai-site-builder-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 57 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: ai-site-builder-instinct-workflow-add-or-update-tests
+trigger: "When an API route or library module is implemented or changed"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Workflow Add Or Update Tests
+
+## Action
+
+Create or update colocated .test.ts files, update jest config and package.json as needed, and run tests
+
+## Evidence
+
+- Workflow: add-or-update-tests-for-api-or-lib-module
+- Commits updating .test.ts and jest.config.js
+
+---
+id: ai-site-builder-instinct-workflow-fix-ci-or-test-infra
+trigger: "When CI fails or test infrastructure needs adjustment"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: avila2026/ai-site-builder
+---
+
+# Ai Site Builder Instinct Workflow Fix Ci Or Test Infra
+
+## Action
+
+Edit .github/workflows/*.yml, update jest config, and adjust test files to resolve issues
+
+## Evidence
+
+- Workflow: ci-workflow-or-test-infrastructure-fix
+- Commits: fix(ci): ...
+
