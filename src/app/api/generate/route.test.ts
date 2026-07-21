@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { POST } from './route';
 
-jest.mock('@/lib/stitch-client', () => ({
+jest.mock('@/lib/providers/stitch-client', () => ({
   isStitchConfigured: jest.fn().mockReturnValue(false),
   generateSiteWithStitch: jest.fn(),
   StitchGenerationError: class StitchGenerationError extends Error {
@@ -16,7 +16,7 @@ jest.mock('@/lib/stitch-client', () => ({
   },
 }));
 
-jest.mock('@/lib/ollama-client', () => ({
+jest.mock('@/lib/providers/ollama-client', () => ({
   generateSiteContent: jest.fn().mockResolvedValue({
     title: 'Meu Site',
     tagline: 'Slogan',
@@ -101,7 +101,7 @@ describe('POST /api/generate', () => {
   });
 
   it('inclui adjustmentPrompt na descrição enriquecida', async () => {
-    const { generateSiteContent } = await import('@/lib/ollama-client');
+    const { generateSiteContent } = await import('@/lib/providers/ollama-client');
     const req = makeRequest({ ...VALID_BODY, adjustmentPrompt: 'Adicione seção de FAQ' });
     await POST(req);
 
@@ -111,7 +111,7 @@ describe('POST /api/generate', () => {
   });
 
   it('usa Stitch quando configurado e retorna complete com provider stitch', async () => {
-    const stitchModule = await import('@/lib/stitch-client');
+    const stitchModule = await import('@/lib/providers/stitch-client');
     (stitchModule.isStitchConfigured as jest.Mock).mockReturnValueOnce(true);
     (stitchModule.generateSiteWithStitch as jest.Mock).mockResolvedValueOnce({
       code: '<html><body>Stitch Site</body></html>',
@@ -134,7 +134,7 @@ describe('POST /api/generate', () => {
   });
 
   it('faz fallback para Ollama quando Stitch lança erro recuperável', async () => {
-    const stitchModule = await import('@/lib/stitch-client');
+    const stitchModule = await import('@/lib/providers/stitch-client');
     (stitchModule.isStitchConfigured as jest.Mock).mockReturnValueOnce(true);
     (stitchModule.generateSiteWithStitch as jest.Mock).mockRejectedValueOnce(
       new stitchModule.StitchGenerationError('RATE_LIMITED', { code: 'RATE_LIMITED', recoverable: true }),

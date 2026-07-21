@@ -3,7 +3,7 @@ import {
   generateSiteCode,
   type SiteGenerationRequest,
   type GeneratedContent,
-} from './ollama-client';
+} from './providers/ollama-client';
 
 const BASE_REQUEST: SiteGenerationRequest = {
   siteName: 'Escritório Digital',

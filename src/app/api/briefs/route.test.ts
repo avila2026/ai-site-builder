@@ -1,4 +1,5 @@
 import { GET, POST } from './route';
+import { auth0 } from '@/lib/auth/auth0';
 
 const MOCK_SESSION = {
   user: { sub: 'auth0|usuario-teste', email: 'teste@exemplo.com' },
@@ -19,7 +20,7 @@ const MOCK_BRIEF = {
   updatedAt: new Date(),
 };
 
-jest.mock('@/lib/auth0', () => ({ auth0: { getSession: jest.fn() } }));
+jest.mock('@/lib/auth/auth0', () => ({ auth0: { getSession: jest.fn() } }));
 
 jest.mock('@/lib/db', () => ({
   hasDatabaseConfig: jest.fn().mockReturnValue(true),
@@ -27,8 +28,7 @@ jest.mock('@/lib/db', () => ({
 }));
 
 function getMockAuth0() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return jest.mocked(require('@/lib/auth0').auth0) as any;
+  return jest.mocked(auth0);
 }
 
 function makeMockDb() {

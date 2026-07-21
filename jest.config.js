@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const nextJest = require('next/jest');
 
 const createJestConfig = nextJest({ dir: './' });
@@ -21,13 +22,13 @@ const config = {
   ],
   coverageThreshold: {
     // Thresholds por arquivo — Fase 1 (módulos já testados)
-    './src/lib/stitch-client.ts': {
+    './src/lib/providers/stitch-client.ts': {
       branches: 60,
       functions: 90,
       lines: 80,
       statements: 80,
     },
-    './src/lib/ollama-client.ts': {
+    './src/lib/providers/ollama-client.ts': {
       branches: 80,
       functions: 100,
       lines: 95,
@@ -55,4 +56,3 @@ const config = {
 };
 
 module.exports = createJestConfig(config);
-

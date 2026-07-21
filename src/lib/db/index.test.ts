@@ -1,4 +1,6 @@
 import { hasDatabaseConfig, checkDatabaseConnection, findOrCreateUser } from './index';
+import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-http';
 
 jest.mock('@neondatabase/serverless', () => ({
   neon: jest.fn(),
@@ -32,7 +34,6 @@ describe('checkDatabaseConnection', () => {
   it('retorna true quando a query SELECT 1 tem sucesso', async () => {
     process.env.DATABASE_URL = 'postgres://user:pass@host/db';
 
-    const { neon } = await import('@neondatabase/serverless');
     const mockSql = jest.fn().mockResolvedValue([{ '?column?': 1 }]);
     // Simula sql`select 1` como função template
     mockSql.mockImplementation(() => Promise.resolve([{ '?column?': 1 }]));
@@ -45,7 +46,6 @@ describe('checkDatabaseConnection', () => {
   it('retorna false quando a conexão falha', async () => {
     process.env.DATABASE_URL = 'postgres://invalido';
 
-    const { neon } = await import('@neondatabase/serverless');
     const mockSql = jest.fn().mockRejectedValue(new Error('Conexão recusada'));
     (neon as jest.Mock).mockReturnValue(mockSql);
 
@@ -75,7 +75,6 @@ describe('findOrCreateUser', () => {
   beforeEach(() => {
     process.env.DATABASE_URL = 'postgres://user:pass@host/db';
 
-    const { neon } = require('@neondatabase/serverless');
     const mockSql = jest.fn();
     (neon as jest.Mock).mockReturnValue(mockSql);
   });
@@ -86,8 +85,6 @@ describe('findOrCreateUser', () => {
   });
 
   it('retorna usuário existente quando auth0Sub já está cadastrado', async () => {
-    const { drizzle } = await import('drizzle-orm/neon-http');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (drizzle as unknown as jest.Mock).mockReturnValue({
       select: jest.fn().mockReturnThis(),
       from: jest.fn().mockReturnThis(),
@@ -106,8 +103,6 @@ describe('findOrCreateUser', () => {
 
   it('cria e retorna novo usuário quando não encontrado', async () => {
     const NEW_USER = { ...EXISTING_USER, id: 'uuid-novo' };
-    const { drizzle } = await import('drizzle-orm/neon-http');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (drizzle as unknown as jest.Mock).mockReturnValue({
       select: jest.fn().mockReturnThis(),
       from: jest.fn().mockReturnThis(),

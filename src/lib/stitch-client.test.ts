@@ -4,8 +4,8 @@ import {
   checkStitchReachability,
   generateSiteWithStitch,
   StitchGenerationError,
-} from './stitch-client';
-import type { SiteGenerationRequest } from './ollama-client';
+} from './providers/stitch-client';
+import type { SiteGenerationRequest } from './providers/ollama-client';
 
 jest.mock('@google/stitch-sdk', () => {
   const mockScreen = {
