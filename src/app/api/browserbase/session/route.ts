@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createBrowserbaseSession } from '@/lib/browserbase-client';
+import { createBrowserbaseSession } from '@/lib/providers/browserbase-client';
 
 export const runtime = 'nodejs';
 

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-labelledby="title desc">
+  <title id="title">Hero animation AVILA</title>
+  <desc id="desc">Composicao industrial com aneis rotativos e nucleo central para o hero do site.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121c28"/>
+      <stop offset="60%" stop-color="#0a0f16"/>
+      <stop offset="100%" stop-color="#06090f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffab79"/>
+      <stop offset="55%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#7c2d08"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity=".30"/>
+      <stop offset="65%" stop-color="#ea580c" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="520" height="520" rx="34" fill="url(#panel)"/>
+  <circle cx="260" cy="260" r="182" fill="url(#glow)"/>
+
+  <g opacity=".95">
+    <circle cx="260" cy="260" r="182" fill="none" stroke="#ffffff" stroke-opacity=".16" stroke-dasharray="10 12">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 260 260" to="360 260 260" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="260" r="148" fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-dasharray="8 14">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="360 260 260" to="0 260 260" dur="16s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="260" r="108" fill="none" stroke="#ffffff" stroke-opacity=".12" stroke-dasharray="3 9">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 260 260" to="360 260 260" dur="12s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g filter="url(#softGlow)">
+    <path d="M68 370c58-12 92-28 120-72 32-50 58-74 112-86 48-10 94-3 152 23" fill="none" stroke="#ffffff" stroke-opacity=".26" stroke-width="2">
+      <animate attributeName="stroke-dasharray" values="0 600;180 420;0 600" dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <g transform="translate(260 260)">
+    <circle r="96" fill="#101721" stroke="#ffffff" stroke-opacity=".12" stroke-width="2"/>
+    <circle r="78" fill="url(#accent)" opacity=".15"/>
+    <circle r="54" fill="none" stroke="#ffffff" stroke-opacity=".14" stroke-width="1.5"/>
+
+    <text y="-8" fill="#ffffff" font-family="Rajdhani, Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle" letter-spacing="2">AVILA</text>
+    <text y="30" fill="#d4dceb" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle" letter-spacing="4">SUSPENSAO  FREIO  GIRO</text>
+
+    <g fill="#ffb58f">
+      <circle cx="-72" cy="-72" r="4">
+        <animate attributeName="opacity" values=".25;1;.25" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="72" cy="-72" r="4">
+        <animate attributeName="opacity" values="1;.25;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="88" r="4">
+        <animate attributeName="opacity" values=".25;1;.25" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+</svg>

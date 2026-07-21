@@ -1,0 +1,18 @@
+{
+  "projectName": "Posto de Molas e Auto Peças AVILA",
+  "location": "Rio Branco - AC",
+  "identity": {
+    "primaryColor": "#ea580c",
+    "secondaryColor": "#0f172a",
+    "borderRadius": "0.25rem",
+    "theme": "industrial-robust"
+  },
+  "templates": {
+    "web": "ecommerce-clean",
+    "canva": "industrial-catalog-v1"
+  },
+  "contact": {
+    "whatsapp": "5568999999999",
+    "defaultMessage": "Olá AVILA, gostaria de saber mais sobre as peças do catálogo!"
+  }
+}

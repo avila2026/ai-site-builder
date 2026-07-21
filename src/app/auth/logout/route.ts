@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { auth0 } from "@/lib/auth0";
-import { getAppBaseUrl } from "@/lib/app-base-url";
+import { auth0 } from "@/lib/auth/auth0";
+import { getAppBaseUrl } from "@/lib/auth/app-base-url";
 
 export async function GET() {
   if (!auth0) {

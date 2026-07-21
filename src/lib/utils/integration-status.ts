@@ -1,11 +1,11 @@
-import { auth0, isAuth0Configured } from "@/lib/auth0";
+import { auth0, isAuth0Configured } from "@/lib/auth/auth0";
 import { checkDatabaseConnection, hasDatabaseConfig } from "@/lib/db";
-import { hasGitHubPat } from "@/lib/github-rest";
+import { hasGitHubPat } from "@/lib/providers/github-rest";
 import {
   checkStitchReachability,
   getStitchHost,
   isStitchConfigured,
-} from "@/lib/stitch-client";
+} from "@/lib/providers/stitch-client";
 
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
 

@@ -1,6 +1,6 @@
 
 import { NextRequest, NextResponse } from 'next/server';
-import { triggerTestRun } from '@/lib/autonoma-client';
+import { triggerTestRun } from '@/lib/providers/autonoma-client';
 
 export async function POST(request: NextRequest) {
   try {

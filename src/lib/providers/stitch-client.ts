@@ -1,6 +1,6 @@
 import { Stitch, StitchError, StitchToolClient } from '@google/stitch-sdk';
 
-import type { SiteGenerationRequest } from '@/lib/ollama-client';
+import type { SiteGenerationRequest } from '@/lib/providers/ollama-client';
 import { buildFullPromptSection } from '@/lib/templates';
 
 const DEFAULT_STITCH_HOST = 'https://stitch.googleapis.com/mcp';

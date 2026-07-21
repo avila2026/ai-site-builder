@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVILA Linha Pesada | Peças para Caminhão</title>
+  <meta name="description"
+    content="Peças automotivas para caminhão em Rio Branco - AC, com foco em rodagem, manutenção, freio, suspensão e atendimento rápido para linha pesada." />
+  <link rel="icon" href="./assets/logos/site-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Teko:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #121416;
+      --bg-elevated: #18202a;
+      --panel: rgba(24, 34, 46, 0.9);
+      --panel-soft: rgba(29, 40, 54, 0.82);
+      --line: rgba(var(--primary-rgb), 0.14);
+      --line-strong: rgba(var(--primary-rgb), 0.28);
+      --text: #f4f8ff;
+      --muted: #9fb2ca;
+      --steel: #d7e4f4;
+      --dust: #a7c8ff;
+      --primary: #a7c8ff;
+      --primary-deep: #002d5c;
+      --accent: #66df6e;
+      --shadow: 0 28px 70px rgba(var(--primary-deep-rgb), 0.3);
+      --tertiary: #66df6e;
+      --primary-rgb: 167, 200, 255;
+      --primary-deep-rgb: 0, 45, 92;
+      --tertiary-rgb: 102, 223, 110;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Barlow", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(var(--primary-deep-rgb), 0.18), transparent 20%),
+        radial-gradient(circle at 84% 12%, rgba(var(--primary-rgb), 0.18), transparent 18%),
+        linear-gradient(180deg, #0f1318 0%, #131a22 54%, #121416 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background-image:
+        repeating-linear-gradient(90deg,
+          transparent 0,
+          transparent 92px,
+          rgba(255, 255, 255, 0.028) 92px,
+          rgba(255, 255, 255, 0.028) 93px),
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+      background-size: auto, 100% 72px;
+      mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+      opacity: 0.5;
+    }
+
+    body::after {
+      inset: auto -10% 20% auto;
+      width: 72vw;
+      height: 110px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
+        repeating-linear-gradient(-58deg,
+          rgba(var(--primary-rgb), 0.16) 0,
+          rgba(var(--primary-rgb), 0.16) 18px,
+          transparent 18px,
+          transparent 36px);
+      transform: rotate(-6deg);
+      opacity: 0.24;
+      filter: blur(0.2px);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    [data-asset-host] [data-asset-image] {
+      display: none;
+    }
+
+    [data-asset-host].is-loaded [data-asset-image] {
+      display: block;
+    }
+
+    [data-asset-host].is-loaded [data-asset-fallback] {
+      display: none !important;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 58%),
+        linear-gradient(145deg, var(--primary), var(--primary-deep));
+      box-shadow:
+        0 18px 38px rgba(var(--primary-deep-rgb), 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    }
+
+    .brand-logo-image,
+    .brand-logo-fallback {
+      width: 100%;
+      height: 100%;
+    }
+
+    .brand-logo-image {
+      object-fit: cover;
+    }
+
+    .brand-logo-fallback {
+      display: grid;
+      place-items: center;
+      font-family: "Teko", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy small,
+    .eyebrow,
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--dust);
+    }
+
+    .brand-copy small {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    .topbar nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-family: "Teko", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .topbar nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .topbar nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    .topbar nav a:hover::after,
+    .topbar nav a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 560px);
+      gap: 42px;
+      align-items: center;
+      min-height: calc(100svh - 102px);
+      padding: 40px 0 82px;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+    }
+
+    .eyebrow,
+    .kicker {
+      padding: 8px 12px 7px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .eyebrow::before,
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      background: linear-gradient(180deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 16px rgba(var(--primary-rgb), 0.42);
+    }
+
+    h1,
+    h2,
+    .cta-copy strong {
+      margin: 0;
+      font-family: "Teko", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 0.86;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(4.5rem, 11vw, 8.4rem);
+    }
+
+    h1 span {
+      display: block;
+      color: var(--primary);
+      text-shadow: 0 0 26px rgba(var(--primary-rgb), 0.28);
+    }
+
+    .hero-copy p {
+      margin: 18px 0 0;
+      max-width: 38ch;
+      color: var(--steel);
+      font-size: clamp(1rem, 1.8vw, 1.14rem);
+      line-height: 1.74;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-family: "Teko", sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+      box-shadow: 0 18px 34px rgba(var(--primary-deep-rgb), 0.25);
+      color: #fff;
+    }
+
+    .button-whatsapp {
+      background: linear-gradient(135deg, #78e983 0%, var(--tertiary) 100%);
+      box-shadow: 0 18px 34px rgba(var(--tertiary-rgb), 0.34);
+      color: #06210b;
+    }
+
+    .button-secondary {
+      border-color: var(--line-strong);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 12px 8px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.022);
+      font-family: "Teko", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+
+    .hero-brief {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .hero-brief-card {
+      padding: 14px 14px 16px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--primary);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 100%),
+        rgba(255, 255, 255, 0.018);
+    }
+
+    .hero-brief-card strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 1.72rem;
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-brief-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 620px;
+    }
+
+    .roadstage {
+      position: relative;
+      min-height: 620px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%),
+        linear-gradient(145deg, #171d26 0%, #0d1117 56%, #090b0d 100%);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .roadstage::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 18px;
+      height: 16px;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent),
+        repeating-linear-gradient(-45deg,
+          rgba(var(--primary-rgb), 0.92) 0,
+          rgba(var(--primary-rgb), 0.92) 16px,
+          rgba(16, 21, 27, 0.92) 16px,
+          rgba(16, 21, 27, 0.92) 32px);
+      z-index: 1;
+    }
+
+    .roadstage::after {
+      content: "";
+      position: absolute;
+      top: 56px;
+      bottom: 26px;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      background:
+        linear-gradient(180deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.04) 58%,
+          transparent);
+      opacity: 0.42;
+      z-index: 1;
+    }
+
+    .hero-panel-label {
+      position: absolute;
+      top: 52px;
+      right: 24px;
+      z-index: 3;
+      padding: 10px 12px 8px;
+      border: 1px solid var(--line);
+      background: rgba(11, 15, 20, 0.82);
+      font-family: "Teko", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
+
+    .hero-parts {
+      position: absolute;
+      top: 64px;
+      left: 24px;
+      width: min(44%, 234px);
+      border: 1px solid var(--line-strong);
+      background: rgba(7, 10, 14, 0.76);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+      z-index: 3;
+      overflow: hidden;
+    }
+
+    .hero-parts-image,
+    .hero-parts-fallback {
+      width: 100%;
+      min-height: 220px;
+    }
+
+    .hero-parts-image {
+      object-fit: cover;
+    }
+
+    .hero-parts-fallback {
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background:
+        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.2), transparent 60%),
+        rgba(255, 255, 255, 0.02);
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .hero-parts-caption {
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-parts-caption strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 1.36rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 0.96;
+    }
+
+    .hero-parts-caption span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .hero-signal {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      width: 158px;
+      aspect-ratio: 1 / 1;
+      border: 1px solid var(--line);
+      background: rgba(8, 11, 15, 0.9);
+      z-index: 3;
+      overflow: hidden;
+    }
+
+    .hero-signal-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.92;
+    }
+
+    .hero-signal-fallback {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 18px;
+      color: var(--steel);
+      font-family: "Teko", sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      line-height: 0.96;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .hero-rig {
+      position: absolute;
+      right: -22px;
+      bottom: 24px;
+      width: min(92%, 620px);
+      aspect-ratio: 1.18 / 1;
+      z-index: 4;
+      background: radial-gradient(circle at 58% 60%, rgba(var(--primary-rgb), 0.18), transparent 48%);
+    }
+
+    .hero-rig-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 24px;
+      filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.54));
+    }
+
+    .hero-rig-fallback {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 24px;
+      border: 1px dashed var(--line-strong);
+      background:
+        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.16), transparent 60%),
+        rgba(11, 15, 20, 0.68);
+      color: var(--steel);
+      text-align: center;
+    }
+
+    .hero-rig-fallback strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 2.6rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 0.88;
+    }
+
+    .hero-rig-fallback span {
+      display: block;
+      margin-top: 10px;
+      max-width: 22ch;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hero-note {
+      position: absolute;
+      top: 118px;
+      right: 24px;
+      width: min(40%, 214px);
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: rgba(9, 12, 16, 0.82);
+      z-index: 3;
+    }
+
+    .hero-note strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 1.48rem;
+      line-height: 0.94;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero-note p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    .hero-lane-tags {
+      position: absolute;
+      right: 24px;
+      bottom: 28px;
+      display: grid;
+      gap: 10px;
+      z-index: 5;
+      justify-items: end;
+    }
+
+    .hero-lane-tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px 8px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--primary);
+      background: rgba(9, 12, 16, 0.9);
+      color: var(--steel);
+      font-family: "Teko", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .track {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(var(--primary-deep-rgb), 0.08), transparent 18%, transparent 82%, rgba(var(--primary-rgb), 0.08)),
+        rgba(255, 255, 255, 0.018);
+    }
+
+    .track-strip {
+      display: flex;
+      gap: 28px;
+      width: max-content;
+      padding: 18px 0 16px;
+      animation: marquee 24s linear infinite;
+      font-family: "Teko", sans-serif;
+      font-size: 1.18rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
+
+    .track-strip span {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .track-strip span::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.34);
+      transform: rotate(45deg);
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 0.98fr) minmax(280px, 0.68fr);
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2,
+    .detail-main h2 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+    }
+
+    .section-heading p,
+    .detail-main p,
+    .detail-side p,
+    .cta-copy p {
+      margin: 0;
+      color: var(--steel);
+      line-height: 1.75;
+    }
+
+    .support-layout {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .support-item {
+      position: relative;
+      min-height: 236px;
+      padding: 24px 20px 26px 24px;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 100%),
+        rgba(255, 255, 255, 0.018);
+      overflow: hidden;
+    }
+
+    .support-item::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), transparent 70%);
+      opacity: 0.7;
+    }
+
+    .support-index {
+      color: rgba(255, 255, 255, 0.28);
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.12em;
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .support-item strong {
+      display: block;
+      margin: 14px 0 12px;
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .support-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .section-divider {
+      position: relative;
+      width: min(calc(100% - 32px), var(--max));
+      height: 58px;
+      margin: -8px auto;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .section-divider::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      transform: translateY(-50%);
+      background:
+        linear-gradient(90deg,
+          transparent,
+          rgba(var(--primary-rgb), 0.22) 16%,
+          rgba(255, 255, 255, 0.18) 50%,
+          rgba(var(--primary-deep-rgb), 0.22) 84%,
+          transparent);
+    }
+
+    .section-divider-image {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 760px);
+      height: 58px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(var(--primary-rgb), 0.18));
+    }
+
+    .detail-zone {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.62fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .detail-main,
+    .detail-side {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .detail-main {
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), transparent 34%),
+        rgba(12, 16, 22, 0.82);
+    }
+
+    .icon-showcase {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin: 28px 0 26px;
+    }
+
+    .icon-tile {
+      margin: 0;
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 100%),
+        rgba(255, 255, 255, 0.02);
+    }
+
+    .icon-tile-media {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(var(--primary-rgb), 0.14), transparent 52%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(9, 12, 16, 0.72));
+    }
+
+    .icon-tile-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .icon-tile-media--photo img {
+      object-fit: cover;
+      padding: 0;
+    }
+
+    .icon-tile figcaption {
+      font-family: "Teko", sans-serif;
+      font-size: 1rem;
+      line-height: 0.98;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .detail-main ul,
+    .detail-side ul,
+    .cta-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .detail-main ul {
+      display: grid;
+      gap: 12px;
+    }
+
+    .detail-main li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--steel);
+      line-height: 1.7;
+    }
+
+    .detail-main li::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      flex: 0 0 auto;
+      margin-top: 7px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--primary), var(--primary-deep));
+      transform: rotate(45deg);
+      box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.34);
+    }
+
+    .detail-side {
+      display: grid;
+      gap: 18px;
+      padding: 30px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 100%),
+        rgba(20, 26, 34, 0.84);
+    }
+
+    .detail-side strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .detail-side ul {
+      display: grid;
+      gap: 12px;
+    }
+
+    .detail-side li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .detail-side li span:last-child {
+      color: var(--dust);
+      text-align: right;
+    }
+
+    .detail-side p {
+      color: var(--muted);
+    }
+
+    .cta-band {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 16% 42%, rgba(var(--primary-rgb), 0.22), transparent 32%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 36%),
+        linear-gradient(145deg, #121821 0%, #0b0e13 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 18px;
+      height: 14px;
+      background: repeating-linear-gradient(-45deg,
+          rgba(var(--primary-deep-rgb), 0.86) 0,
+          rgba(var(--primary-deep-rgb), 0.86) 16px,
+          rgba(13, 16, 21, 0.88) 16px,
+          rgba(13, 16, 21, 0.88) 32px);
+      opacity: 0.7;
+    }
+
+    .cta-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+      gap: 30px;
+      align-items: center;
+      padding: 38px 34px 34px;
+    }
+
+    .cta-copy strong {
+      display: block;
+      margin-top: 14px;
+      font-size: clamp(3rem, 6vw, 4.9rem);
+    }
+
+    .cta-steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .cta-steps li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--steel);
+      line-height: 1.6;
+    }
+
+    .cta-steps li strong {
+      flex: 0 0 auto;
+      width: 34px;
+      color: var(--primary);
+      font-family: "Teko", sans-serif;
+      font-size: 1.7rem;
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .cta-stack {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .cta-note {
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .cta-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-family: "Teko", sans-serif;
+      font-size: 1.4rem;
+      line-height: 0.94;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 0 34px;
+      border-top: 1px solid var(--line);
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.94rem;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      transition-delay: var(--delay, 0ms);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 1120px) {
+
+      .hero,
+      .section-heading,
+      .detail-zone,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        min-height: 560px;
+      }
+
+      .support-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .icon-showcase {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: clamp(3.8rem, 22vw, 6rem);
+      }
+
+      .hero {
+        gap: 30px;
+        padding-bottom: 64px;
+      }
+
+      .hero-brief {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual,
+      .roadstage {
+        min-height: 520px;
+      }
+
+      .hero-parts {
+        width: 48%;
+        left: 16px;
+        top: 58px;
+      }
+
+      .hero-signal {
+        width: 122px;
+        left: 16px;
+        bottom: 16px;
+      }
+
+      .hero-note {
+        top: 92px;
+        right: 16px;
+        width: 42%;
+      }
+
+      .hero-rig {
+        right: -8px;
+        bottom: 12px;
+        width: 92%;
+      }
+
+      .hero-lane-tags {
+        right: 16px;
+        bottom: 18px;
+        max-width: 42%;
+      }
+
+      .track-strip {
+        font-size: 1rem;
+        gap: 20px;
+      }
+
+      .icon-showcase {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .detail-main,
+      .detail-side,
+      .cta-grid {
+        padding: 24px;
+      }
+
+      .section-divider,
+      .section-divider-image {
+        height: 42px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-parts {
+        width: calc(100% - 32px);
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 42px 16px 0;
+      }
+
+      .hero-note {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: calc(100% - 32px);
+        margin: 14px 16px 0;
+      }
+
+      .roadstage::after {
+        left: 58%;
+      }
+
+      .hero-rig {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: 6px;
+      }
+
+      .hero-lane-tags {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        max-width: none;
+        margin: 0 16px 16px;
+        justify-items: stretch;
+      }
+
+      .hero-lane-tags span {
+        width: 100%;
+      }
+
+      .icon-showcase {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="container topbar">
+      <a class="brand" href="#inicio" aria-label="Ir para o topo">
+        <div class="brand-mark" data-asset-host>
+          <img class="brand-logo-image" data-asset-image src="./assets/logos/avila-logo.png"
+            alt="Logo oficial AVILA Posto de Molas — freios, molas, soldas e acessórios" decoding="async" />
+          <span class="brand-logo-fallback" data-asset-fallback aria-hidden="true">AV</span>
+        </div>
+        <div class="brand-copy">
+          <small>Rio Branco - AC</small>
+          <strong>AVILA Linha Pesada</strong>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#estrutura">Operação</a>
+        <a href="#pecas">Categorias</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+    <main>
+      <section class="container hero" id="inicio">
+        <div class="hero-copy" data-reveal>
+          <div class="eyebrow">Peças para caminhão • atendimento direto</div>
+          <h1>
+            Peça certa para caminhão
+            <span>sem parar na estrada</span>
+          </h1>
+          <p>
+            Caminhoneiro autônomo precisa de resposta curta. A AVILA atende rodagem, freio,
+            cubo, rolamento, suspensão e feixe de molas com conversa direta no WhatsApp,
+            foco em linha pesada e manutenção de estrada.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary button-whatsapp"
+              href="https://wa.me/5568999999999?text=Ol%C3%A1%20AVILA%2C%20preciso%20de%20pe%C3%A7a%20para%20caminh%C3%A3o.%20Vou%20mandar%20modelo%2C%20medida%20ou%20foto%20para%20or%C3%A7amento."
+              target="_blank" rel="noreferrer">
+              Chamar no WhatsApp
+            </a>
+            <a class="button button-secondary" href="#pecas">Ver categorias</a>
+          </div>
+
+          <div class="hero-meta">
+            <span>Linha pesada</span>
+            <span>Rodagem</span>
+            <span>Freio</span>
+            <span>Suspensão</span>
+            <span>Rolamentos</span>
+          </div>
+
+          <div class="hero-brief">
+            <div class="hero-brief-card">
+              <strong>Pronto balcão</strong>
+              <span>Modelo, medida ou photo para resposta objetiva.</span>
+            </div>
+            <div class="hero-brief-card">
+              <strong>Rodagem forte</strong>
+              <span>Items de giro para quem não pode perder viagem.</span>
+            </div>
+            <div class="hero-brief-card">
+              <strong>WhatsApp direto</strong>
+              <span>Consulta curta para manutenção e reposição rápida.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal style="--delay: 120ms;">
+          <div class="roadstage" aria-label="Painel visual da linha pesada AVILA">
+            <div class="hero-panel-label">Estrada de oficina</div>
+
+            <div class="hero-parts" data-asset-host>
+              <img class="hero-parts-image" data-asset-image src="./assets/icons/feixe-de-molas.jpg"
+                alt="Feixe de molas para caminhão" />
+              <div class="hero-parts-fallback" data-asset-fallback>
+                Feixe de molas
+              </div>
+              <div class="hero-parts-caption">
+                <strong>Suspensão reforçada</strong>
+                <span>Feixe de molas e items de apoio para carga, altura e estabilidade.</span>
+              </div>
+            </div>
+
+            <div class="hero-note">
+              <strong>Envie o que está na mão</strong>
+              <p>Modelo do caminhão, medida, referência da peça ou foto do defeito.</p>
+            </div>
+
+            <div class="hero-signal" data-asset-host aria-hidden="true">
+              <img class="hero-signal-image" data-asset-image src="./assets/icons/engrenagens-3d.png" alt="Engrenagens mecânicas 3D"
+                decoding="async" />
+              <div class="hero-signal-fallback" data-asset-fallback>
+                Painel
+                <br />
+                AVILA
+              </div>
+            </div>
+
+            <div class="hero-rig" data-asset-host>
+              <img class="hero-rig-image" data-asset-image src="./assets/icons/caminhao-grande.gif"
+                alt="Caminhão de linha pesada em destaque" />
+              <div class="hero-rig-fallback" data-asset-fallback>
+                <div>
+                  <strong>Linha pesada em movimento</strong>
+                  <span>Se o caminhão roda, a peça precisa estar pronta para reposição e manutenção.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-lane-tags" aria-hidden="true">
+              <span>Freio • cubo • rolamento</span>
+              <span>Rodagem • manutenção</span>
+              <span>Pronta resposta</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="track" aria-hidden="true">
+        <div class="track-strip">
+          <span>rodagem</span>
+          <span>pneus</span>
+          <span>cubos</span>
+          <span>rolamentos</span>
+          <span>freios</span>
+          <span>suspensão</span>
+          <span>feixe de molas</span>
+          <span>manutenção</span>
+          <span>rodagem</span>
+          <span>pneus</span>
+          <span>cubos</span>
+          <span>rolamentos</span>
+          <span>freios</span>
+          <span>suspensão</span>
+          <span>feixe de molas</span>
+          <span>manutenção</span>
+        </div>
+      </div>
+
+      <section class="container" id="estrutura">
+        <div class="section-heading">
+          <div data-reveal>
+            <div class="kicker">Operação de estrada</div>
+            <h2>Confiança de balcão para quem vive do caminhão</h2>
+          </div>
+          <p data-reveal style="--delay: 90ms;">
+            A página deixa de parecer uma oficina genérica e passa a operar como ponto de apoio
+            para linha pesada: comunicação direta, leitura técnica curta e foco em peça que resolve
+            rodagem, manutenção e reposição.
+          </p>
+        </div>
+
+        <div class="support-layout">
+          <article class="support-item" data-reveal>
+            <div class="support-index">01</div>
+            <strong>Peça certa para linha pesada</strong>
+            <p>
+              Atendimento guiado por modelo, medida, aplicação e desgaste real da estrada,
+              sem conversa longa para quem precisa decidir rápido.
+            </p>
+          </article>
+
+          <article class="support-item" data-reveal style="--delay: 110ms;">
+            <div class="support-index">02</div>
+            <strong>Rodagem e manutenção sem enrolação</strong>
+            <p>
+              Foco em itens de giro para revisão, troca e parada técnica: pneus, cubos,
+              rolamentos, freio, suspensão e apoio de carga.
+            </p>
+          </article>
+
+          <article class="support-item" data-reveal style="--delay: 220ms;">
+            <div class="support-index">03</div>
+            <strong>Resposta curta no WhatsApp</strong>
+            <p>
+              A rota principal da home continua sendo o contato direto, só que agora com
+              linguagem pensada para caminhoneiro autônomo e linha pesada.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true" data-asset-host>
+        <img class="section-divider-image" data-asset-image src="./assets/dividers/section-divider.svg" alt=""
+          decoding="async" />
+      </div>
+      <section class="container" id="pecas">
+        <div class="detail-zone">
+          <div class="detail-main" data-reveal>
+            <div class="kicker">Categorias chave</div>
+            <h2>Rodagem e manutenção com leitura comercial direta</h2>
+            <p>
+              O bloco principal agora funciona como vitrine curta para o que mais pesa na operação
+              do caminhoneiro: rodagem, manutenção e peças que travam a viagem quando faltam.
+            </p>
+
+            <div class="icon-showcase" aria-label="Categorias e serviços em destaque">
+              <figure class="icon-tile">
+                <div class="icon-tile-media icon-tile-media--photo">
+                  <img src="./assets/icons/feixe-de-molas.jpg" alt="Feixe de molas para caminhão e veículos pesados" loading="lazy" />
+                </div>
+                <figcaption>Feixe de molas</figcaption>
+              </figure>
+
+              <figure class="icon-tile">
+                <div class="icon-tile-media">
+                  <img src="./assets/icons/caminhao-bau.gif" alt="Caminhão baú animado — atendimento linha pesada" loading="lazy" />
+                </div>
+                <figcaption>Linha pesada</figcaption>
+              </figure>
+
+              <figure class="icon-tile">
+                <div class="icon-tile-media">
+                  <img src="./assets/icons/servico-mecanico.gif" alt="Engrenagem e chave — serviço mecânico especializado" loading="lazy" />
+                </div>
+                <figcaption>Oficina e reparo</figcaption>
+              </figure>
+
+              <figure class="icon-tile">
+                <div class="icon-tile-media">
+                  <img src="./assets/icons/pneu-offroad.gif" alt="Pneu off-road para linha pesada e veículos 4x4" loading="lazy" />
+                </div>
+                <figcaption>Pneus e rodagem</figcaption>
+              </figure>
+
+              <figure class="icon-tile">
+                <div class="icon-tile-media">
+                  <img src="./assets/icons/mecanico-3d.gif" alt="Mecânico 3D com chave — atendimento técnico especializado" loading="lazy" />
+                </div>
+                <figcaption>Atendimento técnico</figcaption>
+              </figure>
+            </div>
+
+            <ul>
+              <li>Feixe de molas, suspensão e itens de apoio para carga, altura e estabilidade no trecho.</li>
+              <li>Pneus, cubos, rolamentos e rodagem para manter o caminhão alinhado e pronto para viagem.</li>
+              <li>Freio, manutenção e consulta rápida com envio de foto, medida ou referência da peça.</li>
+            </ul>
+          </div>
+
+          <aside class="detail-side" data-reveal style="--delay: 120ms;">
+            <div>
+              <div class="kicker">Quadro de confiança</div>
+              <strong>Atendimento feito para caminhoneiro autônomo</strong>
+            </div>
+
+            <ul>
+              <li><span>Foco</span><span>Rodagem e manutenção</span></li>
+              <li><span>Envio</span><span>Modelo, medida ou foto</span></li>
+              <li><span>Atendimento</span><span>Balcão + WhatsApp</span></li>
+              <li><span>Linha</span><span>Pesada / estrada</span></li>
+            </ul>
+
+            <p>
+              A lateral deixa de ser institucional e passa a reforçar a regra de compra:
+              informação objetiva para liberar a peça certa mais rápido.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true" data-asset-host>
+        <img class="section-divider-image" data-asset-image src="./assets/dividers/section-divider.svg" alt=""
+          decoding="async" />
+      </div>
+
+      <section class="container" id="contato">
+        <div class="cta-band" data-reveal>
+          <div class="cta-grid">
+            <div class="cta-copy">
+              <div class="kicker">Contato de estrada</div>
+              <strong>Mandou modelo, medida ou foto. A conversa anda.</strong>
+              <p>
+                Se a peça está na mão, mande foto. Se o caminhão está parado, mande modelo,
+                aplicação ou medida. A resposta precisa ser curta, clara e útil para quem roda.
+              </p>
+
+              <ul class="cta-steps">
+                <li><strong>01</strong><span>Diga o modelo do caminhão ou a aplicação da peça.</span></li>
+                <li><strong>02</strong><span>Envie medida, referência ou sinal de desgaste.</span></li>
+                <li><strong>03</strong><span>Se puder, mande foto para acelerar o orçamento.</span></li>
+              </ul>
+            </div>
+
+            <div class="cta-stack">
+              <a class="button button-primary button-whatsapp"
+                href="https://wa.me/5568999999999?text=Ol%C3%A1%20AVILA%2C%20preciso%20de%20pe%C3%A7a%20para%20caminh%C3%A3o.%20Vou%20mandar%20modelo%2C%20medida%20ou%20foto%20para%20or%C3%A7amento."
+                target="_blank" rel="noreferrer">
+                Abrir WhatsApp
+              </a>
+              <a class="button button-secondary" href="#pecas">Ver categorias</a>
+
+              <div class="cta-note">
+                <strong>Mensagem certa para ganhar tempo</strong>
+                Caminhoneiro não quer formulário longo. A home termina pedindo exatamente o que ajuda
+                a separar peça, aplicação e orçamento de forma prática.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="container footer">
+      <span>AVILA Linha Pesada • Peças para caminhão em Rio Branco - AC</span>
+      <span>Rodagem, manutenção e atendimento direto para estrada</span>
+    </footer>
+  </div>
+
+  <script>
+    const revealElements = document.querySelectorAll("[data-reveal]");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      revealElements.forEach((element) => revealObserver.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("is-visible"));
+    }
+
+    const assetHosts = document.querySelectorAll("[data-asset-host]");
+
+    assetHosts.forEach((host) => {
+      const asset = host.querySelector("[data-asset-image]");
+
+      if (!asset) {
+        return;
+      }
+
+      const markLoaded = () => {
+        if (asset.naturalWidth > 0) {
+          host.classList.add("is-loaded");
+        }
+      };
+
+      if (asset.complete && asset.naturalWidth > 0) {
+        markLoaded();
+      } else {
+        asset.addEventListener("load", markLoaded, { once: true });
+        asset.addEventListener(
+          "error",
+          () => {
+            host.classList.remove("is-loaded");
+          },
+          { once: true }
+        );
+      }
+    });
+  </script>
+</body>
+
+</html>
